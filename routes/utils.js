@@ -17,8 +17,37 @@ const handleValidationErrors = (req, res, next) => {
     next();
 }
 
+const validateFirstNameAndLastName = [
+    check('firstName')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a first name'),
+    check('lastName')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a last name')
+]
+
+const validateUsername = check('username')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a username')
+    .match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/, 'g')
+    .withMessage('Username must not contain any symbols');
+
+const validateEmail = check('email')
+    .exists({ checkFalsy: true })
+    .isEmail()
+    .withMessage('Please provide an email');
+
+const validatePassword = check('password')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a password')
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/, 'g')
+    .withMessage('Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")');
+
+const userValidations = [validateFirstNameAndLastName, validateUsername, validateEmail, validatePassword];
+
 module.exports = {
     csrfProtection,
     asyncHandler,
-    handleValidationErrors
+    handleValidationErrors,
+    userValidations,
 }
