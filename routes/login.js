@@ -30,7 +30,8 @@ loginRouter.post('/', userValidations, handleValidationErrors, asyncHandler(asyn
             }
         })
     }
-    loginUser(user)
+    if (user) loginUser(user)
+    else window.alert("That user does not exist.")
     res.redirect('/')
 }))
 
