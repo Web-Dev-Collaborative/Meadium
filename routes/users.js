@@ -27,11 +27,13 @@ const validateEmail = check('email')
 
 const validatePassword = check('password')
   .exists({ checkFalsy: true })
-  .withMessage('Please provide a password');
+  .withMessage('Please provide a password')
+  .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/, 'g')
+  .withMessage('Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")');
 
 const userValidations = [validateFirstNameAndLastName, validateUsername, validateEmail, validatePassword];
 
-router.post('/', userValidations, asyncHandler(async (req, res) => {
+router.post('/', userValidations, handleValidationErrors, asyncHandler(async (req, res) => {
   const { firstName, lastName, username, email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
   const user = await User.create({ firstName, lastName, username, email, hashedPassword });
