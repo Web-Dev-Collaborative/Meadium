@@ -5,7 +5,6 @@ const bcrypt = require('bcryptjs');
 const { asyncHandler, handleValidationErrors } = require('./utils.js')
 
 const { User } = require('../db/models')
-const { asyncHandler, handleValidationErrors } = require('./utils');
 
 //first name, last name, username, email, password
 
