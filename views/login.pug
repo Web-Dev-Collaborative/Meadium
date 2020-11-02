@@ -1,0 +1,16 @@
+extends layout.pug
+
+block content
+  form(action="/login", method="post")
+    .header
+      h2 Enter the info below to log in.
+        .form-group
+          h4(for="username") Username or Email
+          input(type="text", name="usernameOrEmail" id="usernameOrEmail" placeholder='Username or Email' required)
+        .form-group
+          h4(for="password") Your password
+          input(type="password" name="password" id="password" placeholder="password" required)
+          h4(for="passwordConfirm") Confirm your password
+          input(type="password" name="passwordConfirm" id="passwordConfirm" placeholder="passwordConfirm" required)
+        .submit
+          button(type="submit") Log In
