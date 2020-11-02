@@ -15,14 +15,29 @@ signupRouter.get('/', asyncHandler(async (req, res) => {
 signupRouter.post('/', userValidations, handleValidationErrors, asyncHandler(async (req, res) => {
     const { username, firstName, lastName, email, password, birthday } = req.body
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({
+    const user = await User.build({
         username,
         firstName,
         lastName,
         email,
         hashedPassword
     })
-    res.redirect('/')
+    try {
+        await user.save();
+        res.redirect('/')
+
+    } catch (err) {
+        if (err) {
+            const errors = err.errors.map((error) => error.message)
+            res.render('signup', {
+                username,
+                firstName,
+                lastName,
+                email,
+                errors
+            })
+        }
+    }
 }))
 
 module.exports = signupRouter;
