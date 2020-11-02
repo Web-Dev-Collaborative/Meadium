@@ -5,7 +5,6 @@ const bcrypt = require('bcryptjs');
 const { asyncHandler, handleValidationErrors } = require('./utils.js')
 
 const { User } = require('../db/models')
-const { userValidations,handleValidationErrors } = require('./utils');
 
 
 router.post('/', userValidations, handleValidationErrors, asyncHandler(async (req, res) => {
