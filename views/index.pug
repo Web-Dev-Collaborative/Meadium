@@ -3,9 +3,22 @@ extends layout
 append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/index.css")
+
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
 
+
 block content
-  h1= title
-  p Welcome to your Project Skeleton
+  h1.Header Meadium
+    li(class="active" href="#home") Home
+    li(class="active" href="#news") New Meadiums
+    li(class="active" href="#Contact") Contact
+    li(class="active" href="#Login") Login
+  div.Container
+  div.Message
+    h3 Trending | Top Rated Posts
+  h3.Header2 Explore other Meadiums
+    div.Info
+  div.NavButtons
+      div.NavButton Create Meadium
+    
