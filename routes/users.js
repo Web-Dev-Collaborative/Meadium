@@ -4,6 +4,7 @@ const { check } = require('express-validator');
 const bcrypt = require('bcryptjs');
 
 const { User } = require('../db/models')
+const { asyncHandler, handleValidationErrors } = require('./utils');
 
 //first name, last name, username, email, password
 
