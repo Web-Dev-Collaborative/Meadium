@@ -1,6 +1,6 @@
 const csrf = require('csurf');
 const csrfProtection = csrf({ cookie: true });
-const { validationResult } = require('express-validator')
+const { validationResult, check } = require('express-validator')
 
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
@@ -30,7 +30,7 @@ const validateFirstNameAndLastName = [
 const validateUsername = check('username')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a username')
-    .match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/, 'g')
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/, 'g')
     .withMessage('Username must not contain any symbols');
 
 const validateEmail = check('email')
