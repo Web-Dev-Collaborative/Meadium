@@ -9,14 +9,18 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       body: {
+        allowNull: false,
         type: Sequelize.TEXT
       },
       title: {
+        allowNull: false,
+        unique: true,
         type: Sequelize.STRING(100)
       },
       authorId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: "Users"}
+        references: { model: "Users" }
       },
       createdAt: {
         allowNull: false,
