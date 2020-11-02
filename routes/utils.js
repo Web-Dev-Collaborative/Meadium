@@ -1,6 +1,6 @@
 const csrf = require('csurf');
 const csrfProtection = csrf({ cookie: true });
-const { validationResult } = require('express-validator')
+const { validationResult, check } = require('express-validator')
 
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
