@@ -13,9 +13,4 @@ router.post('/', userValidations, handleValidationErrors, asyncHandler(async (re
   const user = await User.create({ firstName, lastName, username, email, hashedPassword });
 }));
 
-/* GET users listing. */
-router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
-});
-
 module.exports = router;
