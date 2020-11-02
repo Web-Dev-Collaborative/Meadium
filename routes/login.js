@@ -12,20 +12,20 @@ loginRouter.get('/', (req, res) => {
 })
 
 loginRouter.post('/', userValidations, handleValidationErrors, asyncHandler(async (req, res) => {
-    const { input, password } = req.body
+    const { usernameOrEmail, password } = req.body
     const hashedPassword = await bcrypt.hash(password, 10);
     let user
-    if (input.includes("@")) {
+    if (usernameOrEmail.includes("@")) {
         user = await User.findOne({
             where: {
-                email: input,
+                email: usernameOrEmail,
                 hashedPassword
             }
         })
     } else {
         user = await user.findOne({
             where: {
-                username: input,
+                username: usernameOrEmail,
                 hashedPassword
             }
         })
