@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { check } = require('express-validator');
 const bcrypt = require('bcryptjs');
+const { asyncHandler, handleValidationErrors } = require('./utils.js')
 
 const { User } = require('../db/models')
 
@@ -40,7 +41,7 @@ router.post('/', userValidations, handleValidationErrors, asyncHandler(async (re
 }));
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.send('respond with a resource');
 });
 
