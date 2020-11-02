@@ -4,6 +4,13 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')
+(session.Store);
+
+const { sequelize } = require('./db/models');
+const store = new SequelizeStore({
+  db: sequelize,
+});
 
 const { restoreUser } = require('./auth');
 const { sessionSecret } = require('./config');
@@ -20,6 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(sessionSecret));
 app.use(session({
+  store: store,
   name: 'Meadium.sid',
   secret: sessionSecret,
   resave: false,
@@ -31,6 +39,7 @@ app.use(session({
     secure: true
   }
 }));
+store.sync();
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(restoreUser);
 app.use('/', indexRouter);
