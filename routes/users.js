@@ -5,7 +5,6 @@ const bcrypt = require('bcryptjs');
 const { asyncHandler, handleValidationErrors } = require('./utils.js')
 
 const { User } = require('../db/models')
-const { handleValidationErrors } = require('./utils');
 
 //first name, last name, username, email, password
 
@@ -40,10 +39,5 @@ router.post('/', userValidations, handleValidationErrors, asyncHandler(async (re
   const hashedPassword = await bcrypt.hash(password, 10);
   const user = await User.create({ firstName, lastName, username, email, hashedPassword });
 }));
-
-/* GET users listing. */
-router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
-});
 
 module.exports = router;

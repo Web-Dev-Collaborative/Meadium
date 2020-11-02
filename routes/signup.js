@@ -4,10 +4,10 @@ const { User } = require('../db/models')
 const signupRouter = express.Router();
 const bodyParser = require('body-parser')
 
-signupRouter.use(bodyParser)
+// signupRouter.use(bodyParser)
 
 signupRouter.get('/', asyncHandler(async (req, res) => {
-    res.render('../views/signup')
+    res.render('signup')
 }))
 
 signupRouter.post('/', handleValidationErrors, asyncHandler(async (req, res) => {
