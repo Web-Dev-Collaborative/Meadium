@@ -3,26 +3,32 @@ extends layout.pug
 block content
     form(action="/signup", method="post")
         input(type='hidden' name='_csrf' value=csrfToken)
+        if errors
+            div(class='alert alert-danger' role='alert')
+                p The following error(s) occurred:
+                ul
+                    each error in errors
+                        li= error
         .header
             h2 Sign up with email
         .subheader
             h4 Enter the info below to create an account.
             .form-group
                 h4(for="username") Username
-                input(type="text", name="username" id="username" placeholder='great_user_name' required)
+                input(type="text", name="username" id="username" placeholder='great_user_name' value=username required)
             .form-group
-                h4(for="firstName") First Name
-                input(type="text", name="firstName" id="firstName" placeholder='Jane' required)
+                h4(for="firstName") Your first name
+                input(type="text", name="firstName" id="firstName" placeholder='Jane' value=firstname required)
             .form-group
-                h4(for="lastName") Last Name
-                input(type="text" name="lastName" id="lastName" placeholder='Doe' required)
+                h4(for="lastName") Your last name
+                input(type="text" name="lastName" id="lastName" placeholder='Doe' value=firstname required)
             .form-group
-                h4(for="email") Email
-                input(type="email" name="email" id="lastName" placeholder="youremail@email.com" required)
+                h4(for="email") Your email
+                input(type="email" name="email" id="lastName" placeholder="youremail@email.com" value=email required)
             .form-group
-                h4(for="password") Password
-                input(type="password" name="password" id="password" placeholder="Password" required)
-                h4(for="passwordConfirm") Confirm Password
-                input(type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirm password" required)
+                h4(for="password") Your password
+                input(type="password" name="password" id="password" placeholder="password" required)
+                h4(for="passwordConfirm") Confirm your password
+                input(type="password" name="passwordConfirm" id="passwordConfirm" placeholder="passwordConfirm" required)
             .submit
                 button(type="submit") Create User
