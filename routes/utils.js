@@ -41,7 +41,7 @@ const validatePassword = check('password')
     .withMessage('Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")');
     // add logic to confirm that passwords match
 
-const validateConfirmPassword = check('confirmPassword')
+const validateConfirmPassword = check('passwordConfirm')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a confirmed password')
     .custom((value, { req }) => {
@@ -55,11 +55,11 @@ const userValidations = [validateFirstNameAndLastName, validateUsername, validat
 
 const loginUserValidations = [
     check('usernameOrEmail')
-      .exists({ checkFalsy: true })
-      .withMessage('Please Provide a username or email'),
+        .exists({ checkFalsy: true })
+        .withMessage('Please Provide a username or email'),
     check('password')
-      .exists({ checkFalsy: true })
-      .withMessage('Please Provide a password')
+        .exists({ checkFalsy: true })
+        .withMessage('Please Provide a password')
 ]
 
 module.exports = {
