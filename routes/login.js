@@ -15,7 +15,6 @@ loginRouter.get('/', csrfProtection, (req, res) => {
 loginRouter.post('/', csrfProtection, loginUserValidations, handleValidationErrors, asyncHandler(async (req, res) => {
     const { usernameOrEmail, password } = req.body
     let user;
-    console.log(req.body);
 
     if (usernameOrEmail.includes("@")) {
         user = await User.findOne({ where: { email: usernameOrEmail } });
@@ -28,10 +27,9 @@ loginRouter.post('/', csrfProtection, loginUserValidations, handleValidationErro
 
         if (matchingPassword) {
             loginUser(req, res, user);
-            console.log(res.locals.authenticated)
             return res.redirect('/');
         } else {
-            const errors = res.erros
+            const errors = res.errors
             res.render('login', {
                 usernameOrEmail,
                 errors,
@@ -54,11 +52,11 @@ loginRouter.post('/', csrfProtection, loginUserValidations, handleValidationErro
             res.render('login', {
                 errors,
                 csrfToken: req.csrfToken()
-            })
+            });
 
-        }
-    }
+        };
+    };
     // else window.alert("That user does not exist.")
-}))
+}));
 
 module.exports = loginRouter;
