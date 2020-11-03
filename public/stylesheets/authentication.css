@@ -24,11 +24,14 @@
 .Header.auth.subheader.small {
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 13px;
+    margin-top: 2.75em;
+    margin-bottom: 0em;
     color: #303030;
 }
 .auth.input.background, .auth.input.background::placeholder {
     background-color: transparent;
     text-align: center;
+    width: 230px;
 }
 .submit.auth.continue {
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -51,13 +54,21 @@
     text-align: center
 }
 
-.styleel {
+.form.container {
     font-family: 'Nanum Myeongjo',
         serif;
     display: flex;
     justify-content: center;
     text-align: center;
-    margin-top: 300px;
+    margin-top: 250px;
+}
+
+.form.container.signup {
+    margin-top: 200px;
+}
+
+.form.container.login {
+    margin-top: 280px;
 }
 
 input {
