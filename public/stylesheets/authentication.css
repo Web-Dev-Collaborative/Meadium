@@ -1,0 +1,63 @@
+.signupform {
+    font-family: 'Nanum Myeongjo', Georgia, Cambria, "Times New Roman", Times, serif;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 28px;
+    color: #080808;
+}
+
+.Header.auth.subheader {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #292929;
+}
+
+.Header.auth.subheader.small {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #292929;
+}
+
+.submit.Header.auth {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-top: 10px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.fielded {
+    font-family: 'Nanum Myeongjo',
+        serif;
+    display: flex;
+    justify-content: center;
+    text-align: center
+}
+
+.styleel {
+    font-family: 'Nanum Myeongjo',
+        serif;
+    display: flex;
+    justify-content: center;
+    text-align: center
+}
+
+input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    background-color: #eee;
+}
+
+
+
+
+
+
+
+/*
+
+
+font-family: 'Nanum Myeongjo',
+serif; */
