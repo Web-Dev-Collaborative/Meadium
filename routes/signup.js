@@ -12,31 +12,29 @@ signupRouter.get('/', asyncHandler(async (req, res) => {
     res.render('signup')
 }))
 
-signupRouter.post('/', userValidations, handleValidationErrors, asyncHandler(async (req, res) => {
+signupRouter.post('/', userValidations, handleValidationErrors, asyncHandler(async (req, res, next) => {
     const { username, firstName, lastName, email, password, birthday } = req.body
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await User.build({
-        username,
-        firstName,
-        lastName,
-        email,
-        hashedPassword
-    })
-    try {
-        await user.save();
-        res.redirect('/')
 
-    } catch (err) {
-        if (err) {
-            const errors = err.errors.map((error) => error.message)
-            res.render('signup', {
-                username,
-                firstName,
-                lastName,
-                email,
-                errors
-            })
-        }
+
+    if (res.errors.length !== 0) {
+        const errors = res.errors
+        res.render('signup', {
+            username,
+            firstName,
+            lastName,
+            email,
+            errors
+        })
+    } else {
+        await User.create({
+            username,
+            firstName,
+            lastName,
+            email,
+            hashedPassword
+        })
+        res.redirect('/')
     }
 }))
 
