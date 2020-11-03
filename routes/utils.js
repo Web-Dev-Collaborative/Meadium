@@ -9,11 +9,7 @@ const handleValidationErrors = (req, res, next) => {
 
     if (!validationErrors.isEmpty()) {
         const errors = validationErrors.array().map(error => error.msg);
-        const err = Error('Bad request.')
-        err.error = errors;
-        err.status = 404;
-        err.title = 'Bad request.'
-        next(err)
+        res.errors = errors;
     }
     next();
 }
@@ -30,7 +26,7 @@ const validateFirstNameAndLastName = [
 const validateUsername = check('username')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a username')
-    .match(/^[a-z0-9_]*$/, 'g')
+    .matches(/^[a-z0-9_]*$/, 'g')
     .withMessage('Username must not contain any symbols');
 
 const validateEmail = check('email')
@@ -43,7 +39,7 @@ const validatePassword = check('password')
     .withMessage('Please provide a password')
     .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/, 'g')
     .withMessage('Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")');
-
+    // add logic to confirm that passwords match
 const userValidations = [validateFirstNameAndLastName, validateUsername, validateEmail, validatePassword];
 
 module.exports = {
