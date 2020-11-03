@@ -1,4 +1,5 @@
 extends layout.pug
+include utils.pug
 append head
     link(rel='stylesheet' href='/stylesheets/authentication.css')
 block content
@@ -13,7 +14,7 @@ block content
         .form-group
           h4.Header.auth.subheader.small(for="password") Password
           input.auth.input.background(type="password" name="password" id="password" placeholder="" required)
-          h4.Header.auth.subheader.small(for="passwordConfirm") Confirm Password
-          input.auth.input.background(type="password" name="passwordConfirm" id="passwordConfirm" placeholder="" required)
         .submit
           button.submit.auth.continue(class = "submitting", type="submit") Continue
+      .errors
+        +validationErrorSum (errors)
