@@ -1,19 +1,20 @@
-const express = require('express')
-const { asyncHandler, handleValidationErrors, userValidations } = require('./utils.js')
-const { User } = require('../db/models')
+const express = require('express');
+const bcrypt = require('bcryptjs');
+
+const { User } = require('../db/models');
+const { asyncHandler, handleValidationErrors, userValidations, csrfProtection } = require('./utils.js')
+
 const signupRouter = express.Router();
-const bodyParser = require('body-parser')
-const bcrypt = require('bcryptjs')
-const { check } = require('express-validator')
 
-// signupRouter.use(bodyParser)
+signupRouter.get('/', csrfProtection, asyncHandler(async (req, res) => {
+    res.render('signup', {
+        csrfToken: req.csrfToken()
+    });
+}));
 
-signupRouter.get('/', asyncHandler(async (req, res) => {
-    res.render('signup')
-}))
 
 signupRouter.post('/', userValidations, handleValidationErrors, asyncHandler(async (req, res, next) => {
-    const { username, firstName, lastName, email, password, birthday } = req.body
+    const { username, firstName, lastName, email, password } = req.body
     const hashedPassword = await bcrypt.hash(password, 10);
 
 
