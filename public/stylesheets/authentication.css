@@ -38,6 +38,23 @@
     outline: none;
 }
 
+.errors {
+    color: red;
+    list-style: none;
+    display: flexbox;
+}
+
+.errors.ul {
+    margin-right: 49px;
+    margin-top: 25px;
+
+}
+
+.errors.li {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+}
+
 .submit.auth.continue {
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding-top: 10px;

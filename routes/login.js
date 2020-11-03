@@ -22,24 +22,25 @@ loginRouter.post('/', csrfProtection, loginUserValidations, handleValidationErro
         user = await User.findOne({ where: { username: usernameOrEmail } });
     }
 
-    if(user !== null) {
+    if (user !== null) {
         const matchingPassword = await bcrypt.compare(password, user.hashedPassword.toString());
 
-        if(matchingPassword) {
+        if (matchingPassword) {
             loginUser(req, res, user);
             return res.redirect('/');
         };
     } else {
         const errors = res.errors
-        if(errors) {
+        if (errors) {
             res.render('login', {
                 usernameOrEmail,
-                errors
+                errors,
+                csrfToken: req.csrfToken()
             });
         } else {
             const errors = new Error();
-                // errors.title = "Login Failed";
-                errors.errors = ["The provided credentials were invalid"];
+            // errors.title = "Login Failed";
+            errors.errors = ["The provided credentials were invalid"];
             res.render('login', {
                 errors
             })

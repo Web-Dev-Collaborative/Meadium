@@ -1,4 +1,5 @@
 extends layout.pug
+include utils.pug
 append head
     link(rel='stylesheet' href='/stylesheets/authentication.css')
 block content
@@ -15,3 +16,5 @@ block content
           input.auth.input.background(type="password" name="password" id="password" placeholder="" required)
         .submit
           button.submit.auth.continue(class = "submitting", type="submit") Continue
+      .errors
+        +validationErrorSum (errors)
