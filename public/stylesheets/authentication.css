@@ -33,6 +33,11 @@
     text-align: center;
     width: 230px;
 }
+
+.auth.input.background::focus {
+    outline: none;
+}
+
 .submit.auth.continue {
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding-top: 10px;
