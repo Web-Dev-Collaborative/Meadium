@@ -27,6 +27,7 @@ loginRouter.post('/', csrfProtection, loginUserValidations, handleValidationErro
 
         if (matchingPassword) {
             loginUser(req, res, user);
+            console.log(res.locals.authenticated)
             return res.redirect('/');
         };
     } else {

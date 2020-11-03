@@ -1,6 +1,22 @@
 extends layout.pug
 
 block content
-    div
-      nav(class='nav')
-        
+  div
+    nav(class='nav')
+      div
+        h2= user.username
+      div
+        a(href='/about') About
+      div
+        input(type='text' name='searchedStory' placeholder=`Search ${user.username} stories`)
+      div
+        form(action='/profile/logout' method='post')
+          button(type='submit') Logout
+  body
+    main
+      if stories
+        ul
+          each story in stories
+            li
+              h1= story.title
+              p= story.body
