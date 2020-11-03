@@ -44,9 +44,15 @@
     display: flexbox;
 }
 
-.errors.li {
+.errors.ul {
     margin-right: 49px;
     margin-top: 25px;
+
+}
+
+.errors.li {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
 }
 
 .submit.auth.continue {
