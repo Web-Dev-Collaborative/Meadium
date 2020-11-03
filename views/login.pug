@@ -1,18 +1,19 @@
 extends layout.pug
-
-include utils.pug
-
+append head
+    link(rel='stylesheet' href='/stylesheets/authentication.css')
 block content
-  +validationErrorSum(errors)
-  form(action="/login", method="post")
+  form.form.container.login(action="/login", method="post")
     input(type='hidden' name='_csrf' value=csrfToken)
     .header
-      h2 Enter the info below to log in.
+      h2.Header.auth.main Sign in with email
+      h4.Header.auth.subheader Enter the email address & password associated with your account.
         .form-group
-          h4(for="username") Username or Email
-          input(type="text", name="usernameOrEmail" id="usernameOrEmail" placeholder='Username or Email' required)
+            h4.Header.auth.subheader.small(for="username") Username or Email
+            input.auth.input.background(type="text", name="usernameOrEmail" id="usernameOrEmail" placeholder='' required)
         .form-group
-          h4(for="password") Password
-          input(type="password" name="password" id="password" placeholder="Password" required)
+          h4.Header.auth.subheader.small(for="password") Password
+          input.auth.input.background(type="password" name="password" id="password" placeholder="" required)
+          h4.Header.auth.subheader.small(for="passwordConfirm") Confirm Password
+          input.auth.input.background(type="password" name="passwordConfirm" id="passwordConfirm" placeholder="" required)
         .submit
-          button(type="submit") Log In
+          button.submit.auth.continue(class = "submitting", type="submit") Continue

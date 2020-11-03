@@ -1,11 +1,9 @@
-
 /* :root {
     --ui-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06),
         0 4px 5px 0 rgba(0, 0, 0, 0.06), 0 1px 10px 0 rgba(0, 0, 0, 0.08);
     fill: rgba(0, 0, 0, 0.54);
     --ui-shadow-border: 1px solid rgba(0, 0, 0, 0.14);
 } */
-
 
 
 html,
@@ -16,20 +14,16 @@ body {
     margin: 0;
     font-family: "Helvetica Neue";
 }
+
 * {
- box-sizing: border-box;
- background-color: white;
+    box-sizing: border-box;
+    background-color: white;
 }
 
-h2,
 h3 {
     font-family: "Raleway", sans-serif;
     padding: 0;
     margin: 0;
-}
-
-h3 {
-    font-size: 25px;
 }
 
 
@@ -49,6 +43,7 @@ h3 {
 
 }
 
+/* 
 .Header {
     display: flex;
     width: 100%;
@@ -62,14 +57,14 @@ h3 {
     align-items: center;
 
     font-family: "Helvetica", monospace;
-}
+} */
 
 .Message {
     background: black;
     padding: 5px;
 }
 
-.Message>.Info{
+.Message>.Info {
     display: flex;
     flex-direction: column;
     line-height: 1.5em;
@@ -83,6 +78,7 @@ h3 {
     padding-bottom: 100px;
 
 }
+
 .NavButtons {
     display: flex;
     width: 100%;
@@ -103,5 +99,4 @@ h3 {
     font-size: 16px;
     font-weight: bold;
     color: black
-
 }
