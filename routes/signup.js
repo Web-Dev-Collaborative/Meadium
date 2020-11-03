@@ -18,7 +18,7 @@ signupRouter.post('/', userValidations, handleValidationErrors, asyncHandler(asy
     const hashedPassword = await bcrypt.hash(password, 10);
 
 
-    if (res.errors.length !== 0) {
+    if (res.errors) {
         const errors = res.errors
         res.render('signup', {
             username,

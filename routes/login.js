@@ -1,7 +1,7 @@
 const express = require('express');
 const loginRouter = express.Router();
 const bcrypt = require('bcryptjs');
-const { asyncHandler, handleValidationErrors, userValidations, csrfProtection } = require('./utils.js')
+const { asyncHandler, handleValidationErrors, loginUserValidations, csrfProtection } = require('./utils.js')
 const { loginUser } = require('../auth')
 
 const { User } = require('../db/models')
@@ -12,28 +12,41 @@ loginRouter.get('/', csrfProtection, (req, res) => {
     });
 });
 
-loginRouter.post('/', userValidations, handleValidationErrors, asyncHandler(async (req, res) => {
+loginRouter.post('/', csrfProtection, loginUserValidations, handleValidationErrors, asyncHandler(async (req, res) => {
     const { usernameOrEmail, password } = req.body
-    const hashedPassword = await bcrypt.hash(password, 10);
-    let user
+    let user;
+
     if (usernameOrEmail.includes("@")) {
-        user = await User.findOne({
-            where: {
-                email: usernameOrEmail,
-                hashedPassword
-            }
-        })
+        user = await User.findOne({ where: { email: usernameOrEmail } });
     } else {
-        user = await user.findOne({
-            where: {
-                username: usernameOrEmail,
-                hashedPassword
-            }
-        })
+        user = await User.findOne({ where: { username: usernameOrEmail } });
     }
-    if (user) loginUser(user)
-    else window.alert("That user does not exist.")
-    res.redirect('/')
+
+    if(user !== null) {
+        const matchingPassword = await bcrypt.compare(password, user.hashedPassword.toString());
+
+        if(matchingPassword) {
+            loginUser(req, res, user);
+            return res.redirect('/');
+        };
+    } else {
+        const errors = res.errors
+        if(errors) {
+            res.render('login', {
+                usernameOrEmail,
+                errors
+            });
+        } else {
+            const errors = new Error();
+                // errors.title = "Login Failed";
+                errors.errors = ["The provided credentials were invalid"];
+            res.render('login', {
+                errors
+            })
+
+        }
+    }
+    // else window.alert("That user does not exist.")
 }))
 
 module.exports = loginRouter;
