@@ -40,11 +40,32 @@ const validatePassword = check('password')
     .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/, 'g')
     .withMessage('Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")');
     // add logic to confirm that passwords match
-const userValidations = [validateFirstNameAndLastName, validateUsername, validateEmail, validatePassword];
+
+const validateConfirmPassword = check('confirmPassword')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a confirmed password')
+    .custom((value, { req }) => {
+        if(value !== req.body.password) {
+            throw new Error('Confirm Password does not match Password');
+        }
+        return true;
+    })
+
+const userValidations = [validateFirstNameAndLastName, validateUsername, validateEmail, validatePassword, validateConfirmPassword];
+
+const loginUserValidations = [
+    check('usernameOrEmail')
+      .exists({ checkFalsy: true })
+      .withMessage('Please Provide a username or email'),
+    check('password')
+      .exists({ checkFalsy: true })
+      .withMessage('Please Provide a password')
+]
 
 module.exports = {
     csrfProtection,
     asyncHandler,
     handleValidationErrors,
     userValidations,
+    loginUserValidations,
 }

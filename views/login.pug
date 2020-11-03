@@ -1,6 +1,9 @@
 extends layout.pug
 
+include utils.pug
+
 block content
+  +validationErrorSum(errors)
   form(action="/login", method="post")
     input(type='hidden' name='_csrf' value=csrfToken)
     .header
@@ -11,7 +14,5 @@ block content
         .form-group
           h4(for="password") Password
           input(type="password" name="password" id="password" placeholder="Password" required)
-          h4(for="passwordConfirm") Confirm Password
-          input(type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirm password" required)
         .submit
           button(type="submit") Log In
