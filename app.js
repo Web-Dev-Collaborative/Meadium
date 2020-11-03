@@ -17,6 +17,7 @@ const { sessionSecret } = require('./config');
 const indexRouter = require('./routes/index');
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
+const profileRouter = require('./routes/profile');
 
 
 const app = express();
@@ -47,6 +48,7 @@ app.use(restoreUser);
 app.use('/', indexRouter);
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
+app.use('/profile', profileRouter);
 
 
 // catch 404 and forward to error handler
