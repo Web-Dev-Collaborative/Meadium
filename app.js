@@ -15,7 +15,6 @@ const store = new SequelizeStore({
 const { restoreUser } = require('./auth');
 const { sessionSecret } = require('./config');
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
 
@@ -46,7 +45,6 @@ store.sync();
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(restoreUser);
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
 

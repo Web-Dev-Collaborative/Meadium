@@ -30,7 +30,7 @@ const validateFirstNameAndLastName = [
 const validateUsername = check('username')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a username')
-    .match(/^[a-z0-9_]*$/, 'g')
+    .matches(/^[a-z0-9_]*$/, 'g')
     .withMessage('Username must not contain any symbols');
 
 const validateEmail = check('email')
