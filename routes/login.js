@@ -15,6 +15,7 @@ loginRouter.get('/', csrfProtection, (req, res) => {
 loginRouter.post('/', csrfProtection, loginUserValidations, handleValidationErrors, asyncHandler(async (req, res) => {
     const { usernameOrEmail, password } = req.body
     let user;
+    console.log(req.body);
 
     if (usernameOrEmail.includes("@")) {
         user = await User.findOne({ where: { email: usernameOrEmail } });
@@ -29,7 +30,15 @@ loginRouter.post('/', csrfProtection, loginUserValidations, handleValidationErro
             loginUser(req, res, user);
             console.log(res.locals.authenticated)
             return res.redirect('/');
-        };
+        } else {
+            const errors = res.erros
+            res.render('login', {
+                usernameOrEmail,
+                errors,
+                csrfToken: req.csrfToken()
+            });
+        }
+
     } else {
         const errors = res.errors
         if (errors) {
@@ -43,7 +52,8 @@ loginRouter.post('/', csrfProtection, loginUserValidations, handleValidationErro
             // errors.title = "Login Failed";
             errors.errors = ["The provided credentials were invalid"];
             res.render('login', {
-                errors
+                errors,
+                csrfToken: req.csrfToken()
             })
 
         }
