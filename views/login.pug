@@ -5,15 +5,14 @@ block content
   form.styleel(action="/login", method="post")
     input(type='hidden' name='_csrf' value=csrfToken)
     .header
-      h2 Enter the info below to log in.
+      h2.Header.auth.main Enter the info below to log in.
         .form-group
-            h4(for="username") Username or Email
+            h4.Header.auth.subheader(for="username") Username or Email
             input(type="text", name="usernameOrEmail" id="usernameOrEmail" placeholder='Username or Email' required)
         .form-group
-          h4(for="password") Password
+          h4.Header.auth.subheader(for="password") Password
           input(type="password" name="password" id="password" placeholder="Password" required)
-          h4(for="passwordConfirm") Confirm Password
+          h4.Header.auth.subheader(for="passwordConfirm") Confirm Password
           input(type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirm password" required)
         .submit
           button(class = "submitting", type="submit") Log In
-

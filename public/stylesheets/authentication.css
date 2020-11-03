@@ -7,6 +7,12 @@
     color: #080808;
 }
 
+.Header.auth.main {
+    font-family: 'Nanum Myeongjo', Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 28px;
+    color: #080808;
+}
+
 .Header.auth.subheader {
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
