@@ -1,6 +1,7 @@
 extends layout.pug
 append head
     link(rel='stylesheet' href='/stylesheets/authentication.css')
+    <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400&display=swap" rel="stylesheet">
 block content
     form.signupform(action="/signup", method="post")
         input(type='hidden' name='_csrf' value=csrfToken)
