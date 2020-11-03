@@ -32,7 +32,7 @@ const validateUsername = check('username')
     .withMessage('Please provide a username')
     .matches(/^[a-z0-9_]*$/, 'g')
     .withMessage('Username must not contain any symbols')
-    isLength({ max: 50 })
+    .isLength({ max: 50 })
     .withMessage('Username must not be more than 50 characters');
 
 const validateEmail = check('email')
@@ -46,7 +46,9 @@ const validatePassword = check('password')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a password')
     .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/, 'g')
-    .withMessage('Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")');
+    .withMessage('Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")')
+    .isLength({ min: 8 })
+    .withMessage('Password must be more than 8 characters long');
 
 const validateConfirmPassword = check('passwordConfirm')
     .exists({ checkFalsy: true })
@@ -63,11 +65,11 @@ const userValidations = [validateFirstNameAndLastName, validateUsername, validat
 const loginUserValidations = [
     check('usernameOrEmail')
         .exists({ checkFalsy: true })
-        .withMessage('Please Provide a username or email'),
+        .withMessage('Please provide a username or email'),
     check('password')
         .exists({ checkFalsy: true })
-        .withMessage('Please Provide a password')
-]
+        .withMessage('Please provide a password')
+];
 
 module.exports = {
     csrfProtection,
