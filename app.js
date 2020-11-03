@@ -36,10 +36,10 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    httpOnly: true,
+  //   httpOnly: true,
     maxAge: 60000,
-    path: '/',
-    secure: true
+  //   path: '/',
+  //   secure: true
   }
 }));
 store.sync();

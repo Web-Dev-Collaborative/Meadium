@@ -13,7 +13,11 @@ block content
     li(class="active" href="#home") Home
     li(class="active" href="#news") New Meadiums
     li(class="active" href="#Contact") Contact
-    li(class="active" href="#Login") Login
+    if locals.authenticated
+      span Welcome #{user.username}
+      a(href='/profile') Profile
+    else
+      a(class="active" href="/login") Login
   div.Container
   div.Message
     h3 Trending | Top Rated Posts
@@ -21,4 +25,3 @@ block content
     div.Info
   div.NavButtons
     div.NavButton Create Meadium
-    
