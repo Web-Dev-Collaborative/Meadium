@@ -3,18 +3,19 @@ include utils.pug
 append head
     link(rel='stylesheet' href='/stylesheets/authentication.css')
 block content
-  form.form.container.login(action="/login", method="post")
-    input(type='hidden' name='_csrf' value=csrfToken)
-    .header
-      h2.Header.auth.main Sign in with email
-      h4.Header.auth.subheader Enter the email address & password associated with your account.
-        .form-group
-            h4.Header.auth.subheader.small(for="username") Username or Email
-            input.auth.input.background(type="text", name="usernameOrEmail" id="usernameOrEmail" placeholder='' required)
-        .form-group
-          h4.Header.auth.subheader.small(for="password") Password
-          input.auth.input.background(type="password" name="password" id="password" placeholder="" required)
-        .submit
-          button.submit.auth.continue(class = "submitting", type="submit") Continue
-      .errors
-        +validationErrorSum (errors)
+  .shadow.box.signup.b
+    form.form.container.auth(action="/login", method="post")
+      input(type='hidden' name='_csrf' value=csrfToken)
+      .header
+        h2.Header.auth.main Sign in with email
+        h4.Header.auth.subheader Enter the email address & password associated with your account.
+          .form-group
+              h4.Header.auth.subheader.small(for="username") Username or Email
+              input.auth.input.background(type="text", name="usernameOrEmail" id="usernameOrEmail" placeholder='' required)
+          .form-group
+            h4.Header.auth.subheader.small(for="password") Password
+            input.auth.input.background(type="password" name="password" id="password" placeholder="" required)
+          .submit
+            button.submit.auth.continue(class = "submitting", type="submit") Continue
+        .errors
+          +validationErrorSum (errors)
