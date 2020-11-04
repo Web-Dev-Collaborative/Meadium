@@ -50,6 +50,7 @@ app.use('/', indexRouter);
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
 app.use('/profile', profileRouter);
+app.use('/Assets', express.static('Assets'))
 app.use('/stories', storyRouter);
 
 
