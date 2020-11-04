@@ -116,3 +116,7 @@ img {
 input:focus {
     border: none;
 }
+
+#about:focus {
+    color: black;
+}
