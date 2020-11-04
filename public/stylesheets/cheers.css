@@ -1,0 +1,61 @@
+.rating {
+    position: relative;
+    left: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    display: block;
+    cursor: pointer;
+    width: auto;
+    background: none;
+}
+
+.rating label::before {
+    content: '\f79f';
+    font-family: fontAwesome;
+    position: relative;
+    display: block;
+    font-size: 20px;
+    color: #252525;
+}
+.rating label::after {
+    content: '\f79f';
+    font-family: fontAwesome;
+    position: absolute;
+    display: block;
+    font-size: 20px;
+    color: dodgerblue;
+    top: 0;
+    opacity: 0;
+    transition: .5s;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+}
+.rating label:hover::after, 
+.rating label:hover ~ label::after, 
+.rating input:checked ~ label::after {
+    opacity: 1;
+}
+/* .story.cheers.container {
+    display: flex;
+}
+
+.ratings-button {
+    border: none;
+    background-color: white;
+}
+
+.fas {
+    color: #252525;
+}
+
+.fas:hover {
+    color:dodgerblue;
+} */
