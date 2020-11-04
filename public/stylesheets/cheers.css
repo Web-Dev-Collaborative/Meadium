@@ -1,0 +1,16 @@
+.story.cheers.container {
+    display: flex;
+}
+
+.ratings-button {
+    border: none;
+    background-color: white;
+}
+
+.fas {
+    color: #252525;
+}
+
+.fas:hover {
+    color:dodgerblue;
+}

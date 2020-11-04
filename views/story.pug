@@ -1,7 +1,7 @@
 extends layout.pug
 include includes/header.pug
-include utlils.pug
-
+append head
+    link(rel='stylesheet' href='/stylesheets/cheers.css')
 block content
     .story.container
         .story.title.container
@@ -20,4 +20,25 @@ block content
             img.social.linkedIn(src="/assets/linkedIn")
         .story.body-text-container
             p= story.body
+        .story.cheers.container
+            form(action="")
+                input(type="radio" name="imgsel" value='' checked hidden)
+                button.ratings-button.rating1(type="submit")
+                    i.fas.fa-glass-cheers.rating
+            form(action="")
+                input(type="radio" name="imgsel" value='' checked hidden)
+                button.ratings-button.rating2(type="submit")
+                    i.fas.fa-glass-cheers.rating
+            form(action="")
+                input(type="radio" name="imgsel" value='' checked hidden)
+                button.ratings-button.rating3(type="submit")
+                    i.fas.fa-glass-cheers.rating
+            form(action="")
+                input(type="radio" name="imgsel" value='' checked hidden)
+                button.ratings-button.rating4(type="submit")
+                    i.fas.fa-glass-cheers.rating
+            form(action="")
+                input(type="radio" name="imgsel" value='' checked hidden)
+                button.ratings-button.rating5(type="submit")
+                    i.fas.fa-glass-cheers.rating
         .story.footer.container
