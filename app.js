@@ -18,6 +18,7 @@ const indexRouter = require('./routes/index');
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
 const profileRouter = require('./routes/profile');
+const storyRouter = require('./routes/story');
 
 
 const app = express();
@@ -50,6 +51,7 @@ app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
 app.use('/profile', profileRouter);
 app.use('/images', express.static('images'));
+app.use('/stories', storyRouter);
 
 
 // catch 404 and forward to error handler
