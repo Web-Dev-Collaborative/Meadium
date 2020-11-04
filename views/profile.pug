@@ -1,18 +1,26 @@
-extends layout.pug
+//- extends layout.pug
+append head
+  link(rel='stylesheet' href='/stylesheets/profile.css')
 
-block content
-  div
-    nav(class='nav')
-      div
-        h2= user.username
-      div
-        a(href='/about') About
-      div
-        input(type='text' name='searchedStory' placeholder=`Search ${user.username} stories`)
-      div
-        form(action='/profile/logout' method='post')
-          button(type='submit') Logout
-  body
+  div.navDiv
+    nav.navBar
+      div#usernameAndAbout
+        div#username
+          h2= user.username
+        div#aboutDiv
+          a#about(href='/about') About
+      div#rightNav
+        div#searchBar
+          img(src=('images/search.png') alt='search button' id='search-btn')
+          input(type='text' name='searchedStory' placeholder=`Search ${user.username} stories` id='search')
+        div#formBtns
+          div.newStoryDiv
+            form(action='/stories' method='post').newStoryForm
+              button(type='submit' id='newStory') New Story
+          div.logoutDiv
+            form(action='/profile/logout' method='post').logoutForm
+              button(type='submit' id='logout') Logout
+    body.storyContainer
     main
       if stories
         ul
@@ -20,3 +28,7 @@ block content
             li
               h1= story.title
               p= story.body
+      else
+        p Have something to share?
+          a(href='/stories') Write your first story
+  script(src='javascripts/profile.js')

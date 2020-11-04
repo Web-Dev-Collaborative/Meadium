@@ -49,6 +49,7 @@ app.use('/', indexRouter);
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
 app.use('/profile', profileRouter);
+app.use('/images', express.static('images'));
 
 
 // catch 404 and forward to error handler
