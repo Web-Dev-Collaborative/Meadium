@@ -8,6 +8,7 @@ module.exports = {
       firstName: 'Test',
       lastName: 'User',
       hashedPassword: 'password',
+      profilePic: '.../Assets/profilePics/IMG_8442.jpeg',
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});

@@ -17,6 +17,10 @@ module.exports = {
         unique: true,
         type: Sequelize.STRING(100)
       },
+      subheader: {
+        allowNull: false,
+        type: Sequelize.STRING(100)
+      },
       authorId: {
         allowNull: false,
         type: Sequelize.INTEGER,
