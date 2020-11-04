@@ -15,6 +15,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.STRING.BINARY
     },
+    profilePic: {
+      type: DataTypes.STRING(50)
+    },
     firstName: {
       allowNull: false,
       type: DataTypes.STRING(50)
