@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { Story } = require('../db/models');
+const { Story, User, Comment, Pin } = require('../db/models');
 const { asyncHandler } = require('./utils');
 
 const storyRouter = express.Router();
@@ -15,7 +15,9 @@ const storyNotFound = () => {
 
 storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const storyId = parseInt(req.params.id, 10);
-  const story = await Story.findByPk(storyId)
+  const story = await Story.findByPk(storyId, {
+    include: [{ model: User, attributes: ['firstName'] }, Comment]
+  });
 
   if (story) {
     res.render('story', {
@@ -25,5 +27,6 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     next(storyNotFound(storyId));
   };
 }));
+
 
 module.exports = storyRouter
