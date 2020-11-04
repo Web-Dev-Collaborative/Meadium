@@ -25,3 +25,9 @@ block content
     div.Info
   div.NavButtons
     div.NavButton Create Meadium
+  if stories
+    ul
+      each story in stories
+        li
+          h1= story.title
+            p= story.body
