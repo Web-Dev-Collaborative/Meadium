@@ -29,9 +29,10 @@ loginRouter.post('/', csrfProtection, loginUserValidations, handleValidationErro
             loginUser(req, res, user);
             return res.redirect('/');
         } else {
-            const errors = res.errors
+            const errors = new Error();
+            // errors.title = "Login Failed";
+            errors.errors = ["The provided credentials were invalid"];
             res.render('login', {
-                usernameOrEmail,
                 errors,
                 csrfToken: req.csrfToken()
             });
@@ -53,7 +54,6 @@ loginRouter.post('/', csrfProtection, loginUserValidations, handleValidationErro
                 errors,
                 csrfToken: req.csrfToken()
             });
-
         };
     };
     // else window.alert("That user does not exist.")
