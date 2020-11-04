@@ -2,6 +2,7 @@ extends layout.pug
 include includes/header.pug
 append head
     link(rel='stylesheet' href='/stylesheets/cheers.css')
+    script(src='../javascripts/cheers.js')
 block content
     .story.container
         .story.title.container
@@ -21,24 +22,36 @@ block content
         .story.body-text-container
             p= story.body
         .story.cheers.container
-            form(action="")
-                input(type="radio" name="imgsel" value='' checked hidden)
-                button.ratings-button.rating1(type="submit")
-                    i.fas.fa-glass-cheers.rating
-            form(action="")
-                input(type="radio" name="imgsel" value='' checked hidden)
-                button.ratings-button.rating2(type="submit")
-                    i.fas.fa-glass-cheers.rating
-            form(action="")
-                input(type="radio" name="imgsel" value='' checked hidden)
-                button.ratings-button.rating3(type="submit")
-                    i.fas.fa-glass-cheers.rating
-            form(action="")
-                input(type="radio" name="imgsel" value='' checked hidden)
-                button.ratings-button.rating4(type="submit")
-                    i.fas.fa-glass-cheers.rating
-            form(action="")
-                input(type="radio" name="imgsel" value='' checked hidden)
-                button.ratings-button.rating5(type="submit")
-                    i.fas.fa-glass-cheers.rating
+            .rating#rating-container
+                input.cheer(type="radio", name="cheer" id="cheer1")
+                label(for="cheer1")
+                input.cheer(type="radio", name="cheer" id="cheer2")
+                label(for="cheer2")
+                input.cheer(type="radio", name="cheer" id="cheer3")
+                label(for="cheer3")
+                input.cheer(type="radio", name="cheer" id="cheer4")
+                label(for="cheer4")
+                input.cheer(type="radio", name="cheer" id="cheer5")
+                label(for="cheer5")
+                    
+            //- form(action="")
+            //-     input(type="radio" name="imgsel" value='' checked hidden)
+            //-     button.ratings-button.rating1(type="submit")
+            //-         i.fas.fa-glass-cheers.rating
+            //- form(action="")
+            //-     input(type="radio" name="imgsel" value='' checked hidden)
+            //-     button.ratings-button.rating2(type="submit")
+            //-         i.fas.fa-glass-cheers.rating
+            //- form(action="")
+            //-     input(type="radio" name="imgsel" value='' checked hidden)
+            //-     button.ratings-button.rating3(type="submit")
+            //-         i.fas.fa-glass-cheers.rating
+            //- form(action="")
+            //-     input(type="radio" name="imgsel" value='' checked hidden)
+            //-     button.ratings-button.rating4(type="submit")
+            //-         i.fas.fa-glass-cheers.rating
+            //- form(action="")
+            //-     input(type="radio" name="imgsel" value='' checked hidden)
+            //-     button.ratings-button.rating5(type="submit")
+            //-         i.fas.fa-glass-cheers.rating
         .story.footer.container
