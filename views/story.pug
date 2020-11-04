@@ -1,6 +1,6 @@
 extends layout.pug
 include includes/header.pug
-include utlils.pug
+include utils.pug
 
 block content
     .story.container
@@ -12,7 +12,7 @@ block content
             img.story.image.content(src=story.imgPath)
         .story.profile.social.container
             img.profile.picture(src=story.authorId.profilePic)
-            p.profile.firstname= story.authorId.firstName
+            p.profile.firstname= story.User.firstName
             p.story.createdDate= story.createdAt
             img.social.twitter(src="/assets/twitter")
             img.social.linkedIn(src="/assets/linkedIn")
