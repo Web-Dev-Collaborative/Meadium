@@ -1,9 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Story = sequelize.define('Story', {
-    body: {type: DataTypes.TEXT,
-    allowNull: false,
-  },
+    body: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
     title: {
       type: DataTypes.STRING(100),
       allowNull: false,
@@ -18,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     Story.belongsTo(models.User, { foreignKey: "authorId" })
     Story.hasMany(models.Pin, { foreignKey: 'pinnedStoryId' });
     Story.hasMany(models.Comment, { foreignKey: 'commentedOnId' });
+    Story.hasMany(models.Cheer, { foreignKey: 'storyId' })
   };
   return Story;
 };
