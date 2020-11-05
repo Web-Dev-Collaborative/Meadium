@@ -4,6 +4,7 @@ include utils.pug
 append head
     link(rel='stylesheet' href='/stylesheets/cheers.css')
     script(src='../javascripts/cheers.js')
+    script(src='/javascripts/comments.js')
 block content
     .story.container
         .story.title.container
@@ -32,4 +33,11 @@ block content
                 label(for="2" id=`2|${userId}|${story.id}`)
                 label(for="1" id=`1|${userId}|${story.id}`)
         .story.footer.container
-        p= story.Comments.length
+            each comment in story.Comments
+                p= comment.comment
+            form#comment-field(action=`/stories/${story.id}` method='post')
+                label(for='comment') Add a comment
+                div
+                    textarea(type='text' name='comment' required)
+                div
+                    button(type='submit' id='comment-button' value=`${userId}|${story.id}`) Comment

@@ -10,6 +10,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       unique: true
     },
+    subheader: {
+      allowNull: false,
+      type: DataTypes.STRING(100)
+    },
+    imgPath: {
+      allowNull: false,
+      type: DataTypes.STRING(100)
+    },
     authorId: {
       type: DataTypes.INTEGER,
       allowNull: false
