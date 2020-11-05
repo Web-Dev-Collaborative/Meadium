@@ -22,7 +22,9 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     },
     raw: true
   });
-  console.log(rows)
+  const ratings = rows.map((cheer) => cheer.rating)
+  let avgRating = ratings.reduce((acc, val) => { return acc + val }, 0) / count
+  console.log(avgRating)
   const story = await Story.findByPk(storyId, {
     include: [{ model: User, attributes: ['firstName'] }, Comment]
   });
