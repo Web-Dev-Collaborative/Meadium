@@ -1,7 +1,7 @@
 const express = require('express');
 
-const { Story, User, Comment, Pin } = require('../db/models');
-const { asyncHandler } = require('./utils');
+const { Story, User, Comment, Pin, Cheer } = require('../db/models');
+const { asyncHandler, returnAverageCheers } = require('./utils');
 
 const storyRouter = express.Router();
 
@@ -16,6 +16,7 @@ const storyNotFound = () => {
 storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const storyId = parseInt(req.params.id, 10);
   const userId = req.session.auth.userId
+  const avgRating = await returnAverageCheers(storyId)
   const story = await Story.findByPk(storyId, {
     include: [{ model: User, attributes: ['firstName'] }, Comment]
   });
@@ -23,17 +24,36 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   if (story) {
     res.render('story', {
       userId,
-      story
+      story,
+      avgRating
     });
   } else {
     next(storyNotFound(storyId));
   };
 }));
 
-storyRouter.post('/:id(\\d+)/cheers', asyncHandler(async (req, res) => {
-  // const userId = req.session.auth.userId
+storyRouter.get('/:id(\\d+)/avgRating', asyncHandler(async (req, res) => {
   const storyId = parseInt(req.params.id, 10);
-  
+  const avgRating = await returnAverageCheers(storyId)
+  console.log("GOT HERE")
+  if (avgRating) {
+    console.log("AND GOT HERE")
+    return res.json(avgRating)
+  }
+}))
+
+storyRouter.post('/:id(\\d+)/cheers', asyncHandler(async (req, res) => {
+  let { rating, userId, storyId } = req.body
+  console.log(req.body)
+  if (userId && await Cheer.findOne({ where: { userId, storyId } })) {
+    let cheer = await Cheer.findOne({ where: { userId, storyId } })
+    cheer.rating = rating
+    cheer.save()
+    res.sendStatus(200)
+  } else {
+    Cheer.create({ userId, storyId, rating })
+    res.sendStatus(200)
+  }
 }))
 
 module.exports = storyRouter
