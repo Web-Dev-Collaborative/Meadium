@@ -14,12 +14,16 @@ router.get('/', requireAuth, asyncHandler(async(req, res) => {
     // const pinnerId = user.id;
     // const pinned = await Pinned.findAll({where: { pinnerId }});
     /////////
+    stories.forEach(story => {
+        console.log(story.id);
+    })
     res.render('profile', { user, stories });
 }));
 
 router.post('/logout', (req, res) => {
-    logoutUser(req, res);
-    res.redirect('/login');
+    // logoutUser(req, res);
+    delete req.session.auth;
+    res.redirect('/');
 })
 
 
