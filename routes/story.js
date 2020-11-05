@@ -1,7 +1,7 @@
 const express = require('express');
 
 const { Story, User, Comment, Pin, Cheer } = require('../db/models');
-const { asyncHandler } = require('./utils');
+const { asyncHandler, returnAverageCheers } = require('./utils');
 
 const storyRouter = express.Router();
 
@@ -16,15 +16,7 @@ const storyNotFound = () => {
 storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const storyId = parseInt(req.params.id, 10);
   const userId = req.session.auth.userId
-  const { count, rows } = await Cheer.findAndCountAll({
-    where: {
-      storyId: storyId
-    },
-    raw: true
-  });
-  const ratings = rows.map((cheer) => cheer.rating)
-  let avgRating = ratings.reduce((acc, val) => { return acc + val }, 0) / count
-  console.log(avgRating)
+  const avgRating = await returnAverageCheers(storyId)
   const story = await Story.findByPk(storyId, {
     include: [{ model: User, attributes: ['firstName'] }, Comment]
   });
@@ -32,16 +24,31 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   if (story) {
     res.render('story', {
       userId,
-      story
+      story,
+      avgRating
     });
   } else {
     next(storyNotFound(storyId));
   };
 }));
 
+storyRouter.get('/:id(\\d+)/avgRating', asyncHandler(async (req, res) => {
+  const storyId = parseInt(req.params.id, 10);
+  const avgRating = await returnAverageCheers(storyId)
+  console.log("GOT HERE")
+  if (avgRating) {
+    console.log("AND GOT HERE")
+    return res.send(avgRating)
+  }
+}))
+
 storyRouter.post('/:id(\\d+)/cheers', asyncHandler(async (req, res) => {
-  const { rating, userId, storyId } = req.body
-  if (!Cheer.findOne({ where: { userId, storyId, rating } })) {
+  let { rating, userId, storyId } = req.body
+  if (userId && await Cheer.findOne({ where: { userId, storyId } })) {
+    let cheer = await Cheer.findOne({ where: { userId, storyId } })
+    cheer.rating = rating
+    cheer.save()
+  } else if (userId && !await Cheer.findOne({ where: { userId, storyId, rating } })) {
     Cheer.create({ userId, storyId, rating })
   }
 }))
