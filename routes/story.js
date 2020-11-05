@@ -16,6 +16,13 @@ const storyNotFound = () => {
 storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const storyId = parseInt(req.params.id, 10);
   const userId = req.session.auth.userId
+  const { count, rows } = await Cheer.findAndCountAll({
+    where: {
+      storyId: storyId
+    },
+    raw: true
+  });
+  console.log(rows)
   const story = await Story.findByPk(storyId, {
     include: [{ model: User, attributes: ['firstName'] }, Comment]
   });
@@ -31,9 +38,10 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
 }));
 
 storyRouter.post('/:id(\\d+)/cheers', asyncHandler(async (req, res) => {
-  // const userId = req.session.auth.userId
-  console.log(req.body)
-  
+  const { rating, userId, storyId } = req.body
+  if (!Cheer.findOne({ where: { userId, storyId, rating } })) {
+    Cheer.create({ userId, storyId, rating })
+  }
 }))
 
 module.exports = storyRouter
