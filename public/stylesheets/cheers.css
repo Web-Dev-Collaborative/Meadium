@@ -41,8 +41,7 @@
     text-shadow: 0 2px 5px rgba(0, 0, 0, .3);
 }
 .rating label:hover::after, 
-.rating label:hover ~ label::after, 
-.rating input:checked ~ label::after {
+.rating label:hover ~ label::after {
     opacity: 1;
 }
 /* .story.cheers.container {

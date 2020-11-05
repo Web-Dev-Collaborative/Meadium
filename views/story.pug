@@ -22,16 +22,16 @@ block content
         .story.body-text-container
             p= story.body
         .story.cheers.container
-            .rating#rating-container
-                input.cheer(type="radio", name="cheer" id="cheer1")
+            form.rating#rating-container(action=`/stories/${story.id}/cheers` method="post")
+                input.cheer(type="submit" name="cheer" id="cheer1" value=`5|${userId}|${story.id}`)
                 label(for="cheer1")
-                input.cheer(type="radio", name="cheer" id="cheer2")
+                input.cheer(type="submit" name="cheer" id="cheer2" value='4')
                 label(for="cheer2")
-                input.cheer(type="radio", name="cheer" id="cheer3")
+                input.cheer(type="submit" name="cheer" id="cheer3" value='3')
                 label(for="cheer3")
-                input.cheer(type="radio", name="cheer" id="cheer4")
+                input.cheer(type="submit" name="cheer" id="cheer4" value='2')
                 label(for="cheer4")
-                input.cheer(type="radio", name="cheer" id="cheer5")
+                input.cheer(type="submit" name="cheer" id="cheer5" value='1')
                 label(for="cheer5")
                     
             //- form(action="")
@@ -56,4 +56,3 @@ block content
             //-         i.fas.fa-glass-cheers.rating
         .story.footer.container
         p= story.Comments.length
-    script(src="../public/javascripts/index")
