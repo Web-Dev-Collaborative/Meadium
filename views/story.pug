@@ -26,16 +26,11 @@ block content
             p= story.body
         .story.cheers.container
             form.rating#rating-container(action=`/stories/${story.id}/cheers` method="post")
-                label(for="cheer1" id=`5|${userId}|${story.id}`)
-                input.cheer(type="submit" name="cheer" id="cheer1")
-                label(for="cheer2" id=`4|${userId}|${story.id}`)
-                input.cheer(type="submit" name="cheer" id="cheer2")
-                label(for="cheer3" id=`3|${userId}|${story.id}`)
-                input.cheer(type="submit" name="cheer" id="cheer3")
-                label(for="cheer4" id=`2|${userId}|${story.id}`)
-                input.cheer(type="submit" name="cheer" id="cheer4")
-                label(for="cheer5" id=`1|${userId}|${story.id}`)
-                input.cheer(type="submit" name="cheer" id="cheer5")
+                label(for="5" id=`5|${userId}|${story.id}`)
+                label(for="4" id=`4|${userId}|${story.id}`)
+                label(for="3" id=`3|${userId}|${story.id}`)
+                label(for="2" id=`2|${userId}|${story.id}`)
+                label(for="1" id=`1|${userId}|${story.id}`)
                     
             //- form(action="")
             //-     input(type="radio" name="imgsel" value='' checked hidden)
