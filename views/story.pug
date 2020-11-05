@@ -1,5 +1,6 @@
 extends layout.pug
 include includes/header.pug
+include utils.pug
 append head
     link(rel='stylesheet' href='/stylesheets/cheers.css')
     script(src='../javascripts/cheers.js')
@@ -9,6 +10,8 @@ block content
             h1.title.text= story.title
         .story.subheader.container
             h3.subheader.text= story.subheader
+        .story.rating.container
+            h5.rating#rating= avgRating
         .story.image.container
             img.story.image.content(src=story.imgPath)
         .story.profile.social.container
@@ -23,36 +26,10 @@ block content
             p= story.body
         .story.cheers.container
             form.rating#rating-container(action=`/stories/${story.id}/cheers` method="post")
-                input.cheer(type="submit" name="cheer" id="cheer1" value=`5|${userId}|${story.id}`)
-                label(for="cheer1")
-                input.cheer(type="submit" name="cheer" id="cheer2" value='4')
-                label(for="cheer2")
-                input.cheer(type="submit" name="cheer" id="cheer3" value='3')
-                label(for="cheer3")
-                input.cheer(type="submit" name="cheer" id="cheer4" value='2')
-                label(for="cheer4")
-                input.cheer(type="submit" name="cheer" id="cheer5" value='1')
-                label(for="cheer5")
-                    
-            //- form(action="")
-            //-     input(type="radio" name="imgsel" value='' checked hidden)
-            //-     button.ratings-button.rating1(type="submit")
-            //-         i.fas.fa-glass-cheers.rating
-            //- form(action="")
-            //-     input(type="radio" name="imgsel" value='' checked hidden)
-            //-     button.ratings-button.rating2(type="submit")
-            //-         i.fas.fa-glass-cheers.rating
-            //- form(action="")
-            //-     input(type="radio" name="imgsel" value='' checked hidden)
-            //-     button.ratings-button.rating3(type="submit")
-            //-         i.fas.fa-glass-cheers.rating
-            //- form(action="")
-            //-     input(type="radio" name="imgsel" value='' checked hidden)
-            //-     button.ratings-button.rating4(type="submit")
-            //-         i.fas.fa-glass-cheers.rating
-            //- form(action="")
-            //-     input(type="radio" name="imgsel" value='' checked hidden)
-            //-     button.ratings-button.rating5(type="submit")
-            //-         i.fas.fa-glass-cheers.rating
+                label(for="5" id=`5|${userId}|${story.id}`)
+                label(for="4" id=`4|${userId}|${story.id}`)
+                label(for="3" id=`3|${userId}|${story.id}`)
+                label(for="2" id=`2|${userId}|${story.id}`)
+                label(for="1" id=`1|${userId}|${story.id}`)
         .story.footer.container
         p= story.Comments.length

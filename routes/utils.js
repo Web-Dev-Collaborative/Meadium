@@ -1,6 +1,8 @@
 const csrf = require('csurf');
 const csrfProtection = csrf({ cookie: true });
 const { validationResult, check } = require('express-validator')
+const { Story, User, Comment, Pin, Cheer } = require('../db/models');
+
 
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
@@ -54,7 +56,7 @@ const validateConfirmPassword = check('passwordConfirm')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a confirmed password')
     .custom((value, { req }) => {
-        if(value !== req.body.password) {
+        if (value !== req.body.password) {
             throw new Error('Confirm Password does not match Password');
         }
         return true;
@@ -71,10 +73,24 @@ const loginUserValidations = [
         .withMessage('Please provide a password')
 ];
 
+const returnAverageCheers = async (storyId) => {
+    const { count, rows } = await Cheer.findAndCountAll({
+        where: {
+            storyId: storyId
+        },
+        raw: true
+    });
+    const ratings = rows.map((cheer) => cheer.rating)
+    let avgRating = Math.round((ratings.reduce((acc, val) => { return acc + val }, 0) / count) * 10) / 10
+    return avgRating
+}
+
+
 module.exports = {
     csrfProtection,
     asyncHandler,
     handleValidationErrors,
     userValidations,
     loginUserValidations,
+    returnAverageCheers,
 }
