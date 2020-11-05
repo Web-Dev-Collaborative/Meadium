@@ -2,8 +2,11 @@ extends layout.pug
 include includes/header.pug
 include utils.pug
 append head
+    link(href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&display=swap" rel="stylesheet")
     link(rel='stylesheet' href='/stylesheets/cheers.css')
+    link(rel='stylesheet' href='/stylesheets/stories.css')
     script(src='../javascripts/cheers.js')
+
 block content
     .story.container
         .story.title.container
@@ -11,18 +14,19 @@ block content
         .story.subheader.container
             h3.subheader.text= story.subheader
         .story.rating.container
-            h5.rating#rating= avgRating
+            h4.rating#text Story Rating:  
+            h4.rating#rating #{avgRating}
         .story.image.container
-            img.story.image.content(src=story.imgPath)
+            img.story.image.content(src=`${story.imgPath}`)
         .story.profile.social.container
-            img.profile.picture(src=story.authorId.profilePic)
-            p.profile.firstname= story.User.firstName
+            img.profile.picture(src=story.User.profilePic)
+            p.profile.name #{story.User.firstName} #{story.User.lastName}
             p.story.createdDate= story.createdAt
             img.social.twitter(src="/assets/twitter")
             img.social.linkedIn(src="/assets/linkedIn")
             img.social.facebook(src="/assets/facebook")
             img.social.linkedIn(src="/assets/linkedIn")
-        .story.body-text-container
+        .story.body.text.container
             p= story.body
         .story.cheers.container
             form.rating#rating-container(action=`/stories/${story.id}/cheers` method="post")

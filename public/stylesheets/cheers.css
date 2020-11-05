@@ -1,6 +1,5 @@
 .rating {
     position: relative;
-    left: 20px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;

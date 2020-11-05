@@ -1,0 +1,82 @@
+.story.container {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: relative;
+    display: block;
+    top: 3em;
+    left: 3em;
+}
+
+.story.title.container > h1{
+    font-family: 'IM Fell French Canon SC',Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 48px;
+    line-height: 60px;
+    color: rgb(41,41,41);
+    margin-bottom: 10px;
+}
+
+.story.subheader.container > h3.subheader.text {
+    font-size: 22px;
+    color: rgb(117, 117, 117);
+    margin-bottom: 0em;
+    font-weight: 400;
+}
+
+.story.rating.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    line-height: 30px;
+}
+
+h4.rating#rating {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: black;
+    padding-right: 3px;
+    font-weight: bold;
+}
+h4.rating#text {
+    font-size: 16px;
+    color: rgb(117, 117, 117);
+    padding-right: 3px;
+    margin-top: 25px;
+}
+h4.rating#rating {
+    font-size: 16px;
+    color: rgb(117, 117, 117);
+    padding-left: 3px;
+}
+
+.story.image.container {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    max-height: 400px;
+    height: auto;
+    width: auto;
+    overflow: hidden;
+}
+
+img.story.image.content {
+    max-height: 400px;
+    padding: 0px;
+    height: auto;
+    width: auto;
+}
+
+.story.body-text-container {
+    display: flex;
+}
+
+.story.profile.social.container,
+.story.profile.social.container > p {
+    background-color: darkgray;
+}
+
+.story.body.text.container,
+.story.body.text.container > p {
+    height: 800px;
+    margin-top: 50px;
+    background-color: darkcyan;
+}

@@ -18,9 +18,9 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const userId = req.session.auth.userId
   const avgRating = await returnAverageCheers(storyId)
   const story = await Story.findByPk(storyId, {
-    include: [{ model: User, attributes: ['firstName'] }, Comment]
+    include: [{ model: User, attributes: ['firstName', 'lastName'] }, Comment]
   });
-
+  console.log(story.imgPath)
   if (story) {
     res.render('story', {
       userId,
@@ -35,9 +35,7 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
 storyRouter.get('/:id(\\d+)/avgRating', asyncHandler(async (req, res) => {
   const storyId = parseInt(req.params.id, 10);
   const avgRating = await returnAverageCheers(storyId)
-  console.log("GOT HERE")
   if (avgRating) {
-    console.log("AND GOT HERE")
     return res.json(avgRating)
   }
 }))
