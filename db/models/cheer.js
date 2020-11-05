@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Cheer.associate = function (models) {
     Cheer.belongsTo(models.User, { foreignKey: "userId" })
-    Cheer.belongsTo(models.Story, { foreignKey: "storyid" })
+    Cheer.belongsTo(models.Story, { foreignKey: "storyId" })
   };
   return Cheer;
 };

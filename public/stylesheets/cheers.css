@@ -27,7 +27,7 @@
     font-size: 20px;
     color: #252525;
 }
-.rating label::after {
+.rating label:after {
     content: '\f79f';
     font-family: fontAwesome;
     position: absolute;
@@ -40,8 +40,21 @@
     transition: .5s;
     text-shadow: 0 2px 5px rgba(0, 0, 0, .3);
 }
-.rating label:hover::after, 
-.rating label:hover ~ label::after {
+.rating label.checked,
+.rating label.checked::before {
+    content: '\f79f';
+    font-family: fontAwesome;
+    position: relative;
+    display: block;
+    font-size: 20px;
+    color: dodgerblue;
+    top: 0;
+    padding-top: 1.1px;
+    transition: .5s;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+}
+.rating label:hover:after, 
+.rating label:hover ~ label:after {
     opacity: 1;
 }
 /* .story.cheers.container {

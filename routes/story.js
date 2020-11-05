@@ -1,8 +1,8 @@
 const express = require('express');
 
-const { Story, User, Comment, Pin } = require('../db/models');
-const { asyncHandler, userValidations } = require('./utils');
 const { requireAuth } = require('../auth');
+const { Story, User, Comment, Pin, Cheer } = require('../db/models');
+const { asyncHandler, returnAverageCheers } = require('./utils');
 
 const storyRouter = express.Router();
 
@@ -16,20 +16,18 @@ const storyNotFound = () => {
 
 storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const storyId = parseInt(req.params.id, 10);
+  const userId = req.session.auth.userId
+  const avgRating = await returnAverageCheers(storyId)
   const story = await Story.findByPk(storyId, {
     include: [{ model: User, attributes: ['firstName'] }, Comment]
   });
 
-  if (req.sessions) {
-    const userId = req.session.auth.userId
-    if (story) {
-      res.render('story', {
-        userId,
-        story
-      });
-    } else {
-      next(storyNotFound(storyId));
-    };
+  if (story) {
+    res.render('story', {
+      userId,
+      story,
+      avgRating
+    });
   } else {
     if (story) {
       res.render('story', {
@@ -57,9 +55,29 @@ storyRouter.post('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   // res.json({comments})
 }))
 
-storyRouter.post('/:id(\\d+)/cheers', asyncHandler(async (req, res) => {
-  // const userId = req.session.auth.userId
+storyRouter.get('/:id(\\d+)/avgRating', asyncHandler(async (req, res) => {
   const storyId = parseInt(req.params.id, 10);
+  const avgRating = await returnAverageCheers(storyId)
+  console.log("GOT HERE")
+  if (avgRating) {
+    console.log("AND GOT HERE")
+    return res.json(avgRating)
+  }
+}))
+
+storyRouter.post('/:id(\\d+)/cheers', asyncHandler(async (req, res) => {
+  let { rating, userId, storyId } = req.body
+  console.log(req.body)
+  if (userId && await Cheer.findOne({ where: { userId, storyId } })) {
+    let cheer = await Cheer.findOne({ where: { userId, storyId } })
+    cheer.rating = rating
+    cheer.save()
+    res.sendStatus(200)
+  } else {
+    Cheer.create({ userId, storyId, rating })
+    res.sendStatus(200)
+  }
+
 }))
 
 
