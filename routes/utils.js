@@ -76,5 +76,5 @@ module.exports = {
     asyncHandler,
     handleValidationErrors,
     userValidations,
-    loginUserValidations,
+    loginUserValidations
 }

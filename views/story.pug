@@ -3,6 +3,7 @@ include includes/header.pug
 append head
     link(rel='stylesheet' href='/stylesheets/cheers.css')
     script(src='../javascripts/cheers.js')
+    script(src='/javascripts/comments.js')
 block content
     .story.container
         .story.title.container
@@ -33,7 +34,7 @@ block content
                 label(for="cheer4")
                 input.cheer(type="submit" name="cheer" id="cheer5" value='1')
                 label(for="cheer5")
-                    
+
             //- form(action="")
             //-     input(type="radio" name="imgsel" value='' checked hidden)
             //-     button.ratings-button.rating1(type="submit")
@@ -55,4 +56,11 @@ block content
             //-     button.ratings-button.rating5(type="submit")
             //-         i.fas.fa-glass-cheers.rating
         .story.footer.container
-        p= story.Comments.length
+            each comment in story.Comments
+                p= comment.comment
+            form#comment-field(action=`/stories/${story.id}` method='post')
+                label(for='comment') Add a comment
+                div
+                    textarea(type='text' name='comment' required)
+                div
+                    button(type='submit' id='comment-button' value=`${userId}|${story.id}`) Comment
