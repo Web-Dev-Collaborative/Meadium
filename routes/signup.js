@@ -37,6 +37,6 @@ signupRouter.post('/', userValidations, handleValidationErrors, asyncHandler(asy
         })
         res.redirect('/')
     }
-})) 
+}))
 
 module.exports = signupRouter;
