@@ -15,12 +15,14 @@ const storyNotFound = () => {
 
 storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const storyId = parseInt(req.params.id, 10);
+  const userId = req.session.auth.userId
   const story = await Story.findByPk(storyId, {
     include: [{ model: User, attributes: ['firstName'] }, Comment]
   });
 
   if (story) {
     res.render('story', {
+      userId,
       story
     });
   } else {
@@ -28,5 +30,10 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   };
 }));
 
+storyRouter.post('/:id(\\d+)/cheers', asyncHandler(async (req, res) => {
+  // const userId = req.session.auth.userId
+  const storyId = parseInt(req.params.id, 10);
+  
+}))
 
 module.exports = storyRouter
