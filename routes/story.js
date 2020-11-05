@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { Story, User, Comment, Pin } = require('../db/models');
+const { Story, User, Comment, Pin, Cheer } = require('../db/models');
 const { asyncHandler } = require('./utils');
 
 const storyRouter = express.Router();
@@ -32,7 +32,7 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
 
 storyRouter.post('/:id(\\d+)/cheers', asyncHandler(async (req, res) => {
   // const userId = req.session.auth.userId
-  const storyId = parseInt(req.params.id, 10);
+  console.log(req.body)
   
 }))
 
