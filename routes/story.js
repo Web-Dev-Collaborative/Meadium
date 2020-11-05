@@ -38,18 +38,21 @@ storyRouter.get('/:id(\\d+)/avgRating', asyncHandler(async (req, res) => {
   console.log("GOT HERE")
   if (avgRating) {
     console.log("AND GOT HERE")
-    return res.send(avgRating)
+    return res.json(avgRating)
   }
 }))
 
 storyRouter.post('/:id(\\d+)/cheers', asyncHandler(async (req, res) => {
   let { rating, userId, storyId } = req.body
+  console.log(req.body)
   if (userId && await Cheer.findOne({ where: { userId, storyId } })) {
     let cheer = await Cheer.findOne({ where: { userId, storyId } })
     cheer.rating = rating
     cheer.save()
-  } else if (userId && !await Cheer.findOne({ where: { userId, storyId, rating } })) {
+    res.sendStatus(200)
+  } else {
     Cheer.create({ userId, storyId, rating })
+    res.sendStatus(200)
   }
 }))
 

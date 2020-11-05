@@ -9,17 +9,15 @@ window.addEventListener("load", (event) => {
             const userId = valueInfo[1]
             const storyId = valueInfo[2]
             const data = { rating: rating, userId: userId, storyId: storyId }
-            let avgRating = fetch(`http://localhost:8010/stories/${storyId}/cheers`, {
+            await fetch(`http://localhost:8010/stories/${storyId}/cheers`, {
                 method: "post",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             })
-                .then(fetch(`http://localhost:8010/stories/${storyId}/avgRating`))
-                // .then(response => response.json())
-                .then(data => console.log(data));
-            console.log(avgRating)
+            const res = await fetch(`http://localhost:8010/stories/${storyId}/avgRating`)
+            let avgRating = await res.json()
             let ratingEle = document.getElementById("rating")
-            // ratingEle.innerHTML = parseInt(avgRating)
+            ratingEle.innerHTML = avgRating
         }
         e.preventDefault()
     })
