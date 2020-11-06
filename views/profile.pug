@@ -19,7 +19,7 @@ block content
           input(type='text' name='searchedStory' placeholder=`Search ${user.username} stories` id='search')
         div#formBtns
           div.newStoryDiv
-            form(action='/stories' method='post').newStoryForm
+            form(action='/profile/stories/' method='GET').newStoryForm
               button(type='submit' id='newStory') New Story
           div.logoutDiv
             form(action='/profile/logout' method='post').logoutForm
