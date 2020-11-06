@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
       unique: true
     },
     subheader: {
-      type: DataTypes.STRING(100),
-      allowNull: false
+      allowNull: false,
+      type: DataTypes.STRING(100)
     },
     imgPath: {
-      allowNull: false,
+      allowNull: true,
       type: DataTypes.STRING(100)
     },
     authorId: {

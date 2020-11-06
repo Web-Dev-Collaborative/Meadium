@@ -22,7 +22,7 @@ module.exports = {
         type: Sequelize.STRING(100)
       },
       imgPath: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING(100)
       },
       authorId: {

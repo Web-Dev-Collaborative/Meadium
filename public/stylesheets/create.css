@@ -1,0 +1,70 @@
+.main.write.article {
+    /* position: relative; */
+    margin-top: 20px;
+    height: max-content;
+}
+
+form.write.article {
+    margin: auto;
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    font-family: serif;
+}
+
+.text,
+input:focus {
+    border: none;
+}
+
+input.title.text {
+    height: 50px;
+    font-size: 30px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid lightgray;
+
+}
+
+input.title.text.subheader {
+    height: 40px;
+    font-size: 26px;
+}
+
+span.input.body.text {
+    margin-top: 30px;
+    font-size: 23px;
+    color: black;
+    border-bottom: 1px solid lightgray;
+}
+
+span.input.body.text:focus,
+input.title.text:focus,
+input.title.text::after {
+    border: none;
+    outline: none;
+    color: black;
+}
+
+span.input.body.text:focus::before {
+    cursor: text;
+    font-size: 23px;
+    height: auto;
+    color: lightgray;
+
+}
+
+span.input.body.text:empty::before {
+    content: attr(data-placeholder);
+    /* background-color: lightslategray; */
+    /* display: inline-block; */
+    height: auto;
+    font-size: 23px;
+    cursor: text;
+    color: lightgray;
+}
+
+input::placeholder {
+    color: lightgray;
+    font-family: serif;
+}

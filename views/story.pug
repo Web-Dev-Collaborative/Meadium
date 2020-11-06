@@ -32,6 +32,9 @@ block content
                 i.fab.fa-facebook-square
         .story.body.text.container
             p= story.body
+            p= story.body
+            p= story.body
+            p= story.body
         .story.cheers.container
             form.rating#rating-container(action=`/stories/${story.id}/cheers` method="post")
                 label(for="5" id=`5|${userId}|${story.id}`)
@@ -55,4 +58,4 @@ block content
                     textarea(type='text' name='comment' required)
                 div
                     button(type='submit' id='comment-button' value=`${userId}|${story.id}`) Comment
-        .story.footer.container
+    include footer.pug

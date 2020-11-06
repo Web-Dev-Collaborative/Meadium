@@ -29,6 +29,7 @@
     align-items: center;
     line-height: 30px;
     margin-left: 0px;
+    margin-bottom: 0px;
 }
 
 h4.rating#rating {
@@ -113,7 +114,7 @@ img.story.image.content {
 
 
 .profile.name-created.container > p.profile.name {
-    margin-top: 30px;
+    margin-top: 25px;
     margin-bottom: 0px;
     color: #292929;
 }
@@ -146,12 +147,16 @@ i.fab.fa-facebook-square {
     font-family: 'IM Fell French Canon SC',Georgia, Cambria, "Times New Roman", Times, serif;
     font-size: 21px;
     line-height: 32px;
+    color: rgb(41, 41, 41);
 }
 
+.story.body.text.container {
+    height: auto;
+    margin-top: 20px;
+    font-size: 19px;
+}
 
-
-.story.body.text.container,
-.story.body.text.container > p {
-    height: 800px;
-    margin-top: 50px;
+.story.cheers.container {
+    position: relative;
+    padding-top: 50px;
 }
