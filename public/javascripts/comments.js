@@ -8,26 +8,29 @@ window.addEventListener("load", (event) => {
     let [userId, storyId] = ids
     let formData = new FormData(commentForm)
     let newComment = formData.get('comment')
+    const regex = /\w/g
 
-    await fetch(`http://localhost:8010/stories/${storyId}/comments`, {
+    if (newComment.search(regex) === -1) return
+    else {
+      await fetch(`http://localhost:8010/stories/${storyId}/comments`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({commenterId: userId, commentedOnId: storyId, comment: newComment})
-    })
+      })
 
-    let commentsField = document.getElementById('comments-field')
-    let res = await fetch(`http://localhost:8010/stories/${storyId}/comments`)
-    let comments = await res.json();
-    commentsField.innerHTML = ''
+      let commentsField = document.getElementById('comments-field')
+      let res = await fetch(`http://localhost:8010/stories/${storyId}/comments`)
+      let comments = await res.json();
+      commentsField.innerHTML = ''
 
-    for (let i = 0; i < comments.length; i++) {
-      let comment = comments[i]
-      let commentDiv = document.createElement('div')
-      commentDiv.setAttribute('class', 'story-comment')
-      commentDiv.innerHTML = comment.comment
-      commentsField.appendChild(commentDiv)
-    }
-  })
+      for (let i = 0; i < comments.length; i++) {
+        let comment = comments[i]
+        let commentDiv = document.createElement('div')
+        commentDiv.setAttribute('class', 'story-comment')
+        commentDiv.innerHTML = `"${comment.comment}"`
+        commentsField.appendChild(commentDiv)
+      }
+    }})
   } catch (e) {
     console.log(e)
   }

@@ -14,7 +14,7 @@ block content
         .story.subheader.container
             h3.subheader.text= story.subheader
         .story.rating.container
-            h4.rating#text Story Rating:  
+            h4.rating#text Story Rating:
             h4.rating#rating #{avgRating}
         .story.image.container
             img.story.image.content(src=`${story.imgPath}`)
@@ -38,10 +38,12 @@ block content
                 label(for="3" id=`3|${userId}|${story.id}`)
                 label(for="2" id=`2|${userId}|${story.id}`)
                 label(for="1" id=`1|${userId}|${story.id}`)
-        .story#comments-field
+        .story#comments-field.comments.container
             each comment in story.Comments
-                div.story-comment= comment.comment
-        .story#comments-container
+                div.profile.picture= story.User.profilePic
+                img.profile.picture(src=story.User.profilePic)
+                div.story-comment= `"${comment.comment}"`
+        .story.comments-form.container
             form#comment-field(action=`/stories/${story.id}` method='post')
                 label(for='comment') Add a comment
                 div
