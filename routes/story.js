@@ -29,7 +29,7 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const story = await Story.findByPk(storyId, {
     include: [{ model: User, attributes: ['firstName', 'lastName', 'profilePic'] }, Comment]
   });
-
+  const created = getDate(story.createdAt)
   if (req.session.auth) {
     const userId = req.session.auth.userId
     if (story) {
