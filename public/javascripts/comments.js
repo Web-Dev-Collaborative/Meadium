@@ -23,11 +23,14 @@ window.addEventListener("load", (event) => {
       let comments = await res.json();
       commentsField.innerHTML = ''
 
-      for (let i = 0; i < comments.length; i++) {
+      for (let i = comments.length - 1; i >= 0; i--) {
         let comment = comments[i]
         let commentDiv = document.createElement('div')
-        commentDiv.setAttribute('class', 'story-comment')
+        let commentPic = document.createElement('img')
+        commentPic.setAttribute('src', `${comment.User.profilePic}`)
+        commentPic.setAttribute('class', 'profile picture')
         commentDiv.innerHTML = `"${comment.comment}"`
+        commentsField.appendChild(commentPic)
         commentsField.appendChild(commentDiv)
       }
     }})

@@ -40,7 +40,6 @@ block content
                 label(for="1" id=`1|${userId}|${story.id}`)
         .story#comments-field.comments.container
             each comment in story.Comments
-                div.profile.picture= story.User.profilePic
                 img.profile.picture(src=story.User.profilePic)
                 div.story-comment= `"${comment.comment}"`
         .story.comments-form.container

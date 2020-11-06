@@ -73,9 +73,10 @@ storyRouter.get('/:id(\\d+)/comments', requireAuth, asyncHandler(async (req, res
   const userId = req.session.auth.userId
 
   const comments = await Comment.findAll({
-    commenterId: userId,
-    commentedOnId: storyId,
-    comment: req.body.comment
+    where: {
+      commentedOnId: storyId
+    },
+    include: User
   })
     res.json(comments)
 }))
