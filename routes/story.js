@@ -1,6 +1,5 @@
 const express = require('express');
 
-const { requireAuth } = require('../auth');
 const { Story, User, Comment, Pin, Cheer } = require('../db/models');
 const { asyncHandler, returnAverageCheers } = require('./utils');
 
@@ -14,11 +13,21 @@ const storyNotFound = () => {
   return error;
 };
 
+const getDate = (createdAt) => {
+  let date = createdAt.getDate()
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  let monthName = monthNames[createdAt.getMonth()].split('').slice(0, 3).join('')
+  let monthString = `${monthName} ${date}`
+  return monthString
+}
+
 storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const storyId = parseInt(req.params.id, 10);
   const avgRating = await returnAverageCheers(storyId)
   const story = await Story.findByPk(storyId, {
-    include: [{ model: User, attributes: ['firstName'] }, Comment]
+    include: [{ model: User, attributes: ['firstName', 'lastName', 'profilePic'] }, Comment]
   });
 
   if (req.session.auth) {
@@ -27,7 +36,8 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
       res.render('story', {
         userId,
         story,
-        avgRating
+        avgRating,
+        created
       });
     } else {
       next(storyNotFound(storyId));
@@ -36,7 +46,8 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     if (story) {
       res.render('story', {
         story,
-        avgRating
+        avgRating,
+        created
       });
     } else {
       next(storyNotFound(storyId));
@@ -44,28 +55,10 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   }
 }));
 
-storyRouter.post('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
-  const storyId = parseInt(req.params.id, 10)
-  const userId = req.session.auth.userId
-  // const story = await Story.findByPk(storyId, {
-  //   include: [{ model: User, attributes: ['firstName'] }, Comment]
-  // });
-
-  await Comment.create({
-    commenterId: userId,
-    commentedOnId: storyId,
-    comment: req.body.comment
-  })
-  res.redirect(`/stories/${storyId}`);
-  // res.json({comments})
-}))
-
 storyRouter.get('/:id(\\d+)/avgRating', asyncHandler(async (req, res) => {
   const storyId = parseInt(req.params.id, 10);
   const avgRating = await returnAverageCheers(storyId)
-  console.log("GOT HERE")
   if (avgRating) {
-    console.log("AND GOT HERE")
     return res.json(avgRating)
   }
 }))
@@ -82,8 +75,6 @@ storyRouter.post('/:id(\\d+)/cheers', asyncHandler(async (req, res) => {
     Cheer.create({ userId, storyId, rating })
     res.sendStatus(200)
   }
-
 }))
-
 
 module.exports = storyRouter

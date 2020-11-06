@@ -1,0 +1,158 @@
+.story.container {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: relative;
+    display: block;
+    top: 3em;
+    left: 15%;
+    width: 700px;
+}
+
+.story.title.container > h1{
+    font-family: 'IM Fell French Canon SC',Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 48px;
+    line-height: 60px;
+    color: rgb(41,41,41);
+    margin-bottom: 10px;
+}
+
+.story.subheader.container > h3.subheader.text {
+    font-size: 22px;
+    color: rgb(117, 117, 117);
+    margin-bottom: 0em;
+    font-weight: 400;
+}
+
+.story.rating.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    line-height: 30px;
+    margin-left: 0px;
+}
+
+h4.rating#rating {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: black;
+    padding-right: 3px;
+    font-weight: bold;
+}
+h4.rating#text {
+    font-size: 16px;
+    color: rgb(117, 117, 117);
+    padding-right: 3px;
+    margin-top: 25px;
+    margin-left: 0px;
+}
+h4.rating#rating {
+    font-size: 16px;
+    color: rgb(117, 117, 117);
+    padding-left: 3px;
+}
+
+.story.image.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    max-height: 400px;
+    height: auto;
+    width: auto;
+    overflow: hidden;
+}
+
+img.story.image.content {
+    max-width: auto;
+    padding: 0px;
+    height: auto;
+    width: auto;
+}
+
+.story.profile.social.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    height: auto;
+    width: auto;
+}
+.grid.column.two {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.profile.picture.container {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.profile.picture.container > img.profile.picture {
+    max-height: 300px;
+    margin-left: -3%;
+    margin-bottom: 50px;
+    height: 140%;
+    width: auto; 
+}
+
+
+.profile.name-created.container > p {
+    margin-left: 11px;
+}
+
+.profile.name-created.container > p.story.createdDate {
+    margin-top: 0px;
+    color: #6a6a6a;
+}
+
+
+.profile.name-created.container > p.profile.name {
+    margin-top: 30px;
+    margin-bottom: 0px;
+    color: #292929;
+}
+
+.profile.socials.container {
+    grid-column-start: 7;
+    grid-column-end: 11;
+    display: flex;
+    justify-content: flex-end;
+}
+
+i.fab.fa-twitter {
+    font-size: 25px;
+    padding-right: 10px;
+    color: #6a6a6a;
+}
+i.fab.fa-linkedin {
+    font-size: 25px;
+    padding-right: 10px;
+    color: #6a6a6a;
+}
+i.fab.fa-facebook-square {
+    padding-right: 10px;
+    font-size: 25px;
+    color: #6a6a6a;
+}
+
+.story.body-text-container {
+    display: flex;
+    font-family: 'IM Fell French Canon SC',Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 21px;
+    line-height: 32px;
+}
+
+
+
+.story.body.text.container,
+.story.body.text.container > p {
+    height: 800px;
+    margin-top: 50px;
+}
