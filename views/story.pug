@@ -40,8 +40,9 @@ block content
                 label(for="1" id=`1|${userId}|${story.id}`)
         .story#comments-field.comments.container
             each comment in story.Comments
-                img.profile.picture(src=story.User.profilePic)
-                div.story-comment= `"${comment.comment}"`
+                .grid.column.two
+                    img.profile.picture(src=story.User.profilePic)
+                    div.story-comment= `"${comment.comment}"`
         .story.comments-form.container
             form#comment-field(action=`/stories/${story.id}` method='post')
                 label(for='comment') Add a comment

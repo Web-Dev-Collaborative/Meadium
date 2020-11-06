@@ -25,13 +25,16 @@ window.addEventListener("load", (event) => {
 
       for (let i = comments.length - 1; i >= 0; i--) {
         let comment = comments[i]
+        let gridDiv = document.createElement('div')
+        gridDiv.setAttribute('class', 'grid column two')
+        commentsField.appendChild(gridDiv)
         let commentDiv = document.createElement('div')
         let commentPic = document.createElement('img')
         commentPic.setAttribute('src', `${comment.User.profilePic}`)
         commentPic.setAttribute('class', 'profile picture')
         commentDiv.innerHTML = `"${comment.comment}"`
-        commentsField.appendChild(commentPic)
-        commentsField.appendChild(commentDiv)
+        gridDiv.appendChild(commentPic)
+        gridDiv.appendChild(commentDiv)
       }
     }})
   } catch (e) {
