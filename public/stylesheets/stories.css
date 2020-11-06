@@ -150,9 +150,13 @@ i.fab.fa-facebook-square {
     line-height: 32px;
 }
 
-
-
 .story.body.text.container {
-    height: 800px;
+    height: auto;
     margin-top: 20px;
+    font-size: 19px;
+}
+
+.story.cheers.container {
+    position: relative;
+    padding-top: 50px;
 }

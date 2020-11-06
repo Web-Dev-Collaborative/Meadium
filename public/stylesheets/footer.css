@@ -1,3 +1,7 @@
+.footer.bottom.stick {
+    clear: both;
+}
+
 div.footer.block.container {
     background-color: #1d1d1d;
     color: white;
