@@ -3,31 +3,42 @@ extends layout
 append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/index.css")
-
+  link(rel="stylesheet" href=".")
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
 
 
 block content
-  h1.Header Meadium
-    li(class="active" href="#home") Home
-    li(class="active" href="#news") New Meadiums
-    li(class="active" href="#Contact") Contact
-    if locals.authenticated
-      span Welcome #{user.username}
-      a(href='/profile') Profile
-    else
-      a(class="active" href="/login") Login
-  div.Container
-  div.Message
-    h3 Trending | Top Rated Posts
-  h3.Header2 Explore other Meadiums
-    div.Info
-  div.NavButtons
-    div.NavButton Create Meadium
-  if stories
-    ul
-      each story in stories
-        li
-          h1= story.title
-            p= story.body
+  div.ognav
+    div.nav
+      a(class="nav-content1" href="Meadium")
+      span(class="meadium") Meadium
+      span(class="goodness") Goodness
+    i(class="fas fa-search fa-2x")
+      div.right-side-nav
+      ul.ul-items 
+        li(class="li1") About
+        li(class="li1") Login
+        li(class="li1") Meads
+
+  .second-container
+    .action-container
+      h1(class="action-container-h1") You've come to the right place aye
+      h3(class="action-container-h3") Read and and share about all your favorite Meads.
+      button(class="get-started-button") Get Started
+  .picture-container
+    .meadbox-wrap
+      img(class="red-woosh" src="/" alt="swoosh")
+      img(class="meadbox" src="./" alt="meads")
+  
+  .third-container
+    .mead-content
+      h1(class="trendy-mead") Trendiest Mead Stories
+    .mead-content-text
+      i(class="far fa-circle") Field Story
+      br
+      i(class="far fa-circle") Field Story
+      br
+      i(class="far fa-circle") Field Story
+  
+  

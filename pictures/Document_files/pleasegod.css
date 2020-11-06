@@ -1,0 +1,13 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-side-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ul-items {
+    display: inline;
+}
