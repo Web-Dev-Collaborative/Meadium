@@ -29,6 +29,7 @@
     align-items: center;
     line-height: 30px;
     margin-left: 0px;
+    margin-bottom: 0px;
 }
 
 h4.rating#rating {
@@ -149,10 +150,13 @@ i.fab.fa-facebook-square {
     line-height: 32px;
 }
 
+.story.body.text.container {
+    height: auto;
+    margin-top: 20px;
+    font-size: 19px;
+}
 
-
-.story.body.text.container,
-.story.body.text.container > p {
-    height: 800px;
-    margin-top: 50px;
+.story.cheers.container {
+    position: relative;
+    padding-top: 50px;
 }
