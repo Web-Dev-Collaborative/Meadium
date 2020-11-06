@@ -5,6 +5,7 @@ append head
     link(href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&display=swap" rel="stylesheet")
     link(rel='stylesheet' href='/stylesheets/cheers.css')
     link(rel='stylesheet' href='/stylesheets/stories.css')
+    link(rel='stylesheet' href='/stylesheets/comments.css')
     script(src='../javascripts/cheers.js')
     script(src='/javascripts/comments.js')
 block content
@@ -24,7 +25,7 @@ block content
                     img.profile.picture(src=story.User.profilePic)
                 .profile.name-created.container
                     p.profile.name #{story.User.firstName} #{story.User.lastName}
-                    p.story.createdDate= created
+                    p.story.createdDate= createdStory
             .profile.socials.container
                 i.fab.fa-twitter
                 i.fab.fa-linkedin
@@ -40,9 +41,13 @@ block content
                 label(for="1" id=`1|${userId}|${story.id}`)
         .story#comments-field.comments.container
             each comment in story.Comments
-                .grid.column.two
+                .profilePic.container
                     img.profile.picture(src=story.User.profilePic)
-                    div.story-comment= `"${comment.comment}"`
+                .comment-info.container
+                    p.story.comment.user= `${story.User.firstName} ${story.User.lastName}`
+                    p.story.comment.createdAt= `${comment.createdAt}`.slice(4, 10)
+                .comment-content.container
+                    .story-comment= `"${comment.comment}"`
         .story.comments-form.container
             form#comment-field(action=`/stories/${story.id}` method='post')
                 label(for='comment') Add a comment

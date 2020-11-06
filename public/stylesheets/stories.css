@@ -102,7 +102,6 @@ img.story.image.content {
     width: auto;
 }
 
-
 .profile.name-created.container > p {
     margin-left: 11px;
 }
@@ -155,16 +154,4 @@ i.fab.fa-facebook-square {
 .story.body.text.container > p {
     height: 800px;
     margin-top: 50px;
-}
-
-#comments-field {
-    margin-top: 25px
-}
-
-#comments-field > .grid.column.two > img.profile.picture {
-    max-height: 300px;
-    margin-left: -3%;
-    margin-bottom: 50px;
-    height: 140%;
-    width: auto;
 }

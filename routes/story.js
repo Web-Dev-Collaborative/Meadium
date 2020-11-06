@@ -30,7 +30,8 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const story = await Story.findByPk(storyId, {
     include: [{ model: User, attributes: ['firstName', 'lastName', 'profilePic'] }, Comment]
   });
-  const created = getDate(story.createdAt)
+  const createdStory = getDate(story.createdAt)
+  // const createdComment = getDate(story.Comments[0].createdAt)
   if (req.session.auth) {
     const userId = req.session.auth.userId
     if (story) {
@@ -38,7 +39,8 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
         userId,
         story,
         avgRating,
-        created
+        createdStory,
+        // createdComment
       });
     } else {
       next(storyNotFound(storyId));
@@ -63,7 +65,7 @@ storyRouter.post('/:id(\\d+)/comments', requireAuth, asyncHandler(async (req, re
   Comment.create({
     commenterId: commenterId,
     commentedOnId: commentedOnId,
-    comment
+    comment,
   })
   res.sendStatus(200);
 }))
