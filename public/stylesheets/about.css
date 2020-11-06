@@ -1,0 +1,38 @@
+main {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+}
+
+.username {
+    display: absolute;
+    font-size: 60px;
+    top: 100px;
+    align-self: center;
+    text-decoration: underline;
+    padding: 20px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 500px;
+    width: 500px;
+    gap: 50px;
+}
+
+img.proPic {
+    display: flex;
+    height: 200px;
+    width: 200px;
+    left: 600px;
+    margin-top: 30px;
+    align-self: center;
+}
+
+h2.name{
+    font-size: 30px;
+    align-self: center;
+    margin-bottom: 250px;
+}
