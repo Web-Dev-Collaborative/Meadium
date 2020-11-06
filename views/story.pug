@@ -32,12 +32,14 @@ block content
                 label(for="3" id=`3|${userId}|${story.id}`)
                 label(for="2" id=`2|${userId}|${story.id}`)
                 label(for="1" id=`1|${userId}|${story.id}`)
-        .story.footer.container
+        .story#comments-field
             each comment in story.Comments
-                p= comment.comment
+                div.story-comment= comment.comment
+        .story#comments-container
             form#comment-field(action=`/stories/${story.id}` method='post')
                 label(for='comment') Add a comment
                 div
                     textarea(type='text' name='comment' required)
                 div
                     button(type='submit' id='comment-button' value=`${userId}|${story.id}`) Comment
+        .story.footer.container
