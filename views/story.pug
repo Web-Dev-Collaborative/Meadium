@@ -30,7 +30,7 @@ block content
                 i.fab.fa-linkedin
                 i.fab.fa-facebook-square
         .story.body.text.container
-            p= story.body
+            p.body.text= story.body
         .story.cheers.container
             form.rating#rating-container(action=`/stories/${story.id}/cheers` method="post")
                 label(for="5" id=`5|${userId}|${story.id}`)

@@ -25,7 +25,9 @@ const getDate = (createdAt) => {
 
 storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const storyId = parseInt(req.params.id, 10);
-  const avgRating = await returnAverageCheers(storyId)
+  const avgRate = await returnAverageCheers(storyId)
+  const avgRating = avgRate ? avgRate : "No one's liked it.. yet."
+  console.log(avgRating)
   const story = await Story.findByPk(storyId, {
     include: [{ model: User, attributes: ['firstName', 'lastName', 'profilePic'] }, Comment]
   });
@@ -58,6 +60,7 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
 storyRouter.get('/:id(\\d+)/avgRating', asyncHandler(async (req, res) => {
   const storyId = parseInt(req.params.id, 10);
   const avgRating = await returnAverageCheers(storyId)
+  console.log("&&&&&****", avgRating)
   if (avgRating) {
     return res.json(avgRating)
   }

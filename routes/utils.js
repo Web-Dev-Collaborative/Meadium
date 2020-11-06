@@ -82,6 +82,7 @@ const returnAverageCheers = async (storyId) => {
     });
     const ratings = rows.map((cheer) => cheer.rating)
     let avgRating = Math.round((ratings.reduce((acc, val) => { return acc + val }, 0) / count) * 10) / 10
+    
     return avgRating
 }
 

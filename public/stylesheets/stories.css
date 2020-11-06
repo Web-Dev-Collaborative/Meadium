@@ -126,33 +126,27 @@ img.story.image.content {
     justify-content: flex-end;
 }
 
-i.fab.fa-twitter {
+i.fab {
     font-size: 25px;
     padding-right: 10px;
-    color: #6a6a6a;
-}
-i.fab.fa-linkedin {
-    font-size: 25px;
-    padding-right: 10px;
-    color: #6a6a6a;
-}
-i.fab.fa-facebook-square {
-    padding-right: 10px;
-    font-size: 25px;
-    color: #6a6a6a;
+    color: #747474;
 }
 
-.story.body-text-container {
+.story.body-text-container,
+.story.body-text-container > p.body.text {
     display: flex;
     font-family: 'IM Fell French Canon SC',Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 21px;
-    line-height: 32px;
 }
 
-
+p.body.text {
+    font-size: 21px !important;
+    line-height: 32px !important;
+    color: rgb(46, 46, 46);
+}
 
 .story.body.text.container,
-.story.body.text.container > p {
-    height: 800px;
+.story.body.text.container > p.body.text {
+    height: auto;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
