@@ -4,6 +4,10 @@ append head
 block content
   div.navDiv
     nav.navBar
+      #logo
+        a(href='/')
+        #meadium Meadium
+        #goodness Goodness
       div#usernameAndAbout
         div#username
           h2= user.username
@@ -32,14 +36,16 @@ block content
                 //- finshed this off with pinned attributes.
     span#stories
       div.storyContainer
-        h1 Created Stories:
         if stories.length
+          h1 Created Stories:
           ul.stories
             each story in stories
               li.story
                 a(href=`/stories/${story.id}`).storyref
-                h1.title= story.title
-                p.body= story.body
+                .storyItems
+                  img(src=`${story.imgPath}`)
+                  h1.title= story.title
+                  p.body= story.body
 
         else
           p.elseStatment Have something to share?
