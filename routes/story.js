@@ -25,22 +25,34 @@ const getDate = (createdAt) => {
 
 storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const storyId = parseInt(req.params.id, 10);
-  const userId = req.session.auth.userId
   const avgRating = await returnAverageCheers(storyId)
   const story = await Story.findByPk(storyId, {
     include: [{ model: User, attributes: ['firstName', 'lastName', 'profilePic'] }, Comment]
   });
-  const created = getDate(story.createdAt)
-  if (story) {
-    res.render('story', {
-      userId,
-      story,
-      avgRating,
-      created
-    });
+
+  if (req.session.auth) {
+    const userId = req.session.auth.userId
+    if (story) {
+      res.render('story', {
+        userId,
+        story,
+        avgRating,
+        created
+      });
+    } else {
+      next(storyNotFound(storyId));
+    }
   } else {
-    next(storyNotFound(storyId));
-  };
+    if (story) {
+      res.render('story', {
+        story,
+        avgRating,
+        created
+      });
+    } else {
+      next(storyNotFound(storyId));
+    };
+  }
 }));
 
 storyRouter.get('/:id(\\d+)/avgRating', asyncHandler(async (req, res) => {
