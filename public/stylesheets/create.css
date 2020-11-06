@@ -10,6 +10,7 @@ form.write.article {
     height: auto;
     display: flex;
     flex-direction: column;
+    font-family: serif;
 }
 
 .text,
@@ -23,6 +24,11 @@ input.title.text {
     margin-bottom: 20px;
     border-bottom: 1px solid lightgray;
 
+}
+
+input.title.text.subheader {
+    height: 40px;
+    font-size: 26px;
 }
 
 span.input.body.text {

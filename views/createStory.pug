@@ -9,5 +9,6 @@ append head
 block content
     .main.write.article
         form.write.article(action="/profile/create", method="post")
-            input.title.text(type="text" placeholder=' Title')
+            input.title.text(type="text" placeholder='Title')
+            input.title.text.subheader(type="text" placeholder='Subtitle')
             span.input.body.text(name="" data-placeholder="Tell your story... " contenteditable)

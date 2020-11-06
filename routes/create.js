@@ -11,4 +11,8 @@ createStoryRouter.get('/', asyncHandler(async (req, res) => {
     res.render('createStory')
 }))
 
+createStoryRouter.post("/", asyncHandler(async (req, res) => {
+    
+}))
+
 module.exports = createStoryRouter
