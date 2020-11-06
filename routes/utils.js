@@ -92,5 +92,5 @@ module.exports = {
     handleValidationErrors,
     userValidations,
     loginUserValidations,
-    returnAverageCheers,
+    returnAverageCheers
 }
