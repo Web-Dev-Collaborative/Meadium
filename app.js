@@ -19,7 +19,7 @@ const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
 const profileRouter = require('./routes/profile');
 const storyRouter = require('./routes/story');
-
+const apiRouter =  require('./routes/api/api');
 
 const app = express();
 
@@ -52,6 +52,8 @@ app.use('/login', loginRouter);
 app.use('/profile', profileRouter);
 app.use('/Assets', express.static('Assets'))
 app.use('/stories', storyRouter);
+app.use('/api', apiRouter);
+
 
 
 // catch 404 and forward to error handler

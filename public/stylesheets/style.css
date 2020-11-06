@@ -14,7 +14,7 @@ body {
 
 * {
     box-sizing: border-box;
-    background-color: white;
+    /* background-color: white; */
 }
 
 h3 {
@@ -40,7 +40,7 @@ h3 {
 
 }
 
-/* 
+/*
 .Header {
     display: flex;
     width: 100%;

@@ -13,16 +13,16 @@ window.addEventListener('load', () => {
 
     searchInput.addEventListener('input', async (e) => {
         const title = e.target.value;
-        const data = { title: title };
+        const data = { title };
         try {
-            const res = await fetch('http://localhost:8010/profile/search', {
-                method: "POST",
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
-            const dataJSON = await res.json();
+            const res = await fetch(`http://localhost:8010/api/search`)
+            //     method: "POST",
+            //     "Content-Type": "application/json",
+            //     body: JSON.stringify(data)
+            // });
+            // const dataJSON = await res.json();
             console.log(dataJSON);
-            console.log('hi from fetch')
+            console.log('hi from fetch');
         } catch(e) {
             console.log(e);
         }

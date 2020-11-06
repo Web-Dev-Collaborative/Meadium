@@ -1,8 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const bodyParser = require('body-parser');
-router.use(express.json())
-router.use(bodyParser.json());
 
 const { User, Story, Pinned } = require('../db/models')
 const { asyncHandler } = require('./utils');
@@ -19,21 +16,7 @@ router.get('/', requireAuth, asyncHandler(async(req, res) => {
     // const pinnerId = user.id;
     // const pinned = await Pinned.findAll({where: { pinnerId }});
     ///////
-    // res.json({ })
     res.render('profile', { user, stories });
-}));
-
-router.post('/search', asyncHandler(async(req, res) => {
-    console.log('hi')
-    const { title } = req.body;
-    const stories = await Story.findAll({
-        where: {
-            title: {
-                [Op.like]: `%${title}%`
-            }
-        }
-    });
-    return res.json({ stories });
 }));
 
 router.post('/logout', (req, res) => {
