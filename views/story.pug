@@ -25,11 +25,10 @@ block content
                 .profile.name-created.container
                     p.profile.name #{story.User.firstName} #{story.User.lastName}
                     p.story.createdDate= created
-                .profile.name-created.container
-                    img.social.twitter(src="/assets/twitter")
-                    img.social.linkedIn(src="/assets/linkedIn")
-                    img.social.facebook(src="/assets/facebook")
-                    img.social.linkedIn(src="/assets/linkedIn")
+            .profile.socials.container
+                i.fab.fa-twitter
+                i.fab.fa-linkedin
+                i.fab.fa-facebook-square
         .story.body.text.container
             p= story.body
         .story.cheers.container
