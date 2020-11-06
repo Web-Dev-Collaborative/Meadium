@@ -13,19 +13,30 @@ const storyNotFound = () => {
   return error;
 };
 
+const getDate = (createdAt) => {
+  let date = createdAt.getDate()
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  let monthName = monthNames[createdAt.getMonth()].split('').slice(0, 3).join('')
+  let monthString = `${monthName} ${date}`
+  return monthString
+}
+
 storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const storyId = parseInt(req.params.id, 10);
   const userId = req.session.auth.userId
   const avgRating = await returnAverageCheers(storyId)
   const story = await Story.findByPk(storyId, {
-    include: [{ model: User, attributes: ['firstName', 'lastName'] }, Comment]
+    include: [{ model: User, attributes: ['firstName', 'lastName', 'profilePic'] }, Comment]
   });
-  console.log(story.imgPath)
+  const created = getDate(story.createdAt)
   if (story) {
     res.render('story', {
       userId,
       story,
-      avgRating
+      avgRating,
+      created
     });
   } else {
     next(storyNotFound(storyId));
