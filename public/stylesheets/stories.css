@@ -152,8 +152,7 @@ i.fab.fa-facebook-square {
 
 
 
-.story.body.text.container,
-.story.body.text.container > p {
+.story.body.text.container {
     height: 800px;
-    margin-top: 50px;
+    margin-top: 20px;
 }
