@@ -1,0 +1,30 @@
+.footer.logo.container {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 7px;
+}
+
+.meadium {
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: 900;
+    
+}
+
+.goodness {
+    text-decoration: none;
+    font-size: 42px;
+    font-weight: 200;
+    margin-left: 10px;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-left: 3px solid black;
+    padding-left: 15px;
+}
+
+a.footer-content1 {
+    color: black;
+    text-decoration: none;
+}
