@@ -1,6 +1,5 @@
 const express = require('express');
 
-const { requireAuth } = require('../auth');
 const { Story, User, Comment, Pin, Cheer } = require('../db/models');
 const { asyncHandler, returnAverageCheers } = require('./utils');
 
@@ -14,13 +13,23 @@ const storyNotFound = () => {
   return error;
 };
 
+const getDate = (createdAt) => {
+  let date = createdAt.getDate()
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  let monthName = monthNames[createdAt.getMonth()].split('').slice(0, 3).join('')
+  let monthString = `${monthName} ${date}`
+  return monthString
+}
+
 storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const storyId = parseInt(req.params.id, 10);
   const avgRating = await returnAverageCheers(storyId)
   const story = await Story.findByPk(storyId, {
-    include: [{ model: User, attributes: ['firstName'] }, Comment]
+    include: [{ model: User, attributes: ['firstName', 'lastName', 'profilePic'] }, Comment]
   });
-
+  const created = getDate(story.createdAt)
   if (req.session.auth) {
     const userId = req.session.auth.userId
     if (story) {
@@ -28,6 +37,7 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
         userId,
         story,
         avgRating,
+        created
       });
     } else {
       next(storyNotFound(storyId));
@@ -36,7 +46,8 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     if (story) {
       res.render('story', {
         story,
-        avgRating
+        avgRating,
+        created
       });
     } else {
       next(storyNotFound(storyId));
@@ -80,13 +91,10 @@ storyRouter.get('/:id(\\d+)/comments', requireAuth, asyncHandler(async (req, res
 //   res.redirect(`/stories/${storyId}`);
 // }))
 
-
 storyRouter.get('/:id(\\d+)/avgRating', asyncHandler(async (req, res) => {
   const storyId = parseInt(req.params.id, 10);
   const avgRating = await returnAverageCheers(storyId)
-  console.log("GOT HERE")
   if (avgRating) {
-    console.log("AND GOT HERE")
     return res.json(avgRating)
   }
 }))
@@ -104,6 +112,5 @@ storyRouter.post('/:id(\\d+)/cheers', asyncHandler(async (req, res) => {
     res.sendStatus(200)
   }
 }))
-
 
 module.exports = storyRouter
