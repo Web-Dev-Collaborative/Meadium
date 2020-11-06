@@ -1,20 +1,34 @@
-// window.addEventListener("load", (event) => {
-//   const commentButton = document.getElementById('comment-button')
-//   try {
-//   commentButton.addEventListener('click', async (e) => {
-//     e.preventDefault()
-//     const ids = e.target.value.split('|')
-//     const [userId, storyId] = ids
+window.addEventListener("load", (event) => {
+  const commentButton = document.getElementById('comment-button')
+  const commentForm = document.getElementById('comment-field')
+  try {
+  commentButton.addEventListener('click', async (e) => {
+    e.preventDefault()
+    const ids = e.target.value.split('|')
+    let [userId, storyId] = ids
+    let formData = new FormData(commentForm)
+    let newComment = formData.get('comment')
 
-//     const res = await fetch(`http://localhost:8010/stories/${storyId}/comments`, {
-//       method: 'post',
-//       headers:
-//     })
+    await fetch(`http://localhost:8010/stories/${storyId}/comments`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({commenterId: userId, commentedOnId: storyId, comment: newComment})
+    })
 
-//     const resJson = await res.json()
-//     console.log(resJson)
-//   })
-//   } catch (e) {
-//     console.log(e)
-//   }
-// })
+    let commentsField = document.getElementById('comments-field')
+    let res = await fetch(`http://localhost:8010/stories/${storyId}/comments`)
+    let comments = await res.json();
+    commentsField.innerHTML = ''
+
+    for (let i = 0; i < comments.length; i++) {
+      let comment = comments[i]
+      let commentDiv = document.createElement('div')
+      commentDiv.setAttribute('class', 'story-comment')
+      commentDiv.innerHTML = comment.comment
+      commentsField.appendChild(commentDiv)
+    }
+  })
+  } catch (e) {
+    console.log(e)
+  }
+})
