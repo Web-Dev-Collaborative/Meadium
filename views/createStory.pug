@@ -1,0 +1,13 @@
+extends layout.pug
+
+append head
+    link(rel='stylesheet' href='/stylesheets/create.css')
+
+
+//- need a small logo in the top left corner
+//- need to add a "PUBLISH" button to the navbar
+block content
+    .main.write.article
+        form.write.article(action="/profile/create", method="post")
+            input.title.text(type="text" placeholder=' Title')
+            span.input.body.text(name="" data-placeholder="Tell your story... " contenteditable)

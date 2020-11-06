@@ -2,6 +2,7 @@ const express = require('express');
 
 const { Story, User, Comment, Pin, Cheer } = require('../db/models');
 const { asyncHandler, returnAverageCheers } = require('./utils');
+const { requireAuth } = require('../auth')
 
 const storyRouter = express.Router();
 
@@ -76,7 +77,7 @@ storyRouter.get('/:id(\\d+)/comments', requireAuth, asyncHandler(async (req, res
     commentedOnId: storyId,
     comment: req.body.comment
   })
-    res.json(comments)
+  res.json(comments)
 }))
 
 // storyRouter.post('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
