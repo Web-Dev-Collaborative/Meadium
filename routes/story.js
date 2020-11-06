@@ -2,6 +2,7 @@ const express = require('express');
 
 const { Story, User, Comment, Pin, Cheer } = require('../db/models');
 const { asyncHandler, returnAverageCheers } = require('./utils');
+const { requireAuth } = require('../auth');
 
 const storyRouter = express.Router();
 
