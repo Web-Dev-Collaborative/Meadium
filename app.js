@@ -19,7 +19,8 @@ const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
 const profileRouter = require('./routes/profile');
 const storyRouter = require('./routes/story');
-const apiRouter =  require('./routes/api/api');
+const apiRouter = require('./routes/api/api');
+const createStoryRouter = require('./routes/create')
 
 const app = express();
 
@@ -37,10 +38,10 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-  //   httpOnly: true,
+    //   httpOnly: true,
     // maxAge: 60000,
-  //   path: '/',
-  //   secure: true
+    //   path: '/',
+    //   secure: true
   }
 }));
 store.sync();
@@ -53,6 +54,7 @@ app.use('/profile', profileRouter);
 app.use('/Assets', express.static('Assets'))
 app.use('/stories', storyRouter);
 app.use('/api', apiRouter);
+app.use('/profile/stories', createStoryRouter)
 
 
 
