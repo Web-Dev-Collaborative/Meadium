@@ -1,7 +1,7 @@
-//- extends layout.pug
+extends layout.pug
 append head
   link(rel='stylesheet' href='/stylesheets/profile.css')
-
+block content
   div.navDiv
     nav.navBar
       div#usernameAndAbout
@@ -20,15 +20,28 @@ append head
           div.logoutDiv
             form(action='/profile/logout' method='post').logoutForm
               button(type='submit' id='logout') Logout
-    body.storyContainer
-    main
-      if stories
-        ul
-          each story in stories
-            li
-              h1= story.title
-              p= story.body
-      else
-        p Have something to share?
-          a(href='/stories') Write your first story
+  main
+    span#pinnedPanel
+      h3 Pinned Stories
+      div.pinnedContainer
+        p this is to test this out
+        if pinned
+          ul
+            each pin in pinned
+              li
+                //- finshed this off with pinned attributes.
+    span#stories
+      div.storyContainer
+        h1 Created Stories:
+        if stories.length
+          ul.stories
+            each story in stories
+              li.story
+                a(href=`/stories/${story.id}`).storyref
+                h1.title= story.title
+                p.body= story.body
+
+        else
+          p.elseStatment Have something to share?
+            a(href='/stories')  Write your first story.
   script(src='javascripts/profile.js')
