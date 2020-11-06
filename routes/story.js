@@ -16,22 +16,27 @@ const storyNotFound = () => {
 
 storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const storyId = parseInt(req.params.id, 10);
-  const userId = req.session.auth.userId
   const avgRating = await returnAverageCheers(storyId)
   const story = await Story.findByPk(storyId, {
     include: [{ model: User, attributes: ['firstName'] }, Comment]
   });
 
-  if (story) {
-    res.render('story', {
-      userId,
-      story,
-      avgRating
-    });
+  if (req.session.auth) {
+    const userId = req.session.auth.userId
+    if (story) {
+      res.render('story', {
+        userId,
+        story,
+        avgRating
+      });
+    } else {
+      next(storyNotFound(storyId));
+    }
   } else {
     if (story) {
       res.render('story', {
-        story
+        story,
+        avgRating
       });
     } else {
       next(storyNotFound(storyId));
