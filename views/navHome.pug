@@ -1,0 +1,28 @@
+nav.navBar
+    #logo
+      a(href='/')
+      #meadium Meadium
+      #goodness Goodness
+    div#usernameAndAbout
+      div#username
+        if locals.authenticated
+          h2.navh2= user.username
+          a.navA(href=`profile/${user.id}`) Profile
+        else
+          a.signup(href='/signup') Don't have a account?
+      div#aboutDiv
+        a#about(href='https://github.com/Sisysphus/Meadium/blob/main/README.md') About
+    div#rightNav
+      div#searchBar
+        //- img.navImg(src='/Assets/icons/search.png' alt='search button' id='search-btn')
+        //- input(type='text' name='searchedStory' placeholder=`Search ${user.username} stories` id='search')
+      if locals.authenticated
+        div#formBtns
+          div.navNewStoryDiv
+            form(action='/profile/stories' method='GET').navNewStoryForm
+              button(type='submit' id='navNewStory') New Story
+          div.logoutDiv
+            form(action='/profile/logout' method='post').navLogoutForm
+              button(type='submit' id='navLogout') Logout
+      else
+        a.login(href='/login') Login?
