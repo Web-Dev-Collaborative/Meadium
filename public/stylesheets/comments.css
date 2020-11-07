@@ -18,7 +18,7 @@
 .comment-info.container {
   grid-column-start: 1;
   grid-column-end: 2;
-  width: 100px
+  width: 200px
 }
 
 .comment-content.container {

@@ -8,6 +8,7 @@ window.addEventListener("load", (event) => {
     let [userId, storyId] = ids
     let formData = new FormData(commentForm)
     let newComment = formData.get('comment')
+    // formData.reset();
     const regex = /\w/g
 
     if (newComment.search(regex) === -1) return
@@ -24,7 +25,7 @@ window.addEventListener("load", (event) => {
       let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
       commentsField.innerHTML = ''
 
-      for (let i = comments.length - 1 ; i >= 0; i--) {
+      for (let i = 0; i < comments.length; i++) {
         let comment = comments[i]
 
         let profilePicContainer = document.createElement('div')
