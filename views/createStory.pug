@@ -2,6 +2,7 @@ extends layout.pug
 
 append head
     link(rel='stylesheet' href='/stylesheets/create.css')
+    script(src='/javascripts/createStory.js')
     include includes/createNav.pug
 
 //- need a small logo in the top left corner
@@ -9,7 +10,8 @@ append head
 block content
     //- include includes/createNav.pug
     .main.write.article
-        form.write.article(action="/profile/create" method="post" name="form" id='form')
+        form.write.article(action="/profile/stories/create" method="post" name="form" id='form')
             input.title.text(type="text" placeholder='Title' id='title' name='title')
             input.title.text.subheader(type="text" placeholder='Subtitle' id='subheader' name='subheader')
-            span.input.body.text(data-placeholder="Tell your story... " id='body' name='body' contenteditable)
+            span.input.body.text(data-placeholder="Tell your story... " id='text' name='text' contenteditable)
+            button(type="submit" name="button" for="form" id="button") Create
