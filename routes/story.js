@@ -78,7 +78,8 @@ storyRouter.get('/:id(\\d+)/comments', requireAuth, asyncHandler(async (req, res
     where: {
       commentedOnId: storyId
     },
-    include: User
+    include: User,
+    order: [['createdAt']]
   })
   res.json(comments)
 }))
