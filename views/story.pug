@@ -5,6 +5,7 @@ append head
     link(href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&display=swap" rel="stylesheet")
     link(rel='stylesheet' href='/stylesheets/cheers.css')
     link(rel='stylesheet' href='/stylesheets/stories.css')
+    link(rel='stylesheet' href='/stylesheets/comments.css')
     script(src='../javascripts/cheers.js')
     script(src='/javascripts/comments.js')
 block content
@@ -14,7 +15,7 @@ block content
         .story.subheader.container
             h3.subheader.text= story.subheader
         .story.rating.container
-            h4.rating#text Story Rating:  
+            h4.rating#text Story Rating:
             h4.rating#rating #{avgRating}
         .story.image.container
             img.story.image.content(src=`${story.imgPath}`)
@@ -24,12 +25,15 @@ block content
                     img.profile.picture(src=story.User.profilePic)
                 .profile.name-created.container
                     p.profile.name #{story.User.firstName} #{story.User.lastName}
-                    p.story.createdDate= created
+                    p.story.createdDate= createdStory
             .profile.socials.container
                 i.fab.fa-twitter
                 i.fab.fa-linkedin
                 i.fab.fa-facebook-square
         .story.body.text.container
+            p= story.body
+            p= story.body
+            p= story.body
             p= story.body
         .story.cheers.container
             form.rating#rating-container(action=`/stories/${story.id}/cheers` method="post")
@@ -38,14 +42,20 @@ block content
                 label(for="3" id=`3|${userId}|${story.id}`)
                 label(for="2" id=`2|${userId}|${story.id}`)
                 label(for="1" id=`1|${userId}|${story.id}`)
-        .story#comments-field
+        .story#comments-field.comments.container
             each comment in story.Comments
-                div.story-comment= comment.comment
-        .story#comments-container
+                .profilePic.container
+                    img.profile.picture(src=story.User.profilePic)
+                .comment-info.container
+                    p.story.comment.user= `${story.User.firstName} ${story.User.lastName}`
+                    p.story.comment.createdAt= `${comment.createdAt}`.slice(4, 10)
+                .comment-content.container
+                    .story-comment= `"${comment.comment}"`
+        .story.comments-form.container
             form#comment-field(action=`/stories/${story.id}` method='post')
                 label(for='comment') Add a comment
                 div
                     textarea(type='text' name='comment' required)
                 div
                     button(type='submit' id='comment-button' value=`${userId}|${story.id}`) Comment
-        .story.footer.container
+    include footer.pug
