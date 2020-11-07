@@ -33,7 +33,6 @@ block content
             each pin in pinned
               li.pinned
                 a(href=`/stories/${pin.pinnedStoryId}`)= pin.pinnedStoryId.titile
-                //- finshed this off with pinned attributes.
     span#stories
       div.storyContainer
         if stories.length
@@ -49,6 +48,5 @@ block content
         else
           p.elseStatment Have something to share?
             a(href='/stories')  Write your first story.
-  footer#footer
-    include footer.pug
+  include footer.pug
   script(src='/javascripts/profile.js')

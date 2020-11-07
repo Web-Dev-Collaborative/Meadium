@@ -40,7 +40,7 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
       res.render('story', {
         story,
         avgRating,
-        created
+        createdStory
       });
     } else {
       next(storyNotFound(storyId));

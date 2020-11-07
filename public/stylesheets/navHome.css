@@ -33,18 +33,22 @@
 }
 
 .navBar {
+    position: fixed;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-content: center;
-    height: 150px;
+    /* justify-content: space-between; */
+    /* align-content: center; */
+    height: 100px;
     border-bottom: thin lightgray solid;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
     box-shadow: 0 0 0 3px lightgray;
+    background-color: white;
+    z-index: 1;
 }
 #usernameAndAbout {
     display: flex;
     justify-content: center;
-    width: 20%;
+    width: 50%;
 }
 
 #rightNav {
@@ -92,7 +96,7 @@ a {
     text-decoration: none;
 }
 
-input {
+#search {
     font-family: 'Nanum Myeongjo', serif;
     width: 20px;
     height: 45px;
@@ -107,7 +111,7 @@ input {
     transition: width 1s ease;
 }
 
-#search-btn {
+.navImg {
     position: absolute;
     cursor: pointer;
     border-radius: 10%;
@@ -123,7 +127,7 @@ input {
     outline: none;
 }
 
-#logout{
+#navLogout{
     border: none;
     color: lightgray;
     margin-left: 20px;
@@ -131,7 +135,7 @@ input {
     cursor: pointer;
 }
 
-#newStory {
+#navNewStory {
     background-color: rgb(39, 137, 23);
     color: white;
     padding: 7px 10px;
@@ -149,123 +153,34 @@ input:focus {
     color: black;
 }
 
-h2 {
+.navh2 {
     font-size: 27px;
 }
 
-/* Under is CSS for Body and Pinned */
-/*/////////////////////////////////////////////////*/
-
-main {
-    display: flex;
-    gap: 30px;
-    height: 100%;
-}
-
-#pinnedPanel {
-    box-shadow: 5px 0 5px 0 black;
-    padding: 20px 20px 20px 30px;
-    width: 250px;
-}
-
-.pinnedContainer {
-    border-right: thin black solid;
-    padding: 20px 30px 20px 20px;
-}
-
-h3 {
-    padding: 20px;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-    font-size: 20px;
-    border-bottom: thin lightgray solid;
-}
-
-.storyContatiner {
-    display: flex;
-    border: thin gray solid;
-}
-
-h1 {
-    font-size: 50px;
-}
-
-#stories {
-    display: flex;
-    width: 80%;
-    justify-content: center;
-    padding: 50px;
-    margin-left: 50px;
-}
-
-.stories {
-    display: flex;
-    flex-direction: column;
-    padding: 35px;
-    margin-left: 150px;
-}
-
-#stories p {
-    color: gray;
-}
-
-#stories a {
-    color: gray;
-}
-
-.elseStatment {
-    padding-top: 30px;
-    height: 700px;
-}
-
-li {
-    list-style-type: none;
-    margin: 25px;
-}
-
-h1.title {
-    font-size: 45px;
-    padding-bottom: 25px;
+.signup {
+    margin-right: 60px;
+    margin-top: 2px;
+    font-size: 17px;
     text-decoration: underline;
 }
 
-.story {
-    padding: 50px;
-    width: 80%;
-    height: 355px;
-    overflow: hidden;
-    border-radius: 2%;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    box-shadow: 3px 2px 2px 0px lightgray;
+.signup:hover {
+    color: red;
 }
 
-.story:hover {
-    border-radius: 2%;
-    border-bottom-left-radius: 0%;
-    box-shadow: 17px 10px 17px 10px rgb(231, 229, 229);
+.login {
+   align-self: center;
+    padding: 10px;
+    color: red;
+    border-radius: 10px;
+    box-shadow: 2px 2px 9px 2px lightgray;
 }
 
-.story a {
-    position: absolute;
-    width: 800px;
-    height: 300px;
-    padding-bottom: 2%;
+.login:hover {
+    box-shadow: 1px 1px 1px 1px black;
 }
 
-.body {
-    font-family: 'Nanum Myeongjo', serif;
-    padding-bottom: 3%;
-}
-
-.storyItems img {
-    position: absolute;
-    left: 350px;
-    height: 200px;
-    width: 200px;
-}
-
-#footer {
-    display: flex;
-    align-self: flex-end;
+.navA {
+    padding: 20px;
+    margin-top: 7px;
 }
