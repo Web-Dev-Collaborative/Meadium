@@ -15,7 +15,7 @@ block content
           a#about(href=`/profile/about/${user.id}`) About
       div#rightNav
         div#searchBar
-          img(src=('/Assets/imgPath/search.png') alt='search button' id='search-btn')
+          img(src='/Assets/icons/search.png' alt='search button' id='search-btn')
           input(type='text' name='searchedStory' placeholder=`Search ${user.username} stories` id='search')
         div#formBtns
           div.newStoryDiv
@@ -46,8 +46,9 @@ block content
                   img(src=`${story.imgPath}`)
                   h1.title= story.title
                   p.body= story.body
-
         else
           p.elseStatment Have something to share?
             a(href='/stories')  Write your first story.
+  footer#footer
+    include footer.pug
   script(src='/javascripts/profile.js')
