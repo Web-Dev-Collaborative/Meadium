@@ -18,7 +18,10 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const storyId = parseInt(req.params.id, 10);
   const avgRating = await returnAverageCheers(storyId)
   const story = await Story.findByPk(storyId, {
-    include: [{ model: User, attributes: ['firstName', 'lastName', 'profilePic'] }, Comment]
+    include: [{
+      model: User,
+      attributes: ['firstName', 'lastName', 'profilePic']
+    }, Comment]
   });
   const createdStory = getDate(story.createdAt)
   // const createdComment = getDate(story.Comments[0].createdAt)
@@ -50,7 +53,11 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
 
 storyRouter.post('/:id(\\d+)/comments', requireAuth, asyncHandler(async (req, res) => {
 
-  let { commenterId, commentedOnId, comment } = req.body
+  let {
+    commenterId,
+    commentedOnId,
+    comment
+  } = req.body
 
   Comment.create({
     commenterId: commenterId,
@@ -95,15 +102,33 @@ storyRouter.get('/:id(\\d+)/avgRating', asyncHandler(async (req, res) => {
 }))
 
 storyRouter.post('/:id(\\d+)/cheers', asyncHandler(async (req, res) => {
-  let { rating, userId, storyId } = req.body
+  let {
+    rating,
+    userId,
+    storyId
+  } = req.body
   console.log(req.body)
-  if (userId && await Cheer.findOne({ where: { userId, storyId } })) {
-    let cheer = await Cheer.findOne({ where: { userId, storyId } })
+  if (userId && await Cheer.findOne({
+      where: {
+        userId,
+        storyId
+      }
+    })) {
+    let cheer = await Cheer.findOne({
+      where: {
+        userId,
+        storyId
+      }
+    })
     cheer.rating = rating
     cheer.save()
     res.sendStatus(200)
   } else {
-    Cheer.create({ userId, storyId, rating })
+    Cheer.create({
+      userId,
+      storyId,
+      rating
+    })
     res.sendStatus(200)
   }
 }))

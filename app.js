@@ -7,20 +7,28 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')
   (session.Store);
 
-const { sequelize } = require('./db/models');
+const {
+  sequelize
+} = require('./db/models');
 const store = new SequelizeStore({
   db: sequelize,
 });
 
-const { restoreUser } = require('./auth');
-const { sessionSecret } = require('./config');
+const {
+  restoreUser
+} = require('./auth');
+const {
+  sessionSecret
+} = require('./config');
 const indexRouter = require('./routes/index');
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
 const profileRouter = require('./routes/profile');
 const storyRouter = require('./routes/story');
 const apiRouter = require('./routes/api/api');
+const homeRouter = require('./routes/home')
 const createStoryRouter = require('./routes/create')
+
 
 const app = express();
 
@@ -29,7 +37,9 @@ app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(cookieParser(sessionSecret));
 app.use(session({
   store: store,
@@ -54,7 +64,9 @@ app.use('/profile', profileRouter);
 app.use('/Assets', express.static('Assets'))
 app.use('/stories', storyRouter);
 app.use('/api', apiRouter);
+app.use('/home', homeRouter);
 app.use('/profile/stories', createStoryRouter)
+
 
 
 
