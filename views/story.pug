@@ -8,7 +8,9 @@ append head
     link(rel='stylesheet' href='/stylesheets/comments.css')
     script(src='../javascripts/cheers.js')
     script(src='/javascripts/comments.js')
+
 block content
+    include includes/nav.pug
     .story.container
         .story.title.container
             h1.title.text= story.title

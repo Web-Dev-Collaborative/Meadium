@@ -1,8 +1,8 @@
 extends layout.pug
 append head
   link(rel='stylesheet' href='/stylesheets/about.css')
-include includes/nav.pug
 block content
+  include includes/nav.pug
   main.profileContainer
     if user.profilePic
       img.proPic(src=`${user.profilePic}`, alt="User Profile Pic")
