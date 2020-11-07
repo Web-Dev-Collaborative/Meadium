@@ -68,3 +68,21 @@ input::placeholder {
     color: lightgray;
     font-family: serif;
 }
+
+button#button {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: auto;
+    position: relative;
+    top: 100px;
+    bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #292929;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 18px;
+    margin-top: 40px;
+    font-weight: 200;
+}
