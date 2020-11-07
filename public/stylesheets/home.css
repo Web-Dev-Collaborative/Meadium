@@ -1,0 +1,184 @@
+.right-rec-c {
+    position: relative;
+    width: 231px;
+    height: 140px;
+    left: 760px;
+    top: 207px;
+
+}
+
+.left-rec-c {
+    position: relative;
+    width: 231px;
+    height: 140px;
+    left: 725px;
+    top: 207px;
+}
+
+.wine-content-c {
+    padding-top: 5px;
+    width: 692px;
+    height: 468px;
+}
+
+
+.wine-content {
+    display: flex;
+}
+
+.top-ten {
+    align-self: flex-start;
+    justify-self: flex-end;
+    margin-left: 10%;
+
+    position: relative;
+
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    /* identical to box height, or 125% */
+
+
+    color: #000000;
+}
+
+.top-ten-subinfo {
+    position: relative;
+    padding-top: 30px;
+}
+
+
+.top-ten {
+    top: 475px;
+    right: 30px;
+}
+
+.top-ten-subinfo {
+    top: 425px;
+    left: 240px;
+}
+
+.sphere-c {
+   border-left: 2px solid black;
+   height: 200px;
+}
+
+.button {
+    font-size: 30px;
+     background-color: orange;
+     position: relative;
+     left: 800px;
+     top: 430px;
+     border-radius: 20%;
+}
+
+.dot {
+     display: inline-block;
+     width: 25px;
+     height: 25px;
+     border-radius: 50%;
+     border-style: solid;
+     border-width: 2px;
+     border-color: black;
+     background-color: rgba(0, 0, 0, 0);
+     position: relative;
+     left: 750px;
+     bottom: 80px;
+     pointer-events:none;
+     }
+
+.dot2 {
+
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border-style: solid;
+      border-width: 2px;
+      border-color: black;
+      background-color: rgba(0, 0, 0, 0);
+      position: relative;
+      left: 725px;
+      top: 100px;
+      pointer-events:none;
+}
+
+.dot3 {
+     display: inline-block;
+     width: 25px;
+     height: 25px;
+     border-radius: 50%;
+     border-style: solid;
+     border-width: 2px;
+     border-color: black;
+     background-color: rgba(0, 0, 0, 0);
+     position: relative;
+     left: 700px;
+     top: 260px;
+     pointer-events:none;
+}
+
+.liner {
+    margin-top: 150px;
+}
+
+.circle1 {
+
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    background-image: ;
+    background-color: rgba(0, 0, 0, 0);
+    position: relative;
+    left: 750px;
+    bottom: 80px;
+    pointer-events:none;
+}
+
+.second-half {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+.melomelcontent {
+    padding-left: 20px;
+
+}
+
+.h4cysertext,
+.h4braggottext,
+.h4melomeltext, 
+.h4acerglintext {
+    padding-left: 20px;
+    text-align: center;
+}
+.h1mead {
+    display: block;
+    text-align: center;
+}
+.img1 {
+    width: 300px;
+    height: 300px;
+}
+
+.img2 {
+    width: 300px;
+    height: 300px;
+    }
+
+.img3 {
+    width: 300px;
+    height: 300px;
+}
+
+.img4 {
+    width: 300px;
+    height: 300px;
+    }

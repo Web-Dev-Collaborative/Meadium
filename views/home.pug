@@ -1,0 +1,33 @@
+extends layout
+append head
+   link(rel="stylesheet" href="/stylesheets/home.css")
+
+
+block content
+    include includes/nav.pug
+    .body-structure-container
+        .wine-content-c
+            img(class="wine-content-c" src="/pictures/Rectangle 2.png" alt="Mead-Glass")
+            h3(class="top-ten") Top ten meads to try before you die
+            h4(class="top-ten-subinfo") new Data | minutes read
+            span(class="dot")
+            span(class="dot2")
+            span(class="dot3")
+            button(class="button") Create Mead
+        .line
+            hr(class="liner")
+        .h1text
+            h1(class="h1mead") Latest From:
+        .second-half
+            .melomelcontent
+                h4.h4melomeltext Melomel
+                img(class="img1" src="/pictures/Ellipse 6 (1).png" alt="Melomel")
+            .braggotcontent
+                h4.h4braggottext Braggot
+                img(class="img2" src="/pictures/Ellipse 7 (1).png" alt="Braggot")
+            .acerglincontent
+                h4.h4acerglintext Acerglin
+                img(class="img3" src="/pictures/Ellipse 8 (1).png" alt="Acerglin")
+            .cysercontent
+                h4.h4cysertext Cyser
+                img(class="img4" src="/pictures/Ellipse 9 (1).png" alt="Cyser")
