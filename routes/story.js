@@ -1,7 +1,7 @@
 const express = require('express');
 
 const { Story, User, Comment, Pin, Cheer } = require('../db/models');
-const { asyncHandler, returnAverageCheers } = require('./utils');
+const { asyncHandler, returnAverageCheers, getDate } = require('./utils');
 const { requireAuth } = require('../auth')
 
 const storyRouter = express.Router();
@@ -13,16 +13,6 @@ const storyNotFound = () => {
 
   return error;
 };
-
-const getDate = (createdAt) => {
-  let date = createdAt.getDate()
-  const monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ];
-  let monthName = monthNames[createdAt.getMonth()].split('').slice(0, 3).join('')
-  let monthString = `${monthName} ${date}`
-  return monthString
-}
 
 storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const storyId = parseInt(req.params.id, 10);
