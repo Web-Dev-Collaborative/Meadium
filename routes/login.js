@@ -1,10 +1,19 @@
 const express = require('express');
 const loginRouter = express.Router();
 const bcrypt = require('bcryptjs');
-const { asyncHandler, handleValidationErrors, loginUserValidations, csrfProtection } = require('./utils.js')
-const { loginUser } = require('../auth')
+const {
+    asyncHandler,
+    handleValidationErrors,
+    loginUserValidations,
+    csrfProtection
+} = require('./utils.js')
+const {
+    loginUser
+} = require('../auth')
 
-const { User } = require('../db/models')
+const {
+    User
+} = require('../db/models')
 
 loginRouter.get('/', csrfProtection, (req, res) => {
     res.render('login', {
@@ -13,13 +22,24 @@ loginRouter.get('/', csrfProtection, (req, res) => {
 });
 
 loginRouter.post('/', csrfProtection, loginUserValidations, handleValidationErrors, asyncHandler(async (req, res) => {
-    const { usernameOrEmail, password } = req.body
+    const {
+        usernameOrEmail,
+        password
+    } = req.body
     let user;
 
     if (usernameOrEmail.includes("@")) {
-        user = await User.findOne({ where: { email: usernameOrEmail } });
+        user = await User.findOne({
+            where: {
+                email: usernameOrEmail
+            }
+        });
     } else {
-        user = await User.findOne({ where: { username: usernameOrEmail } });
+        user = await User.findOne({
+            where: {
+                username: usernameOrEmail
+            }
+        });
     }
 
     if (user !== null) {
@@ -27,7 +47,7 @@ loginRouter.post('/', csrfProtection, loginUserValidations, handleValidationErro
 
         if (matchingPassword) {
             loginUser(req, res, user);
-            res.redirect('/');
+            res.redirect('/home');
         } else {
             const errors = new Error();
             // errors.title = "Login Failed";

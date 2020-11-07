@@ -3,16 +3,18 @@ extends layout
 append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/index.css")
+  link(rel="stylesheet" href="/stylesheets/navHome.css")
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  include includes/nav.pug
+  include navHome.pug
   .second-container
     .action-container
       h1(class="action-container-h1") You've come to the right place aye
       h3(class="action-container-h3") Read and and share about all your favorite Meads.
-      button(class="get-started-button") Get Started
+      form(action="/signup" method="GET")
+        button(class="get-started-button") Get Started
     .picture-container
       img(class="red-swoosh" src="/pictures/Vector 1 (1).svg" alt="swoosh")
       img(class="meadbox" src="/pictures/Group 2.png" alt="meads")
