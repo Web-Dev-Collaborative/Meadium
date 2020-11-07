@@ -1,3 +1,10 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+}
+
 #logo {
     display: flex;
     width: 200px;
@@ -31,7 +38,8 @@
     align-content: center;
     height: 150px;
     border-bottom: thin lightgray solid;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
+    box-shadow: 0 0 0 3px lightgray;
 }
 #usernameAndAbout {
     display: flex;
@@ -84,7 +92,7 @@ a {
     text-decoration: none;
 }
 
-input {
+#search {
     font-family: 'Nanum Myeongjo', serif;
     width: 20px;
     height: 45px;
@@ -99,7 +107,7 @@ input {
     transition: width 1s ease;
 }
 
-img {
+.navImg {
     position: absolute;
     cursor: pointer;
     border-radius: 10%;
@@ -115,7 +123,7 @@ img {
     outline: none;
 }
 
-#logout{
+#navLogout{
     border: none;
     color: lightgray;
     margin-left: 20px;
@@ -123,7 +131,7 @@ img {
     cursor: pointer;
 }
 
-#newStory {
+#navNewStory {
     background-color: rgb(39, 137, 23);
     color: white;
     padding: 7px 10px;
@@ -141,6 +149,6 @@ input:focus {
     color: black;
 }
 
-h2 {
+.navh2 {
     font-size: 27px;
 }

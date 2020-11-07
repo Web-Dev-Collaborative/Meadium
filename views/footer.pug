@@ -1,0 +1,31 @@
+extends layout.pug
+
+append head
+    link(rel='stylesheet' href='/stylesheets/footer.css')
+
+block content
+    .footer.bottom.stick
+        .footer.block.container
+            .footer.info.container
+                .footer.one.container
+                    h3.footer.one.title Learn More.
+                    p.footer.one.text Meadium is an open platform where 3 readers come to find pedantics & silly articles, mostly about booze. Here both complete novices and uncultured dumbdumbs dive into the heart of topics you won't care about.
+                .footer.two.container
+                    h3.footer.two.title Make Meadium Yours.
+                    p.footer.two.text Maybe you shouldn't follow anyone or anything you find here. It's not likely to be well written or informative, but if you must, pin articles you don't hate and you'll see them on your homepage.
+                .footer.three.container
+                    h3.footer.three.title Share your thinking.
+                    p.footer.three.text If you have a story to tell, and this seems like your speed, come on in! Write some stuff. We at Meadium can assure you, no one is likely to read it.
+            hr.footer.line
+            .footer.logo.links.container
+                span.meadium Meadium
+                    a.footer-content1(href="/") 
+                span.pipe | 
+                    a.footer-content1(href="/") 
+                span.goodness Goodness
+                    a.footer-content1(href="/") 
+                //- .footer.logo.container
+                //- .footer.links.container
+                //-     a.about.link(href="/")
+                //-     a.help.link(href="/")
+                //-     a.legal.link(href="/")

@@ -82,9 +82,19 @@ const returnAverageCheers = async (storyId) => {
     });
     const ratings = rows.map((cheer) => cheer.rating)
     let avgRating = Math.round((ratings.reduce((acc, val) => { return acc + val }, 0) / count) * 10) / 10
-    return avgRating
+    if (avgRating) return avgRating
+    else return "This doesn't have any ratings... yet"
 }
 
+const getDate = (createdAt) => {
+    let date = createdAt.getDate()
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    let monthName = monthNames[createdAt.getMonth()].split('').slice(0, 3).join('')
+    let monthString = `${monthName} ${date}`
+    return monthString
+}
 
 module.exports = {
     csrfProtection,
@@ -93,4 +103,5 @@ module.exports = {
     userValidations,
     loginUserValidations,
     returnAverageCheers,
+    getDate,
 }

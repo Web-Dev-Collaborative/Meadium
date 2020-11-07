@@ -12,14 +12,14 @@ block content
         div#username
           h2= user.username
         div#aboutDiv
-          a#about(href='/about') About
+          a#about(href=`/profile/about/${user.id}`) About
       div#rightNav
         div#searchBar
-          img(src=('Assets/imgPath/search.png') alt='search button' id='search-btn')
+          img(src='/Assets/icons/search.png' alt='search button' id='search-btn')
           input(type='text' name='searchedStory' placeholder=`Search ${user.username} stories` id='search')
         div#formBtns
           div.newStoryDiv
-            form(action='/stories' method='post').newStoryForm
+            form(action='/profile/stories/' method='GET').newStoryForm
               button(type='submit' id='newStory') New Story
           div.logoutDiv
             form(action='/profile/logout' method='post').logoutForm
@@ -28,11 +28,11 @@ block content
     span#pinnedPanel
       h3 Pinned Stories
       div.pinnedContainer
-        p this is to test this out
         if pinned
-          ul
+          ul.pins
             each pin in pinned
-              li
+              li.pinned
+                a(href=`/stories/${pin.pinnedStoryId}`)= pin.pinnedStoryId.titile
                 //- finshed this off with pinned attributes.
     span#stories
       div.storyContainer
@@ -46,8 +46,9 @@ block content
                   img(src=`${story.imgPath}`)
                   h1.title= story.title
                   p.body= story.body
-
         else
           p.elseStatment Have something to share?
             a(href='/stories')  Write your first story.
-  script(src='javascripts/profile.js')
+  footer#footer
+    include footer.pug
+  script(src='/javascripts/profile.js')

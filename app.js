@@ -27,6 +27,8 @@ const profileRouter = require('./routes/profile');
 const storyRouter = require('./routes/story');
 const apiRouter = require('./routes/api/api');
 const homeRouter = require('./routes/home')
+const createStoryRouter = require('./routes/create')
+
 
 const app = express();
 
@@ -63,6 +65,8 @@ app.use('/Assets', express.static('Assets'))
 app.use('/stories', storyRouter);
 app.use('/api', apiRouter);
 app.use('/home', homeRouter);
+app.use('/profile/stories', createStoryRouter)
+
 
 
 

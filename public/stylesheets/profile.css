@@ -39,13 +39,12 @@
     height: 150px;
     border-bottom: thin lightgray solid;
     margin-bottom: 20px;
-    /* background-color: aqua; */
+    box-shadow: 0 0 0 3px lightgray;
 }
 #usernameAndAbout {
     display: flex;
     justify-content: center;
     width: 20%;
-    /* background-color: beige; */
 }
 
 #rightNav {
@@ -172,7 +171,6 @@ main {
 .pinnedContainer {
     border-right: thin black solid;
     padding: 20px 30px 20px 20px;
-    /* background-color: teal; */
 }
 
 h3 {
@@ -264,4 +262,9 @@ h1.title {
     left: 350px;
     height: 200px;
     width: 200px;
+}
+
+#footer {
+    display: flex;
+    align-self: flex-end;
 }

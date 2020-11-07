@@ -1,0 +1,14 @@
+extends layout.pug
+append head
+  link(rel='stylesheet' href='/stylesheets/about.css')
+block content
+  include includes/nav.pug
+  main.profileContainer
+    if user.profilePic
+      img.proPic(src=`${user.profilePic}`, alt="User Profile Pic")
+    else
+      img.proPic(src="/Assets/icons/profiledefault.png", alt="Default Pic")
+      //- p test image
+    .info
+      a(href=`/profile/${user.id}`).username= user.username
+      h2.name= `Name: ${user.firstName} ${user.lastName}`
