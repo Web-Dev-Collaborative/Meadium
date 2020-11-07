@@ -15,7 +15,7 @@ block content
     li(class="active" href="#Contact") Contact
     if locals.authenticated
       span Welcome #{user.username}
-      a(href='/profile') Profile
+      a(href=`/profile/${user.id}`) Profile
     else
       a(class="active" href="/login") Login
   div.Container

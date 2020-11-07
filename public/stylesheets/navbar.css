@@ -1,3 +1,10 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+}
+
 #logo {
     display: flex;
     width: 200px;
@@ -31,7 +38,7 @@
     align-content: center;
     height: 150px;
     border-bottom: thin lightgray solid;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
 }
 #usernameAndAbout {
     display: flex;
@@ -84,7 +91,7 @@ a {
     text-decoration: none;
 }
 
-input {
+#search {
     font-family: 'Nanum Myeongjo', serif;
     width: 20px;
     height: 45px;
