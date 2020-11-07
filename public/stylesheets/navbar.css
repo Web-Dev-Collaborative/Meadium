@@ -107,7 +107,7 @@ a {
     transition: width 1s ease;
 }
 
-img {
+.navImg {
     position: absolute;
     cursor: pointer;
     border-radius: 10%;
@@ -123,7 +123,7 @@ img {
     outline: none;
 }
 
-#logout{
+#navLogout{
     border: none;
     color: lightgray;
     margin-left: 20px;
@@ -131,7 +131,7 @@ img {
     cursor: pointer;
 }
 
-#newStory {
+#navNewStory {
     background-color: rgb(39, 137, 23);
     color: white;
     padding: 7px 10px;
@@ -149,6 +149,6 @@ input:focus {
     color: black;
 }
 
-h2 {
+.navh2 {
     font-size: 27px;
 }

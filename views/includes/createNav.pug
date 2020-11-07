@@ -8,7 +8,7 @@ div.navDiv
       #goodness Goodness
     div#usernameAndAbout
       div#username
-        h2= user.username
+        h2.navh2= user.username
       div#aboutDiv
         //- a#about(href='/about') About
     div#rightNav
@@ -16,9 +16,9 @@ div.navDiv
         //- img(src=('/Assets/icons/search.png') alt='search button' id='search-btn')
         //- input(type='text' name='searchedStory' placeholder=`Search ${user.username} stories` id='search')
       div#formBtns
-        div.newStoryDiv
+        div.navNewStoryDiv
         //-   form(action='/stories' method='post').newStoryForm
         //-     button(type='submit' id='newStory') New Story
         div.logoutDiv
           form(action='/profile/logout' method='post').logoutForm
-            button(type='submit' id='logout') Logout
+            button(type='submit' id='navLogout') Logout
