@@ -1,5 +1,5 @@
-# Meadium
-*By Nick Mathews, Ivan Gentille, Philip Ling, Adam Faidy*
+# [Meadium](https://meadium-app.herokuapp.com/)
+*By Nick Matthews, Ivan Gentille, Philip Ling, Adam Faidy*
 
 **Table of Contents**
 - [Meadium](#meadium)
@@ -20,7 +20,7 @@ Meadium is an online publishing platform modeled on Medium.com, where users can 
 
 Meadium was built through a backend server, with a frontend that communicates via RESTful APIs.
 
-The backend server was created using the Express NodeJS framework. We used a PostgreSQL database to store all user and story data and [Sequelize ORM](https://sequelize.org/). Additionally we imported various middlewares, such as [csurf](https://www.npmjs.com/package/csurf) and [express-session](https://www.npmjs.com/package/express-session), in order to maintain security and active user sessions.
+The backend server was created using the Express NodeJS framework. We used a PostgreSQL database to store all user and story data and [Sequelize ORM](https://sequelize.org/) to create relationships between them. Additionally we imported various middlewares, such as [csurf](https://www.npmjs.com/package/csurf) and [express-session](https://www.npmjs.com/package/express-session), in order to maintain security and active user sessions.
 
 The frontend was rendered using the [PUG](https://pugjs.org/api/getting-started.html) templating engine. We used vanilla Javascript and standard CSS for interactivity and styling, respectively.
 
@@ -58,21 +58,6 @@ if (e.target.id.includes('|')) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     })
-    const res = await fetch(`http://localhost:8010/stories/${storyId}/avgRating`)
-      let avgRating = await res.json()
-      let ratingEle = document.getElementById("rating")
-      ratingEle.innerHTML = avgRating
-      let i = e.target.id[0]
-      for (let index = 5; index > 0; index--) {
-        let ele = document.getElementById(`${index}|${userId}|${storyId}`)
-        ele.classList.remove("checked")
-      }
-      for (let index = i; index > 0; index--) {
-        let ele = document.getElementById(`${index}|${userId}|${storyId}`)
-        ele.classList.add("checked")
-      }
-    }
-    e.preventDefault()
 ```
 ## Backend Overview
 
@@ -104,6 +89,7 @@ This was our very first group full-stack application and it was a challenging, y
 * Pin feature to save stories
 * Follow authors feature
 * Refine search feature
+* Refine comment feature
 * Thoroughly test to handle all errors that may occur
 
 

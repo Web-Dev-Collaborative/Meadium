@@ -84,6 +84,7 @@ button.comments-form {
 textarea.comments-form {
   font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
+  resize: none;
 }
 
 /* .story.comment.user {
