@@ -163,7 +163,7 @@ main {
 }
 
 #pinnedPanel {
-    box-shadow: 5px 0 5px 0 black;
+    box-shadow: 5px 0 5px 0 slategray;
     padding: 20px 20px 20px 30px;
     width: 250px;
 }

@@ -86,3 +86,28 @@ button#button {
     margin-top: 40px;
     font-weight: 200;
 }
+
+.errors {
+    padding-top: 150px;
+    padding-bottom: 50px;
+    color: red;
+    list-style: none;
+    font-size: 22px;
+    display: flex;
+    align-content: center;
+    justify-self: center;
+    flex-direction: column;
+    margin: auto;
+}
+
+.errors.ul {
+    margin-right: 49px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.errors.li {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+}

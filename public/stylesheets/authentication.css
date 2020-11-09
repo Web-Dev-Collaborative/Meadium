@@ -60,7 +60,8 @@
     color: #383838;
     font-weight: 400;
 }
-.auth.input.background, .auth.input.background::placeholder {
+.auth.input.background, 
+.auth.input.background::placeholder {
     background-color: transparent;
     text-align: center;
     width: 230px;

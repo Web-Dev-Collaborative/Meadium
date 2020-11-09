@@ -1,7 +1,7 @@
 const express = require('express');
 
 const { Story, User } = require('../db/models');
-const { asyncHandler, getDate } = require('./utils');
+const { asyncHandler, getDate, storyValidations, csrfProtection, handleValidationErrors } = require('./utils');
 const { requireAuth } = require('../auth')
 
 const createStoryRouter = express.Router();
@@ -14,16 +14,19 @@ const storyCreateFail = () => {
     return error;
 };
 
-createStoryRouter.get('/', asyncHandler(async (req, res) => {
-    res.render('createStory')
+createStoryRouter.get('/', requireAuth, csrfProtection, asyncHandler(async (req, res) => {
+    res.render('createStory', {
+        csrfToken: req.csrfToken()
+    })
 }))
 
-createStoryRouter.post("/create", asyncHandler(async (req, res, next) => {
+createStoryRouter.post("/create", storyValidations, handleValidationErrors, asyncHandler(async (req, res, next) => {
     const authorId = res.locals.user.id
     const { title, subheader, body } = req.body
     const imgPath = "/Assets/imgPath/willy.jpg"
+    let story
     if (body) {
-        let story = await Story.create({ body, authorId, title, subheader, imgPath })
+        story = await Story.create({ body, authorId, title, subheader, imgPath })
         let created = getDate(story.createdAt)
         res.json({
             userId: authorId,
@@ -31,17 +34,10 @@ createStoryRouter.post("/create", asyncHandler(async (req, res, next) => {
             story,
             created
         })
+    } else {
+        const errors = res.errors
+        res.json(res.errors)
     }
-    // if (story) {
-    //     res.render("story", {
-    //         userId: authorId,
-    //         authorId,
-    //         story,
-    //         created
-    //     })
-    // } else {
-    //     next(storyCreateFail(story.id))
-    // }
 }))
 
 module.exports = createStoryRouter

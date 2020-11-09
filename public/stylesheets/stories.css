@@ -29,7 +29,7 @@
     align-items: center;
     line-height: 30px;
     margin-left: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
 
 h4.rating#rating {
@@ -43,7 +43,6 @@ h4.rating#text {
     font-size: 16px;
     color: rgb(117, 117, 117);
     padding-right: 3px;
-    margin-top: 25px;
     margin-left: 0px;
 }
 h4.rating#rating {
