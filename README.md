@@ -1,5 +1,5 @@
 # Meadium
-*By Nick Mathews, Ivan Gentille, Philip Ling, Adam Faidy*
+*By Nick Matthews, Ivan Gentille, Philip Ling, Adam Faidy*
 
 **Table of Contents**
 - [Meadium](#meadium)
