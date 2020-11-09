@@ -1,42 +1,52 @@
-.right-rec-c {
-    position: relative;
-    width: 231px;
-    height: 140px;
-    left: 760px;
-    top: 207px;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Source+Sans+Pro:wght@200;300;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400&display=swap");
 
+p.body {
+    font-family: Source-Sans-Pro;
+    font-size: 20px;
+    color: black;
 }
 
-.left-rec-c {
-    position: relative;
-    width: 231px;
-    height: 140px;
-    left: 725px;
-    top: 207px;
+a.title {
+    /* font-family: Source-Sans-Pro; */
+    font-family: 'IM Fell French Canon SC',Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 35px;
+    color: black;
+    margin-bottom: 10px;
 }
 
+h1.story.title {
+    text-align: center;
+    font-family: 'IM Fell French Canon SC',Georgia, Cambria, "Times New Roman", Times, serif;
+    /* font-family: Source-Sans-Pro; */
+    font-size: 35px;
+}
 .wine-content-c {
-    padding-top: 5px;
-    width: 692px;
-    height: 468px;
+    width: 700px;
+    height: 700px;
 }
-
 
 .wine-content {
     display: flex;
 }
+.wrapper {
+    display: flex;
+}
+.top-twenty {
+    margin-top: 10px;
+    font-family: Poppins;
+    font-size: 30px;
 
+    font-style: italic;
+    font-weight: 200;
+    text-align: center;
+}
 .top-ten {
-    align-self: flex-start;
-    justify-self: flex-end;
-    margin-left: 10%;
-
-    position: relative;
-
-
-    font-family: Roboto;
+    margin-top: 20px;
+    text-align: center;
+    font-family: Source-Sans-Pro;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 40px;
     line-height: 50px;
     /* identical to box height, or 125% */
@@ -122,7 +132,8 @@
 }
 
 .liner {
-    margin-top: 150px;
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 .circle1 {
@@ -155,30 +166,109 @@
 .h4braggottext,
 .h4melomeltext, 
 .h4acerglintext {
-    padding-left: 20px;
+    font-family: Source-Sans-Pro;
     text-align: center;
+    font-weight: 200;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 .h1mead {
     display: block;
     text-align: center;
+    margin-top: 40px;
+    font-size: 50px;
+    margin-bottom: 40px;
 }
-.img1 {
+img.img1 {
     width: 300px;
     height: 300px;
 }
 
-.img2 {
+img.img2 {
+    width: 300px;
+    height: 300px;
+}
+
+img.img3 {
+    width: 300px;
+    height: 300px;
+}
+
+img.img4 {
     width: 300px;
     height: 300px;
     }
-
-.img3 {
-    width: 300px;
-    height: 300px;
+.rightblock {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 10%;
 }
 
-.img4 {
-    width: 300px;
-    height: 300px;
-    }
+.storyContainer {
+    display: flex;
+    padding: 10px;
+    /* border: thin gray solid; */
+    flex-direction: column;
+    width: 50vw;
+    align-content: center;
+    justify-self: center;
+    align-self: center;
+    margin-left:10%;
+    
+    
+}
 
+li.story,
+li.story:hover {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+li.story:hover {
+    border-bottom-left-radius: 0%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.stories {
+    list-style: none;
+}
+
+a {
+    font-weight: bolder;
+    font-size: 30px;
+    font-variant: normal;
+    text-align: center;
+    margin-top: 20px;
+    display: block;
+}
+
+
+.div4 {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-content: center;
+    justify-self: center;
+
+}
+
+.losimage {
+     align-self: center;
+     align-content: center;
+     justify-self: center;
+}
+.contentdiv {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+hr.inbetween {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    justify-self: center;
+}
