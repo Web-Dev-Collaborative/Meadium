@@ -57,17 +57,23 @@ h4.rating#rating {
     align-items: center;
     justify-content: center;
     padding: 0;
-    max-height: 400px;
-    height: auto;
-    width: auto;
+    /* max-height: 400px; */
+    height: 400px;
+    width: 100%;
     overflow: hidden;
 }
 
 img.story.image.content {
-    max-width: auto;
-    padding: 0px;
-    height: auto;
+    display: block;
+    max-width:700px;
+    max-height: 100%;
     width: auto;
+    height: auto;
+    /* display: block;
+    padding: 0px;
+    width: 100%;
+    height: auto;
+    width: auto; */
 }
 
 .story.profile.social.container {
