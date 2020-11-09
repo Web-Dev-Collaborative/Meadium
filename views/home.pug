@@ -6,14 +6,23 @@ append head
 block content
     include includes/nav.pug
     .body-structure-container
-        .wine-content-c
-            img(class="wine-content-c" src="/pictures/Rectangle 2.png" alt="Mead-Glass")
-            h3(class="top-ten") Top ten meads to try before you die
-            h4(class="top-ten-subinfo") new Data | minutes read
-            span(class="dot")
-            span(class="dot2")
-            span(class="dot3")
-            button(class="button") Create Mead
+        .wrapper
+            .wine-content-c
+                img(class="wine-content-c" src="/pictures/Rectangle 2.png" alt="Mead-Glass")
+                h3(class="top-ten") Top ten meads to try before you die
+            .rightblock
+                span#stories
+                    div.storyContainer
+                        if stories.length
+                            h1 Created Stories:
+                            ul.stories
+                                each story in stories
+                                    li.story
+                                        a(href=`/stories/${story.id}`)
+                                        .storyItems
+                                            img( width="500px" height="500px" src=`${story.imgPath}`)
+                                            a(href=`/stories/${story.id}`)= story.title
+                                            p.body= story.body
         .line
             hr(class="liner")
         .h1text

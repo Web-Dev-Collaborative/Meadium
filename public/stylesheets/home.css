@@ -1,19 +1,4 @@
-.right-rec-c {
-    position: relative;
-    width: 231px;
-    height: 140px;
-    left: 760px;
-    top: 207px;
 
-}
-
-.left-rec-c {
-    position: relative;
-    width: 231px;
-    height: 140px;
-    left: 725px;
-    top: 207px;
-}
 
 .wine-content-c {
     padding-top: 5px;
@@ -25,13 +10,15 @@
 .wine-content {
     display: flex;
 }
+.wrapper {
+    display: flex;
+}
 
 .top-ten {
     align-self: flex-start;
     justify-self: flex-end;
     margin-left: 10%;
 
-    position: relative;
 
 
     font-family: Roboto;
@@ -181,4 +168,24 @@
     width: 300px;
     height: 300px;
     }
+.rightblock {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 10%;
+}
+    .storyContainer {
+        display: flex;
+        padding: 10px;
+        border: thin gray solid;
+        flex-direction: column;
+        width: 100%;
+        align-content: center;
+        align-self: center;
+        margin-left:10%;
+        
+    }
 
+.stories {
+    list-style: none;
+}

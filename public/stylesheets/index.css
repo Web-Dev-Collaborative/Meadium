@@ -7,7 +7,7 @@
     top: 100px;
     width: 100vw;
     height: 566px;
-    background-color: orange;
+    background-color: white;
     background-size: cover;
 }
 
@@ -37,10 +37,11 @@ min-width ( on both text and the containers ( orange flexbox + picture container
 }
 
 .meadbox {
-    align-self: flex-end;
-    justify-self: flex-start;
-    width: 30%;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    right: 50px;
+
 
 }
 
