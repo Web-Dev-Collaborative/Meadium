@@ -9,7 +9,8 @@ block content
         .wrapper
             .wine-content-c
                 img(class="wine-content-c" src="/pictures/Rectangle 2.png" alt="Mead-Glass")
-                h3(class="top-ten") Top ten meads to try before you die
+                h3(class="top-ten" ) Top 5 most festive meads 
+                h5(class="top-twenty") 07, july 2019
             .rightblock
                 span#stories
                     div.storyContainer
@@ -20,7 +21,8 @@ block content
                                     li.story
                                         a(href=`/stories/${story.id}`)
                                         .storyItems
-                                            img( width="500px" height="500px" src=`${story.imgPath}`)
+                                        .div4
+                                            img( width="500px" height="500px" class="losimage" src=`${story.imgPath}`)
                                             a(href=`/stories/${story.id}`)= story.title
                                             p.body= story.body
         .line
@@ -29,14 +31,18 @@ block content
             h1(class="h1mead") Latest From:
         .second-half
             .melomelcontent
-                h4.h4melomeltext Melomel
-                img(class="img1" src="/pictures/Ellipse 6 (1).png" alt="Melomel")
+                .contentdiv
+                    h4.h4melomeltext Melomel
+                    img(style="display: block" class="img1" src="/pictures/Ellipse 6 (1).png" alt="Melomel")
             .braggotcontent
-                h4.h4braggottext Braggot
-                img(class="img2" src="/pictures/Ellipse 7 (1).png" alt="Braggot")
+                .contentdiv
+                    h4.h4braggottext Braggot
+                    img(style="display: block" class="img2" src="/pictures/Ellipse 7 (1).png" alt="Braggot")
             .acerglincontent
-                h4.h4acerglintext Acerglin
-                img(class="img3" src="/pictures/Ellipse 8 (1).png" alt="Acerglin")
+                .contentdiv
+                    h4.h4acerglintext Acerglin
+                    img(style="display: block" class="img3" src="/pictures/Ellipse 8 (1).png" alt="Acerglin")
             .cysercontent
-                h4.h4cysertext Cyser
-                img(class="img4" src="/pictures/Ellipse 9 (1).png" alt="Cyser")
+                .contentdiv
+                    h4.h4cysertext Cyser
+                    img(style="display: block" class="img4" src="/pictures/Ellipse 9 (1).png" alt="Cyser")
