@@ -5,26 +5,28 @@ append head
 
 block content
     include includes/nav.pug
-    .body-structure-container
+    .body-structure-container.respect.text
         .wrapper
             .wine-content-c
-                img(class="wine-content-c" src="/pictures/Rectangle 2.png" alt="Mead-Glass")
+                img.wine(class="wine-content-c" src="/pictures/Rectangle 2.png" alt="Mead-Glass")
                 h3(class="top-ten" ) Top 5 most festive meads 
                 h5(class="top-twenty") 07, july 2019
             .rightblock
                 span#stories
                     div.storyContainer
                         if stories.length
-                            h1 Created Stories:
+                            h1.story.title Recent Stories
+                            hr.inbetween
                             ul.stories
                                 each story in stories
                                     li.story
                                         a(href=`/stories/${story.id}`)
                                         .storyItems
                                         .div4
-                                            img( width="500px" height="500px" class="losimage" src=`${story.imgPath}`)
-                                            a(href=`/stories/${story.id}`)= story.title
+                                            img( width="500px" height="100%" class="losimage" src=`${story.imgPath}`)
+                                            a.title(href=`/stories/${story.id}`)= story.title
                                             p.body= story.body
+                                    hr.inbetween
         .line
             hr(class="liner")
         .h1text

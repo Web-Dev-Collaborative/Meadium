@@ -1,12 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Source+Sans+Pro:wght@200;300;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400&display=swap");
 
-body {
+p.body {
     font-family: Source-Sans-Pro;
+    font-size: 20px;
+    color: black;
 }
 
-h1 {
+a.title {
+    /* font-family: Source-Sans-Pro; */
+    font-family: 'IM Fell French Canon SC',Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 35px;
+    color: black;
+    margin-bottom: 10px;
+}
+
+h1.story.title {
     text-align: center;
-    font-family: Source-Sans-Pro;
+    font-family: 'IM Fell French Canon SC',Georgia, Cambria, "Times New Roman", Times, serif;
+    /* font-family: Source-Sans-Pro; */
+    font-size: 35px;
 }
 .wine-content-c {
     width: 700px;
@@ -167,22 +180,22 @@ h1 {
     font-size: 50px;
     margin-bottom: 40px;
 }
-.img1 {
+img.img1 {
     width: 300px;
     height: 300px;
 }
 
-.img2 {
-    width: 300px;
-    height: 300px;
-    }
-
-.img3 {
+img.img2 {
     width: 300px;
     height: 300px;
 }
 
-.img4 {
+img.img3 {
+    width: 300px;
+    height: 300px;
+}
+
+img.img4 {
     width: 300px;
     height: 300px;
     }
@@ -192,18 +205,31 @@ h1 {
     padding: 0;
     width: 10%;
 }
-    .storyContainer {
-        display: flex;
-        padding: 10px;
-        border: thin gray solid;
-        flex-direction: column;
-        width: 50vw;
-        align-content: center;
-        align-self: center;
-        margin-left:10%;
-        
-        
-    }
+
+.storyContainer {
+    display: flex;
+    padding: 10px;
+    /* border: thin gray solid; */
+    flex-direction: column;
+    width: 50vw;
+    align-content: center;
+    justify-self: center;
+    align-self: center;
+    margin-left:10%;
+    
+    
+}
+
+li.story,
+li.story:hover {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+li.story:hover {
+    border-bottom-left-radius: 0%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 
 .stories {
     list-style: none;
@@ -241,4 +267,8 @@ a {
     align-items: center;
 }
 
-
+hr.inbetween {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    justify-self: center;
+}
