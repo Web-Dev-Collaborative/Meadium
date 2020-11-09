@@ -64,6 +64,22 @@ const validateConfirmPassword = check('passwordConfirm')
 
 const userValidations = [validateFirstNameAndLastName, validateUsername, validateEmail, validatePassword, validateConfirmPassword];
 
+const validateStoryTitle = check('title')
+    .exists({ checkFalsy: true })
+    .withMessage('Please input a unique title before creating a story.')
+    .notEmpty()
+    .withMessage('Please input a title before creating a story.')
+
+const validateStorySubheader = check('subheader')
+    .notEmpty()
+    .withMessage('Please input a subheader before creating a story.')
+
+const validateStoryText = check('text')
+    .notEmpty()
+    .withMessage('Please input text in the body before creating a story.')
+
+const storyValidations = [validateStoryTitle, validateStorySubheader, validateStoryText]
+
 const loginUserValidations = [
     check('usernameOrEmail')
         .exists({ checkFalsy: true })
@@ -104,4 +120,5 @@ module.exports = {
     loginUserValidations,
     returnAverageCheers,
     getDate,
+    storyValidations,
 }

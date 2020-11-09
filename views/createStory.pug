@@ -1,4 +1,5 @@
 extends layout.pug
+include utils.pug
 
 append head
     link(rel='stylesheet' href='/stylesheets/create.css')
@@ -11,7 +12,14 @@ block content
     //- include includes/createNav.pug
     .main.write.article
         form.write.article(action="/profile/stories/create" method="post" name="form" id='form')
+            input(type='hidden' name='_csrf' value=csrfToken)
             input.title.text(type="text" placeholder='Title' id='title' name='title' required)
             input.title.text.subheader(type="text" placeholder='Subtitle' id='subheader' name='subheader' required)
             span.input.body.text(data-placeholder="Tell your story... " id='text' name='text' contenteditable required)
             button(type="submit" name="button" for="form" id="button") Create
+            .errors#errors
+                if errors
+                    div(class='errors')
+                    ul.errors.ul
+                        each error in errors
+                            li.errors.li= error

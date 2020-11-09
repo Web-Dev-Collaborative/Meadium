@@ -1,7 +1,7 @@
 window.addEventListener("load", (event) => {
-    let form = document.getElementById('form')
+    let button = document.getElementById('button')
     const location = event.currentTarget.location.origin
-    form.addEventListener('click', async (e) => {
+    button.addEventListener('click', async (e) => {
         e.preventDefault()
         e.stopImmediatePropagation()
         const titleEle = document.getElementById('title')
@@ -17,6 +17,16 @@ window.addEventListener("load", (event) => {
             body: JSON.stringify(data)
         })
         let story = await res.json()
-        document.location.href = `${location}/stories/${story.story.id}`
+        console.log(story)
+        if (Array.isArray(story)) {
+            const errorsEle = document.getElementById("errors")
+            errorsEle.innerHTML = ''
+            story.forEach((error) => {
+                let err = document.createElement("li")
+                err.innerHTML = error
+                errorsEle.appendChild(err)
+            })
+        }
+        else document.location.href = `${location}/stories/${story.story.id}`
     })
 })
