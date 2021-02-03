@@ -31,3 +31,5 @@ pinsRouter.post("story/:storyId(\\d+)", requireAuth, asyncHandler(async (req, re
     })
     res.sendStatus(200)
 }))
+
+module.exports = pinsRouter
