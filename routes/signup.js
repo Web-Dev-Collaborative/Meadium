@@ -3,6 +3,9 @@ const bcrypt = require('bcryptjs');
 
 const { User } = require('../db/models');
 const { asyncHandler, handleValidationErrors, userValidations, csrfProtection } = require('./utils.js')
+const {
+    loginUser
+} = require('../auth')
 
 const signupRouter = express.Router();
 
@@ -28,14 +31,15 @@ signupRouter.post('/', userValidations, handleValidationErrors, asyncHandler(asy
             errors
         })
     } else {
-        await User.create({
+        let user = await User.create({
             username,
             firstName,
             lastName,
             email,
             hashedPassword
         })
-        res.redirect('/')
+        loginUser(req, res, user)
+        res.redirect('/home')
     }
 }))
 

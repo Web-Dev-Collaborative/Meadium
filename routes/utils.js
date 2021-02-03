@@ -57,7 +57,7 @@ const validateConfirmPassword = check('passwordConfirm')
     .withMessage('Please provide a confirmed password')
     .custom((value, { req }) => {
         if (value !== req.body.password) {
-            throw new Error('Confirm Password does not match Password');
+            throw new Error('Passwords do not match');
         }
         return true;
     });

@@ -1,15 +1,16 @@
 extends layout
 append head
    link(rel="stylesheet" href="/stylesheets/home.css")
+   link(rel="stylesheet" href="/stylesheets/navHome.css")
 
 
 block content
-    include includes/nav.pug
+    include navHome.pug
     .body-structure-container.respect.text
         .wrapper
             .wine-content-c
                 img(class="wine-content-c" src="/pictures/Rectangle 2.png" alt="Mead-Glass")
-                h3(class="top-ten" s) Top 5 most festive meads 
+                h3(class="top-ten" s) Top 5 most festive meads
                 h5(class="top-twenty") July, 07 2019
             .rightblock
                 span#stories
