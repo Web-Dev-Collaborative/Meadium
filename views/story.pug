@@ -15,6 +15,8 @@ block content
         .story.pins.container
             .pin.author.container
                 .pin.author.name #{story.User.firstName} #{story.User.lastName}
+            .pin.ratings-pin.container
+                .pin.
         .story.title.container
             h1.title.text= story.title
         .story.subheader.container
@@ -23,7 +25,7 @@ block content
             h4.rating#text Story Rating:
             h4.rating#rating #{avgRating}
         .story.image.container
-            img.story.image.content(src=`${story.imgPath}`)
+            img.story.image.content#image (src=`${story.imgPath}`)
         .story.profile.social.container
             .grid.column.two
                 .profile.picture.container

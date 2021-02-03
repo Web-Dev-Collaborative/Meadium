@@ -1,7 +1,7 @@
 const express = require('express');
 
 const { Story, User, Comment, Pin, Cheer } = require('../db/models');
-const { asyncHandler, returnAverageCheers, getDate } = require('./utils');
+const { asyncHandler, returnAverageCheers, returnCountCheers, getDate } = require('./utils');
 const { requireAuth } = require('../auth')
 
 const storyRouter = express.Router();
@@ -17,6 +17,13 @@ const storyNotFound = () => {
 storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const storyId = parseInt(req.params.id, 10);
   const avgRating = await returnAverageCheers(storyId)
+  const countCheers = await returnCountCheers(storyId)
+  const pinned = await Pin.findOne({
+    where: {
+      pinnerId: userId,
+      pinnedStoryId: storyId,
+    }
+  })
   const story = await Story.findByPk(storyId, {
     include: [{
       model: User,
@@ -33,6 +40,8 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
         story,
         avgRating,
         createdStory,
+        countCheers,
+        pinned: pinned ? true : false
         // createdComment
       });
     } else {
@@ -43,6 +52,8 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
       res.render('story', {
         story,
         avgRating,
+        countCheers,
+        pinned: pinned ? true : false,
         createdStory
       });
     } else {
