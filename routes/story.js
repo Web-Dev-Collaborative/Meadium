@@ -150,17 +150,32 @@ storyRouter.get("/:storyId(\\d+)/pinned", requireAuth, asyncHandler(async (req, 
 
 // Posts a new pin record for the current user/story
 storyRouter.post("/:storyId(\\d+)/pin", requireAuth, asyncHandler(async (req, res) => {
-  let { remove } = req.body
   const storyId = parseInt(req.params.storyId, 10)
   const userId = req.session.auth.userId
-  if (!remove) {
+  // if the db has a pin for this user & story, we can assume the user intends
+  // to remove the pin
+  const pin = await Pin.findOne({
+    where: {
+      pinnerId: userId,
+      pinnedStoryId: storyId,
+    }
+  })
+  if (pin) {
+    Pin.destroy({
+      where: {
+        pinnerId: userId,
+        pinnedStoryId: storyId,
+      }
+    })
+    res.sendStatus(200)
+  } else {
+    // If there isn't a pin, a new pin is created
     Pin.create({
       pinnerId: userId,
       pinnedStoryId: storyId
     })
     res.sendStatus(200)
   }
-  if (remove)
 }))
 
 

@@ -12,6 +12,9 @@ append head
 block content
     include includes/nav.pug
     .story.container
+        .story.pins.container
+            .pin.author.container
+                .pin.author.name #{story.User.firstName} #{story.User.lastName}
         .story.title.container
             h1.title.text= story.title
         .story.subheader.container
