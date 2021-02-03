@@ -10,10 +10,12 @@ module.exports = {
       },
       pinnerId: {
         references: { model: 'Users' },
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       pinnedStoryId: {
         references: { model: 'Stories' },
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -24,7 +26,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    },
+      {
+        uniqueKeys: {
+          actions_unique: {
+            fields: ['pinnerId', 'pinnedStoryId']
+          }
+        }
+      });
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('Pins');

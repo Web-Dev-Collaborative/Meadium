@@ -7,7 +7,7 @@ const { requireAuth } = require('../auth')
 const storyRouter = express.Router();
 
 const storyNotFound = () => {
-  const error = new Error('This story has been removed or deleted');
+  const error = new Error('This story has been moved or deleted.');
   error.title = 'Story Not Found';
   error.status = 404;
 
