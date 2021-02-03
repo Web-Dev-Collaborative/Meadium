@@ -109,11 +109,11 @@ storyRouter.post('/:id(\\d+)/cheers', asyncHandler(async (req, res) => {
   } = req.body
   console.log(req.body)
   if (userId && await Cheer.findOne({
-      where: {
-        userId,
-        storyId
-      }
-    })) {
+    where: {
+      userId,
+      storyId
+    }
+  })) {
     let cheer = await Cheer.findOne({
       where: {
         userId,
@@ -132,5 +132,37 @@ storyRouter.post('/:id(\\d+)/cheers', asyncHandler(async (req, res) => {
     res.sendStatus(200)
   }
 }))
+
+// Checks to see if a story has been pinned by the logged in user
+storyRouter.get("/:storyId(\\d+)/pinned", requireAuth, asyncHandler(async (req, res) => {
+  const storyId = parseInt(req.params.storyId, 10)
+  const userId = req.session.auth.userId
+
+  const pin = await Pin.findOne({
+    where: {
+      pinnerId: userId,
+      pinnedStoryId: storyId,
+    }
+  })
+  if (pin) res.json({ "pinned": true })
+  else res.json({ "pinned": false })
+}))
+
+// Posts a new pin record for the current user/story
+storyRouter.post("/:storyId(\\d+)/pin", requireAuth, asyncHandler(async (req, res) => {
+  let { remove } = req.body
+  const storyId = parseInt(req.params.storyId, 10)
+  const userId = req.session.auth.userId
+  if (!remove) {
+    Pin.create({
+      pinnerId: userId,
+      pinnedStoryId: storyId
+    })
+    res.sendStatus(200)
+  }
+  if (remove)
+}))
+
+
 
 module.exports = storyRouter

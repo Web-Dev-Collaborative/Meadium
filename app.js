@@ -28,7 +28,6 @@ const storyRouter = require('./routes/story');
 const apiRouter = require('./routes/api/api');
 const homeRouter = require('./routes/home')
 const createStoryRouter = require('./routes/create')
-const pinsRouter = require('./routes/pins')
 
 
 const app = express();
@@ -67,7 +66,6 @@ app.use('/stories', storyRouter);
 app.use('/api', apiRouter);
 app.use('/home', homeRouter);
 app.use('/profile/stories', createStoryRouter);
-app.use('/pins', pinsRouter);
 
 
 
