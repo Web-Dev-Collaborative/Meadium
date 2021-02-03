@@ -39,7 +39,7 @@ signupRouter.post('/', userValidations, handleValidationErrors, asyncHandler(asy
             hashedPassword
         })
         loginUser(req, res, user)
-        res.redirect('/home')
+        res.redirect('/')
     }
 }))
 
