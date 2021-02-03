@@ -15,7 +15,7 @@ append head
 block content
     include includes/nav.pug
     .story.outer-container
-        .story.container
+        .story-and-pins.container
             .story.pins.container
                 .pin.author.container
                     .pin.author.name #{story.User.firstName} #{story.User.lastName}
@@ -31,31 +31,33 @@ block content
                             i.fas.fa-bookmark
                         else
                             i.far.fa-bookmark
-            .story.title.container
-                h1.title.text= story.title
-            .story.subheader.container
-                h3.subheader.text= story.subheader
-            .story.rating.container
-                h4.rating#text Story Rating:
-                h4.rating#rating #{avgRating}
-            .story.image.container
-                img.story.image.content#image(src=`${story.imgPath}`)
-            .story.profile.social.container
-                .grid.column.two
-                    .profile.picture.container
-                        img.profile.picture(src=story.User.profilePic)
-                    .profile.name-created.container
-                        p.profile.name #{story.User.firstName} #{story.User.lastName}
-                        p.story.createdDate= createdStory
-                .profile.socials.container
-                    i.fab.fa-twitter
-                    i.fab.fa-linkedin
-                    i.fab.fa-facebook-square
-            .story.body.text.container
-                p= story.body
-                p= story.body
-                p= story.body
-                p= story.body
+            .story.container
+                .story.title.container
+                    h1.title.text= story.title
+                .story.subheader.container
+                    h3.subheader.text= story.subheader
+                .story.rating.container
+                    h4.rating#text Story Rating:
+                    h4.rating#rating #{avgRating}
+                .story.image.container
+                    img.story.image.content#image(src=`${story.imgPath}`)
+                .story.profile.social.container
+                    .grid.column.two
+                        .profile.picture.container
+                            img.profile.picture(src=story.User.profilePic)
+                        .profile.name-created.container
+                            p.profile.name #{story.User.firstName} #{story.User.lastName}
+                            p.story.createdDate= createdStory
+                    .profile.socials.container
+                        i.fab.fa-twitter
+                        i.fab.fa-linkedin
+                        i.fab.fa-facebook-square
+                .story.body.text.container
+                    p= story.body
+                    p= story.body
+                    p= story.body
+                    p= story.body
+        .story.comments.container
             .story.cheers.container
                 form.rating#rating-container(action=`/stories/${story.id}/cheers` method="post")
                     label(for="5" id=`5|${userId}|${story.id}`)

@@ -1,8 +1,13 @@
+.story.outer-container {
+    height: 100%;
+    width: 100%;
+}
+
 .story.container {
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     position: relative;
     display: block;
-    /* top: -50px; */
+    top: -50px;
     left: 15%;
     width: 700px;
 }
