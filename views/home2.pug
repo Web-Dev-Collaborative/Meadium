@@ -1,0 +1,73 @@
+extends layout
+
+append head 
+    link(rel="stylesheet", href="/stylesheets/home2.css")
+    link(rel="stylesheet" href="/stylesheets/navHome.css")
+
+block content
+    include navHome.pug
+    if !locals.authenticated
+        .splashContainer
+            .mainContent
+                h1 You've come </br> to the right place
+                p Read and share about all things alcoholic.
+                form(action="/signup" method="GET")
+                    button Get Started
+            .picContainer
+                img(class="meadbox" src="/pictures/Beer.jpg" alt="meads")
+        .bottomSplash
+            if stories.length
+                h1 Recent Stories:
+                ul.stories
+                    each story in stories
+                        li.story
+                            a(href='/signup')
+                            .storyItems
+                                img(src=`${story.imgPath}`)
+                                h2= story.title
+                                p.body= story.body
+    else
+        .mainContainer
+            .topHalf
+                .topLeft
+                    if stories.length
+                        .mainStory
+                            a(href=`/stories/${stories[0].id}`)
+                            .storyItems
+                                img(src=`${stories[0].imgPath}`)
+                                h2= stories[0].title
+                                p.body= stories[0].body
+                .topMiddle
+                    if middleStories.length
+                        ul.middleStories
+                            each story in middleStories
+                                li.story
+                                    a(href=`/stories/${story.id}`)
+                                    .storyItems
+                                        img(src=`${story.imgPath}`)
+                                        .storyInfo
+                                            h2= story.title
+                                            p.body= story.body
+                .topRight
+                    h1 This is the Right
+            .middleHalf
+                if stories.length
+                    ul.mHS
+                        each story in stories
+                            li.story
+                                    a(href=`/stories/${story.id}`)
+                                    .storyItems
+                                        img(src=`${story.imgPath}`)
+                                        .storyInfo
+                                            h2= story.title
+            .bottomHalf
+                if stories.length
+                    ul.bHS
+                        each story in stories
+                            li.story
+                                a(href=`/stories/${story.id}`)
+                                .storyItems
+                                    img(src=`${story.imgPath}`)
+                                    .storyInfo
+                                        h2= story.title
+                                        p= story.body

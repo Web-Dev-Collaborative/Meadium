@@ -7,9 +7,12 @@ const { asyncHandler } = require('../routes/utils');
 /* GET home page. */
 router.get('/', asyncHandler(async (req, res, next) => {
   const stories = await Story.findAll()
-  res.render('index', {
+  // const middleStories = stories.splice(1, 5)
+  const middleStories = stories.slice(1, 5);
+  res.render('home2', {
     title: 'Meadium',
-    stories
+    stories,
+    middleStories
   });
 }));
 
