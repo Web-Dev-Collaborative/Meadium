@@ -32,7 +32,7 @@ const validateFirstNameAndLastName = [
 const validateUsername = check('username')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a username')
-    .matches(/^[a-z0-9_]*$/, 'g')
+    .matches(/^[a-zA-Z0-9_]*$/, 'g')
     .withMessage('Username must not contain any symbols')
     .isLength({ max: 50 })
     .withMessage('Username must not be more than 50 characters');
