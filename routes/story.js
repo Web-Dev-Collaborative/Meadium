@@ -16,6 +16,7 @@ const storyNotFound = () => {
 
 storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const storyId = parseInt(req.params.id, 10);
+  const userId = req.session.auth.userId
   const avgRating = await returnAverageCheers(storyId)
   const countCheers = await returnCountCheers(storyId)
   const pinned = await Pin.findOne({
@@ -33,7 +34,7 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const createdStory = getDate(story.createdAt)
   // const createdComment = getDate(story.Comments[0].createdAt)
   if (req.session.auth) {
-    const userId = req.session.auth.userId
+    console.log("IS PINNED?", pinned)
     if (story) {
       res.render('story', {
         userId,

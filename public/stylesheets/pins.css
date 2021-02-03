@@ -1,0 +1,16 @@
+.story.pins.container {
+    font-family: 'IM Fell French Canon SC',Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 20px;
+    /* position: -webkit-sticky;
+    position: sticky; */
+    position: fixed;
+    top: 40%;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.story.pins.container i.fas,
+.story.pins.container i.far {
+    font-size: 30px;
+}

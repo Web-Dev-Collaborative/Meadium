@@ -2,7 +2,7 @@
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     position: relative;
     display: block;
-    top: 3em;
+    /* top: -50px; */
     left: 15%;
     width: 700px;
 }
