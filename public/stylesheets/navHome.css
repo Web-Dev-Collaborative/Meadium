@@ -40,7 +40,7 @@
     /* align-content: center; */
     height: 100px;
     border-bottom: thin lightgray solid;
-    margin-bottom: 80px;
+    /* margin-bottom: 80px; */
     box-shadow: 0 0 0 3px lightgray;
     background-color: white;
     z-index: 1;

@@ -47,7 +47,7 @@ loginRouter.post('/', csrfProtection, loginUserValidations, handleValidationErro
 
         if (matchingPassword) {
             loginUser(req, res, user);
-            res.redirect('/home');
+            res.redirect('/');
         } else {
             const errors = new Error();
             // errors.title = "Login Failed";

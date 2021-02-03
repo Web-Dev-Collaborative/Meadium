@@ -1,0 +1,253 @@
+.splashContainer {
+    background-color: rgba(255, 0, 0, 0.8);
+    width: 100vw;
+    height: 40vh;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    overflow: hidden;
+    border-top: solid thin black;
+    border-bottom: solid thin black;
+    box-shadow: 0px 15px 20px 10px rgba(0, 0, 0, 0.4);
+}
+
+.mainContent {
+    /* background-color: white; */
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainContent h1 {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 70px;
+    margin-bottom: 40px;
+}
+
+.mainContent p {
+    font-size: 20px;
+}
+
+.meadbox {
+    /* border-radius: 20px; */
+    width: 100%;
+    margin-top: 18%;
+    overflow: hidden;
+    /* opacity: .9; */
+    box-shadow: 0px 0px 60px 20px rgba(0, 0, 0, 0.4);
+}
+
+.meadbox img {
+    border-radius: 50%;
+    /* margin-top: 80px; */
+    width: 100vw;
+}
+
+.bottomSplash {
+    padding: 30px;
+    width: 100%;
+    height: 40vh;
+}
+
+.mainContent button {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    outline: none;
+    color: red;
+    background-color: #fff;
+    border: solid thin #000;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.mainContent button:hover {
+    transform: scale(1.1);
+}
+
+.bottomSplash h1 {
+    margin: 30px;
+    font-size: 50px;
+    text-decoration: underline;
+    font-family: Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+.stories {
+    display: flex;
+}
+
+.story {
+    overflow: hidden;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    width: 400px;
+    height: 400px;
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    cursor: pointer;
+}
+
+.story a {
+    position: absolute;
+    /* background-color: blue; */
+    margin-right: 20px;
+    width: 15%;
+    height: 380px;
+}
+
+.storyItems img {
+    width: 200px;
+    height: 200px;
+}
+
+.bottomSplash .storyItems {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    padding-top: 0;
+}
+
+.mainContainer {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+}
+
+.topHalf {
+    padding: 10px 20%;
+    display: flex;
+    border-bottom: thin solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 50px;
+}
+
+.topLeft,
+.topMiddle,
+.topRight {
+    width: 33%;
+}
+
+.topLeft {
+    margin: 10px;
+}
+
+.topLeft a {
+    position: absolute;
+    /* background-color: blue; */
+    width: 320px;
+    height: 50%;
+    cursor: pointer;
+}
+
+.topLeft .body {
+    overflow: hidden;
+    height: 200px;
+}
+
+.topLeft img {
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 350px;
+    max-height: 350px;
+}
+
+.topMiddle {
+    border-right: thin solid rgba(0, 0, 0, 0.1);
+}
+
+.middleStoriese {
+    padding: 20px;
+}
+
+.middleStories  li{
+    height: 150px;
+    padding: 30px;
+}
+
+.middleStories h2{
+    font-size: 20px;
+}
+
+.middleStories .storyItems {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.middleStories img {
+    width: 100px;
+    height: 100px;
+}
+
+.middleStories .storyInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.middleHalf {
+    padding: 10px 20%;
+    border-bottom: solid thin rgba(0, 0, 0, 0.1);
+}
+
+.mHS {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mHS .story {
+    height: 100px;
+}
+
+.mHS .storyItems {
+    display: flex;
+}
+
+.mHS img {
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+}
+
+.mHS a {
+    /* background-color: blue; */
+    height: 100px;
+}
+
+.bottomHalf {
+    padding: 10px 20%;
+}
+
+.bHS .story {
+    width: 60%;
+    height: 150px;
+    margin: 50px;
+}
+
+.bHS .storyItems {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.bHS img {
+    width: 100px;
+    height: 100px;
+}
+
+.bHS h2 {
+    font-size: 30px;
+}
+
+.bHS a {
+    width: 35%;
+    height: 150px;
+}
+
+.bHS p {
+    height: 50px;
+    overflow: hidden;
+    padding-top: 20px
+}
