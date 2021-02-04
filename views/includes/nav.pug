@@ -1,19 +1,20 @@
 append head
-  //- link(href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Nanum+Myeongjo:wght@400;700;800?family=IM+Fell+French+Canon+SC&display=swap" rel="stylesheet")
+  link(href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Nanum+Myeongjo:wght@400;700;800?family=IM+Fell+French+Canon+SC&display=swap" rel="stylesheet")
   link(rel='stylesheet' href='/stylesheets/navbar.css')
 div.navDiv
     nav.navBar
-      .logo.links.container
+      .logo.links.container#container
         a.nav-content1(href="/")
         span.meadium Meadium
         span.pipe |
         span.goodness Goodness
       div#usernameAndAbout
         div#username
-          a#profile(href=`/profile/${user.id}`)
-            h2= user.username
-        div#aboutDiv
-          a#about(href=`/profile/about/${user.id}`) About
+          if locals.authenticated
+            a#profile(href=`/profile/${user.id}`)
+              h2= user.username
+          else
+            a.signup(href='/signup')
       div#rightNav
         div#searchBar
           if locals.path && locals.path.includes("profile") > -1

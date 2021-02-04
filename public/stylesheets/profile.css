@@ -19,15 +19,16 @@ main {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     padding: 0 0 0 30px;
     width: 260px;
+    height: auto;
+    margin-top: 20px;
 }
 
 .pinnedContainer {
     padding: 10px 20px 10px 10px;
 }
 
-h3.pinned-title {
-    padding: 20px;
-    padding-bottom: 5px;
+h3.pinned-title {font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 20px 20px 5px 10px;
     margin-bottom: 10px;
     font-size: 20px;
 }
@@ -42,28 +43,27 @@ li.pinned > a {
 }
 
 /* Story specific styling */
+
+#stories {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    margin: 0 0 50px 50px;
+}
+
 .storyContatiner {
     display: flex;
     border: thin gray solid;
 }
 
-h1 {
+.storyContainer > h1 {
     font-size: 50px;
-}
-
-#stories {
-    display: flex;
-    width: 80%;
-    justify-content: center;
-    padding: 50px;
-    margin-left: 50px;
+    padding-left: 50px;
 }
 
 .stories {
     display: flex;
     flex-direction: column;
-    padding: 35px;
-    margin-left: 150px;
 }
 
 #stories p {
@@ -81,10 +81,11 @@ h1 {
 
 li {
     list-style-type: none;
-    margin: 25px;
+    margin: 0 25px 25px 25px;
 }
 
 h1.title {
+    font-family: 'Nanum Myeongjo', serif;
     font-size: 45px;
     padding-bottom: 25px;
     text-decoration: underline;
@@ -92,7 +93,7 @@ h1.title {
 
 .story {
     padding: 50px;
-    width: 80%;
+    width: 90%;
     height: 355px;
     overflow: hidden;
     border-radius: 2%;
@@ -114,16 +115,36 @@ h1.title {
     padding-bottom: 2%;
 }
 
-.body {
+p.body {
     font-family: 'Nanum Myeongjo', serif;
     padding-bottom: 3%;
+    height: 200px;   
+}
+
+.storyItems {
+    /* display: flex; */
+    box-shadow: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+    align-items: center;
+}
+
+.story-details {
+    grid-column-start: 4;
+    grid-column-end: 9;
+    max-height: 277px;
+    overflow: hidden;
 }
 
 .storyItems img {
-    position: absolute;
-    left: 350px;
-    height: 200px;
-    width: 200px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: block;
+    width: auto;
+    height: auto;
+    max-height: 200px;
+    max-width: 200px;
+    margin-right: 20px;
 }
 
 #footer {

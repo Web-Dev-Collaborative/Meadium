@@ -15,15 +15,16 @@ block content
     span#stories
       div.storyContainer
         if stories.length
-          h1 Created Stories:
+          h1 My Stories
           ul.stories
             each story in stories
               li.story
                 a(href=`/stories/${story.id}`).storyref
                 .storyItems
                   img(src=`${story.imgPath}`)
-                  h1.title= story.title
-                  p.body= story.body
+                  .story-details
+                    h1.title= story.title
+                    p.body= story.body
         else
           p.elseStatment Have something to share?
             a(href='/stories')  Write your first story.
