@@ -3,16 +3,13 @@
     width: 100vw;
     height: 40vh;
     display: flex;
-    /* justify-content: center; */
     align-items: center;
-    overflow: hidden;
     border-top: solid thin black;
     border-bottom: solid thin black;
     box-shadow: 0px 15px 20px 10px rgba(0, 0, 0, 0.4);
 }
 
 .mainContent {
-    /* background-color: white; */
     width: 50%;
     height: 100%;
     display: flex;
@@ -32,18 +29,22 @@
 }
 
 .meadbox {
-    /* border-radius: 20px; */
+    height: 150%;;
     width: 100%;
-    margin-top: 18%;
-    overflow: hidden;
-    /* opacity: .9; */
     box-shadow: 0px 0px 60px 20px rgba(0, 0, 0, 0.4);
 }
 
 .meadbox img {
     border-radius: 50%;
-    /* margin-top: 80px; */
     width: 100vw;
+}
+
+.picContainer {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .bottomSplash {
@@ -120,7 +121,7 @@
 }
 
 .topHalf {
-    padding: 10px 20%;
+    padding: 10px 15%;
     display: flex;
     border-bottom: thin solid rgba(0, 0, 0, 0.1);
     padding-bottom: 50px;
@@ -130,23 +131,24 @@
 .topMiddle,
 .topRight {
     width: 33%;
+    margin: 10px;
 }
 
 .topLeft {
-    margin: 10px;
+    padding: 20px;
 }
 
 .topLeft a {
     position: absolute;
-    /* background-color: blue; */
-    width: 320px;
+    width: 20%;
     height: 50%;
     cursor: pointer;
 }
 
 .topLeft .body {
     overflow: hidden;
-    height: 200px;
+    height: 170px;
+    margin-top: 30px;
 }
 
 .topLeft img {
@@ -156,8 +158,20 @@
     max-height: 350px;
 }
 
+.topLeft .storyItems {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .topMiddle {
     border-right: thin solid rgba(0, 0, 0, 0.1);
+}
+
+.topMiddle a {
+    height: 10%;
+    margin-right: 0;
+    width: 18%;
 }
 
 .middleStoriese {
@@ -165,6 +179,7 @@
 }
 
 .middleStories  li{
+    width: 90%;
     height: 150px;
     padding: 30px;
 }
@@ -183,19 +198,32 @@
     height: 100px;
 }
 
+.middleStories p {
+    margin-top: 10px;
+}
+
 .middleStories .storyInfo {
     display: flex;
     flex-direction: column;
 }
 
 .middleHalf {
-    padding: 10px 20%;
+    padding: 10px 13%;
     border-bottom: solid thin rgba(0, 0, 0, 0.1);
+}
+
+.middleHalf h1 {
+    font-family: Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: 1.3em;
+    color:rgba(0, 0, 0, 0.4);
+    padding: 10px;
 }
 
 .mHS {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .mHS .story {
@@ -214,7 +242,10 @@
 
 .mHS a {
     /* background-color: blue; */
-    height: 100px;
+    height: 8%;
+    width: 20%;
+    margin: 0;
+
 }
 
 .bottomHalf {
