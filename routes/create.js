@@ -15,6 +15,7 @@ const storyCreateFail = () => {
 };
 
 createStoryRouter.get('/', requireAuth, csrfProtection, asyncHandler(async (req, res) => {
+    res.locals.path = req.originalUrl
     res.render('createStory', {
         csrfToken: req.csrfToken()
     })

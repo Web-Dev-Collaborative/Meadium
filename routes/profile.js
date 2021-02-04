@@ -18,7 +18,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const authorId = user.id;
     const stories = await Story.findAll({ where: { authorId } });
     const pinned = await Pin.findAll({ where: { pinnerId: id }, include: Story })
-    res.locals.path = req.path
+    res.locals.path = req.originalUrl
     res.render('profile', { user, stories, pinned });
 }))
 

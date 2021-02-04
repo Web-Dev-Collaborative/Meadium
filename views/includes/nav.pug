@@ -17,14 +17,16 @@ div.navDiv
             a.signup(href='/signup')
       div#rightNav
         div#searchBar
-          if locals.path && locals.path.includes("profile") > -1
+          if locals.path && locals.path.includes("profile") && !locals.path.includes("stories")
             img(src='/Assets/icons/search.png' alt='search button' id='search-btn')
             input(type='text' name='searchedStory' placeholder=`Search my stories` id='search')
         if locals.authenticated
           div#formBtns
             div.newStoryDiv
-              form(action='/profile/stories/' method='GET').newStoryForm
-                button(type='submit' id='newStory') New Story
+              //- div #{locals.path.includes("stories/?")}
+              if locals.path && !locals.path.includes("stories/?")
+                form(action='/profile/stories/' method='GET').newStoryForm
+                  button(type='submit' id='newStory') New Story
             div.logoutDiv
               form(action='/profile/logout' method='post').logoutForm
                 button(type='submit')#logout Logout

@@ -12,6 +12,7 @@ const {
 /* GET home page. */
 router.get('/', asyncHandler(async (req, res, next) => {
     const stories = await Story.findAll()
+    res.locals.path = req.originalUrl
     res.render('home', {
         title: 'Meadium',
         stories

@@ -4,11 +4,11 @@ include utils.pug
 append head
     link(rel='stylesheet' href='/stylesheets/create.css')
     script(src='/javascripts/createStory.js')
-    include includes/createNav.pug
 
 //- need a small logo in the top left corner
 //- need to add a "PUBLISH" button to the navbar
 block content
+    include includes/nav.pug
     //- include includes/createNav.pug
     .main.write.article
         form.write.article(action="/profile/stories/create" method="post" name="form" id='form')

@@ -32,6 +32,7 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     }, Comment]
   });
   const createdStory = getDate(story.createdAt)
+  res.locals.path = req.originalUrl
   // const createdComment = getDate(story.Comments[0].createdAt)
   if (req.session.auth) {
     if (story) {
