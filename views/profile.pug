@@ -2,29 +2,7 @@ extends layout.pug
 append head
   link(rel='stylesheet' href='/stylesheets/profile.css')
 block content
-  div.navDiv
-    nav.navBar
-      .logo.links.container
-        a.nav-content1(href="/")
-        span.meadium Meadium
-        span.pipe |
-        span.goodness Goodness
-      div#usernameAndAbout
-        div#username
-          h2= user.username
-        div#aboutDiv
-          a#about(href=`/profile/about/${user.id}`) About
-      div#rightNav
-        div#searchBar
-          img(src='/Assets/icons/search.png' alt='search button' id='search-btn')
-          input(type='text' name='searchedStory' placeholder=`Search my stories` id='search')
-        div#formBtns
-          div.newStoryDiv
-            form(action='/profile/stories/' method='GET').newStoryForm
-              button(type='submit' id='newStory') New Story
-          div.logoutDiv
-            form(action='/profile/logout' method='post').logoutForm
-              button(type='submit')#logout Logout
+  include includes/nav.pug
   main
     span#pinnedPanel
       h3.pinned-title Pinned Stories

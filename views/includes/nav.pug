@@ -1,26 +1,29 @@
 append head
+  //- link(href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Nanum+Myeongjo:wght@400;700;800?family=IM+Fell+French+Canon+SC&display=swap" rel="stylesheet")
   link(rel='stylesheet' href='/stylesheets/navbar.css')
 div.navDiv
-  nav.navBar
-    #logo
-      a(href='/home')
-      #meadium Meadium
-      #goodness Goodness
-    div#usernameAndAbout
-      div#username
+    nav.navBar
+      .logo.links.container
+        a.nav-content1(href="/")
+        span.meadium Meadium
+        span.pipe |
+        span.goodness Goodness
+      div#usernameAndAbout
+        div#username
+          a#profile(href=`/profile/${user.id}`)
+            h2= user.username
+        div#aboutDiv
+          a#about(href=`/profile/about/${user.id}`) About
+      div#rightNav
+        div#searchBar
+          if locals.path && locals.path.includes("profile") > -1
+            img(src='/Assets/icons/search.png' alt='search button' id='search-btn')
+            input(type='text' name='searchedStory' placeholder=`Search my stories` id='search')
         if locals.authenticated
-          h2.navh2= user.username
-          a.navA.profile(href=`profile/${user.id}`) Profile
-        else
-          a.signup(href='/signup')
-    div#rightNav
-      div#searchBar
-        //- img.navImg(src='/Assets/icons/search.png' alt='search button' id='search-btn')
-        //- input(type='text' name='searchedStory' placeholder=`Search ${user.username} stories` id='search')
-      div#formBtns
-        div.navNewStoryDiv
-          form(action='/profile/stories' method='GET').navNewStoryForm
-            button(type='submit' id='navNewStory') New Story
-        div.logoutDiv
-          form(action='/profile/logout' method='post').navLogoutForm
-            button(type='submit' id='navLogout') Logout
+          div#formBtns
+            div.newStoryDiv
+              form(action='/profile/stories/' method='GET').newStoryForm
+                button(type='submit' id='newStory') New Story
+            div.logoutDiv
+              form(action='/profile/logout' method='post').logoutForm
+                button(type='submit')#logout Logout

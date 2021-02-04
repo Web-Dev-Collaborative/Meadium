@@ -1,68 +1,95 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Helvetica, sans-serif;
-}
-
-#logo {
-    display: flex;
-    width: 200px;
-    align-items: center;
-}
-
-#logo a {
-    position: absolute;
-    height: 100px;
-    width: 350px;
-}
-
-#meadium {
-    height: 50px;
-    padding: 0px 10px 5px 20px;
-    font-size: 40px;
-    font-weight: 500;
-    border-right: black solid;
-}
-
-#goodness {
-    margin-left: 7px;
-    border-bottom: thick red solid;
-    font-size: 40px;
-    font-family: 'Nanum Myeongjo', serif;
-}
-
-.navBar {
+nav.navBar {
+    /* font-family: 'Nanum Myeongjo', serif; */
     display: flex;
     justify-content: space-between;
     align-content: center;
-    height: 110px;
-    border-bottom: thin lightgray solid;
-    margin-bottom: 80px;
-    box-shadow: 0 0 0 3px lightgray;
+    height: 100px;
+    border-bottom: 1px lightgray solid;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-#usernameAndAbout {
+
+.logo.links.container {
+    /* font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif; */
     display: flex;
     justify-content: center;
-    width: 50%;
-    padding-top: 4px;
+    align-items: center;
+    width: auto;
+    /* padding: 0 0 0 10px; */
+}
+span.meadium {
+    justify-self: flex-start;
+    margin: 0 0 0 10px;
 }
 
-#rightNav {
-    display: flex;
-    justify-content: space-evenly;
-    width: 50%;
+span.meadium {
+    text-decoration: none;
+    font-size: 34px;
+    font-weight: 900;
+    padding-bottom: 1px;
 }
 
-#formBtns {
+span.goodness {
+    text-decoration: none;
+    font-size: 36px;
+    font-weight: 200;
+}
+
+span.pipe {
+    text-decoration: none;
+    font-size: 36px;
+    font-weight: 200;
+    padding: 3px;
+
+}
+
+.logo.links.container > a.nav-content1 {
+    position: absolute;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    width: 345px;
+    height: 50px;
+}
+
+#usernameAndAbout {
     display: flex;
+    justify-content: space-between;
+    width: 15%;
+    margin: 0 50px 0 0;
 }
 
 #username {
     display: flex;
-    width: 33%;
     justify-content: flex-end;
     align-items: center;
+}
+
+#username > a > h2 {
+    font-weight: 600;
+    width: auto;
+    height: 33px;
+    color: black;
+}
+
+/* #username > h2 > a#profile {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    height: 33px;
+    width: 100%;
+    z-index: 9999;
+} */
+    
+#rightNav {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
+
+#formBtns {
+    display: flex;
+    margin-right: 10%;
 }
 
 #aboutDiv {
@@ -93,7 +120,7 @@ a {
     text-decoration: none;
 }
 
-#search {
+input {
     font-family: 'Nanum Myeongjo', serif;
     width: 20px;
     height: 45px;
@@ -108,7 +135,7 @@ a {
     transition: width 1s ease;
 }
 
-.navImg {
+#search-btn {
     position: absolute;
     cursor: pointer;
     border-radius: 10%;
@@ -124,7 +151,7 @@ a {
     outline: none;
 }
 
-#navLogout{
+#logout{
     border: none;
     color: lightgray;
     margin-left: 20px;
@@ -132,7 +159,7 @@ a {
     cursor: pointer;
 }
 
-#navNewStory {
+#newStory {
     background-color: rgb(39, 137, 23);
     color: white;
     padding: 7px 10px;
@@ -146,10 +173,12 @@ input:focus {
     border: none;
 }
 
-#about:focus {
+#about:hover,
+div.logoutDiv button#logout:hover {
+    transition: 500ms;
     color: black;
 }
 
-.navh2 {
+h2 {
     font-size: 27px;
 }
