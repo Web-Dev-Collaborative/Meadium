@@ -172,7 +172,6 @@ storyRouter.post("/:storyId(\\d+)/pin", requireAuth, asyncHandler(async (req, re
     }
   })
   if (pin) {
-    console.log("_____HERE")
     Pin.destroy({
       where: {
         pinnerId: userId,

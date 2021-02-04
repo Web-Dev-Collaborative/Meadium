@@ -32,7 +32,7 @@ block content
           ul.pins
             each pin in pinned
               li.pinned
-                a(href=`/stories/${pin.pinnedStoryId}`)= pin.pinnedStoryId.titile
+                a(href=`/stories/${pin.pinnedStoryId}`) #{pin.Story.title}
     span#stories
       div.storyContainer
         if stories.length

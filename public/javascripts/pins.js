@@ -9,14 +9,12 @@ window.addEventListener("load", async () => {
             body: JSON.stringify({ storyId: storyId })
         })
         if (bookmark.classList.contains("far")) {
-            console.log(res)
             if (res.status === 200) {
                 bookmark.classList.remove("far")
                 bookmark.classList.add("fas")
             }
         }
         else if (bookmark.classList.contains("fas")) {
-            console.log(res)
             if (res.status === 200) {
                 bookmark.classList.remove("fas")
                 bookmark.classList.add("far")

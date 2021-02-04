@@ -9,7 +9,7 @@
     position: sticky;
     /* position: fixed; */
     top: 38%;
-    height: 165px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
