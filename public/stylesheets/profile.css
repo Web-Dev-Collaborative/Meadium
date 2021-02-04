@@ -5,63 +5,86 @@
     font-family: Helvetica, sans-serif;
 }
 
-#logo {
-    display: flex;
-    width: 200px;
-    align-items: center;
-}
-
-#logo a {
-    position: absolute;
-    height: 100px;
-    width: 350px;
-}
-
-#meadium {
-    height: 50px;
-    padding: 0px 10px 5px 20px;
-    font-size: 40px;
-    font-weight: 500;
-    border-right: black solid;
-}
-
-#goodness {
-    margin-left: 7px;
-    border-bottom: thick red solid;
-    font-size: 40px;
+nav.navBar {
     font-family: 'Nanum Myeongjo', serif;
-}
-
-.navBar {
     display: flex;
     justify-content: space-between;
     align-content: center;
-    height: 150px;
-    border-bottom: thin lightgray solid;
+    height: 120px;
+    border-bottom: 1px lightgray solid;
     margin-bottom: 20px;
-    box-shadow: 0 0 0 3px lightgray;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-#usernameAndAbout {
+
+.logo.links.container {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     display: flex;
     justify-content: center;
-    width: 20%;
+    align-items: center;
+    width: auto;
+    /* padding: 0 0 0 10px; */
+}
+span.meadium {
+    justify-self: flex-start;
+    margin: 0 0 0 10px;
 }
 
-#rightNav {
-    display: flex;
-    justify-content: space-evenly;
-    width: 50%;
+span.meadium {
+    text-decoration: none;
+    font-size: 34px;
+    font-weight: 900;
+    padding-bottom: 1px;
 }
 
-#formBtns {
+span.goodness {
+    text-decoration: none;
+    font-size: 36px;
+    font-weight: 200;
+}
+
+span.pipe {
+    text-decoration: none;
+    font-size: 36px;
+    font-weight: 200;
+    padding: 3px;
+
+}
+
+.logo.links.container > a.nav-content1 {
+    position: absolute;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    width: 345px;
+    height: 50px;
+}
+
+#usernameAndAbout {
     display: flex;
+    justify-content: space-between;
+    width: 15%;
+    margin: 0 50px 0 0;
 }
 
 #username {
     display: flex;
-    width: 33%;
     justify-content: flex-end;
     align-items: center;
+}
+
+#username > h2 {
+    font-weight: 600;
+}
+    
+#rightNav {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
+
+#formBtns {
+    display: flex;
+    margin-right: 10%;
 }
 
 #aboutDiv {
@@ -145,7 +168,9 @@ input:focus {
     border: none;
 }
 
-#about:focus {
+#about:hover,
+div.logoutDiv button#logout:hover {
+    transition: 500ms;
     color: black;
 }
 
@@ -162,25 +187,34 @@ main {
     height: 100%;
 }
 
+/* Pin specific styling */
 #pinnedPanel {
-    box-shadow: 5px 0 5px 0 slategray;
-    padding: 20px 20px 20px 30px;
-    width: 250px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 0 0 0 30px;
+    width: 260px;
 }
 
 .pinnedContainer {
-    border-right: thin black solid;
-    padding: 20px 30px 20px 20px;
+    padding: 10px 20px 10px 10px;
 }
 
-h3 {
+h3.pinned-title {
     padding: 20px;
     padding-bottom: 5px;
     margin-bottom: 10px;
     font-size: 20px;
-    border-bottom: thin lightgray solid;
 }
 
+li.pinned {
+    margin: 0 0 10px 0;
+}
+
+li.pinned > a {
+    font-size: 14px;
+    width: 100%;
+}
+
+/* Story specific styling */
 .storyContatiner {
     display: flex;
     border: thin gray solid;

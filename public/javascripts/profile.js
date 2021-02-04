@@ -3,7 +3,7 @@ window.addEventListener('load', (e) => {
     const searchInput = document.getElementById('search');
     const location = e.currentTarget.location.origin
     const userid = e.currentTarget.location.pathname.split('/')[2];
-    searchBtn.addEventListener('click', () => {
+    if (searchBtn) searchBtn.addEventListener('click', () => {
         if (searchInput.classList.contains('search-clicked')) {
             searchInput.classList.remove('search-clicked');
         } else {
@@ -12,20 +12,20 @@ window.addEventListener('load', (e) => {
         }
     })
 
-    searchInput.addEventListener('input', async (e) => {
+    if (searchInput) searchInput.addEventListener('input', async (e) => {
         const title = e.target.value;
         const data = { title: title, id: userid };
         try {
             const res = await fetch(`${location}/api/search`, {
                 method: "PUT",
-                headers: { "Content-Type": 'application/json'},
+                headers: { "Content-Type": 'application/json' },
                 body: JSON.stringify(data)
             });
             const stories = await res.json();
             const storyContainer = document.querySelector('.storyContainer');
             const container = document.createElement('ul');
             container.classList.add('stories')
-            stories.forEach(story =>  {
+            stories.forEach(story => {
                 const list = document.createElement('li');
                 list.classList.add('story')
                 const storyItems = document.createElement('div')
@@ -52,7 +52,7 @@ window.addEventListener('load', (e) => {
             header.innerText = 'Created Stories:'
             storyContainer.appendChild(header);
             storyContainer.appendChild(container)
-        } catch(e) {
+        } catch (e) {
             console.log(e);
         }
     })

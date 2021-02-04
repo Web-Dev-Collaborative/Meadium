@@ -1,7 +1,7 @@
 window.addEventListener("load", async () => {
     const bookmark = document.getElementById("bookmark");
     const initialURL = window.location.href
-    bookmark.addEventListener("click", async () => {
+    if (bookmark) bookmark.addEventListener("click", async () => {
         const storyId = parseInt(initialURL.split("stories/")[1])
         let res = await fetch(`/stories/${storyId}/pin`, {
             method: "POST",

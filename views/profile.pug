@@ -4,10 +4,11 @@ append head
 block content
   div.navDiv
     nav.navBar
-      #logo
-        a(href='/')
-        #meadium Meadium
-        #goodness Goodness
+      .logo.links.container
+        a.nav-content1(href="/")
+        span.meadium Meadium
+        span.pipe |
+        span.goodness Goodness
       div#usernameAndAbout
         div#username
           h2= user.username
@@ -16,17 +17,17 @@ block content
       div#rightNav
         div#searchBar
           img(src='/Assets/icons/search.png' alt='search button' id='search-btn')
-          input(type='text' name='searchedStory' placeholder=`Search ${user.username} stories` id='search')
+          input(type='text' name='searchedStory' placeholder=`Search my stories` id='search')
         div#formBtns
           div.newStoryDiv
             form(action='/profile/stories/' method='GET').newStoryForm
               button(type='submit' id='newStory') New Story
           div.logoutDiv
             form(action='/profile/logout' method='post').logoutForm
-              button(type='submit' id='logout') Logout
+              button(type='submit')#logout Logout
   main
     span#pinnedPanel
-      h3 Pinned Stories
+      h3.pinned-title Pinned Stories
       div.pinnedContainer
         if pinned
           ul.pins

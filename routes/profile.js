@@ -18,10 +18,6 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const authorId = user.id;
     const stories = await Story.findAll({ where: { authorId } });
     const pinned = await Pin.findAll({ where: { pinnerId: id }, include: Story })
-    ///////// Need to create Pinned table in database.
-    // const pinnerId = user.id;
-    // const pinned = await Pinned.findAll({where: { pinnerId }});
-    // /////
     res.render('profile', { user, stories, pinned });
 }))
 
