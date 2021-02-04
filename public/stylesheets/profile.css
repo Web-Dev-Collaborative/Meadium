@@ -40,7 +40,11 @@ li.pinned {
 li.pinned > a {
     font-size: 14px;
     width: 100%;
+    font-family: 'Nanum Myeongjo', serif;
+    color: gray;
+    text-decoration: none;
 }
+
 
 /* Story specific styling */
 

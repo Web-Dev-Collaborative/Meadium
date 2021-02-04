@@ -1,7 +1,7 @@
 nav.navBar {
     font-family: 'Nanum Myeongjo', serif;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     align-content: center;
     height: 100px;
     border-bottom: 1px lightgray solid;
@@ -14,15 +14,17 @@ nav.navBar > .logo.links.container#container {
     justify-content: center;
     align-items: center;
     width: auto;
+    grid-column-start: 1;
+    grid-column-end: 4;
     /* padding: 0 0 0 10px; */
 }
-span.meadium {
+nav.navBar span.meadium {
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     justify-self: flex-start;
     margin: 0 0 0 10px;
 }
 
-span.meadium {
+nav.navBar span.meadium {
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-decoration: none;
     font-size: 34px;
@@ -30,14 +32,14 @@ span.meadium {
     padding-bottom: 1px;
 }
 
-span.goodness {
+nav.navBar span.goodness {
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-decoration: none;
     font-size: 36px;
     font-weight: 200;
 }
 
-span.pipe {
+nav.navBar span.pipe {
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-decoration: none;
     font-size: 36px;
@@ -55,23 +57,26 @@ span.pipe {
     height: 50px;
 }
 
-#usernameAndAbout {
+nav.navBar #usernameAndAbout {
+    grid-column-start: 5;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 15%;
+    min-width: 100px;
     margin: 0 50px 0 0;
 }
 
-#username {
+nav.navBar #username {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 }
 
-#username > a > h2 {
+nav.navBar #username > a > h2 {
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 600;
     font-size: 18px;
+    min-width: 100px;
     width: auto;
     height: 33px;
     color: black;
@@ -88,38 +93,41 @@ span.pipe {
     z-index: 9999;
 } */
     
-#rightNav {
+nav.navBar #rightNav {
+    grid-column-start: 7;
+    grid-column-end: 11;
     display: flex;
-    justify-content: space-between;
-    width: 30%;
+    justify-content: space-around;
+    width: 100%;
 }
 
-#formBtns {
+nav.navBar #formBtns {
+    grid-column-start: 8;
     display: flex;
-    margin-right: 10%;
     justify-content: center;
     align-items: center;
     margin-left: 12px;
 }
 
-#aboutDiv {
+nav.navBar #aboutDiv {
     display: flex;
     align-items: center;
     justify-self: flex-start;
 }
 
-#about {
+nav.navBar #about {
     margin-top: 7px;
     margin-left: 20px;
 }
 
-#searchBar {
+nav.navBar #searchBar {
     display: flex;
     width: 10%;
     align-items: center;
 }
 
 div#searchBar input {
+    grid-column-start: 8;
     font-family: 'Nanum Myeongjo', serif;
     width: 20px;
     height: 45px;
@@ -130,11 +138,10 @@ div#searchBar input {
     border: none;
     cursor: pointer;
     font-size: 1em;
-    
     transition: width 1s ease;
 }
 
-#search-btn {
+nav.navBar #search-btn {
     position: absolute;
     cursor: pointer;
     border-radius: 10%;
@@ -143,14 +150,15 @@ div#searchBar input {
     /* margin-top: 3px; */
 }
 
-.search-clicked {
+nav.navBar input.search-clicked#search {
+    grid-column-start: 8;
     width: 200px;
     padding-left: 40px;
     cursor: text;
     outline: none;
 }
 
-#logout{
+nav.navBar #logout{
     border: none;
     color: slategray;
     margin-left: 20px;
@@ -158,12 +166,12 @@ div#searchBar input {
     cursor: pointer;
 }
 
-.newStoryDiv > * {
+nav.navBar .newStoryDiv > * {
     display: flex;
     align-items: center;
 }
 
-#newStory {
+nav.navBar #newStory {
   font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding-top: 10px;
   font-size: 14px;
@@ -175,26 +183,26 @@ div#searchBar input {
   font-weight: 200;
 }
 
-input:focus {
+nav.navBar input:focus {
     border: none;
 }
 
-#about:hover,
-div.logoutDiv button#logout:hover {
+nav.navBar #about:hover,
+nav.navBar div.logoutDiv button#logout:hover {
     transition: 500ms;
     color: black;
 }
 
-h2 {
+nav.navBar h2 {
     font-size: 27px;
 }
 
-a {
+nav.navBar a {
     font-family: 'Nanum Myeongjo', serif;
     color: gray;
     text-decoration: none;
 }
 
-h1, h2, h3 {
+nav.navBar h1, h2, h3 {
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
