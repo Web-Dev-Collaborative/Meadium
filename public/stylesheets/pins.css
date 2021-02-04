@@ -6,11 +6,29 @@
     /* position: fixed; */
     top: 40%;
     left: 10px;
+    height: 120px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+
+.story.pins.container i.fas.fa-glass-cheers {
+    font-size: 40px;
 }
 
 .story.pins.container i.fas,
 .story.pins.container i.far {
     font-size: 30px;
+}
+
+.pin.ratings-pin.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.pin.ratings.container {
+
+    display: flex;
 }
