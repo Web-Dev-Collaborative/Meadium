@@ -1,15 +1,23 @@
 .story.pins.container {
     font-family: 'IM Fell French Canon SC',Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 20px;
+    font-size: 15px;
     position: -webkit-sticky;
     position: sticky;
     /* position: fixed; */
-    top: 40%;
-    left: 10px;
-    height: 120px;
+    top: 38%;
+    left: 15px;
+    height: 145px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 120px;
+    padding: 0 0 15px 0;
+}
+
+.pin.author.container {
+    font-size: 20px;
+    border-bottom: 1px solid slategray;
+    padding: 0 0 15px 0;
 }
 
 .story.pins.container i.fas.fa-glass-cheers {
@@ -29,6 +37,7 @@
 }
 
 .pin.ratings.container {
-
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
