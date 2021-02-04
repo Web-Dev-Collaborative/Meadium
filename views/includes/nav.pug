@@ -30,3 +30,5 @@ div.navDiv
             div.logoutDiv
               form(action='/profile/logout' method='post').logoutForm
                 button(type='submit')#logout Logout
+        else
+          a.login(href='/login') Login?
