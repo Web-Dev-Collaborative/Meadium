@@ -21,6 +21,8 @@ main {
     width: 260px;
     height: auto;
     margin-top: 20px;
+    border-radius: 10%/1%;
+    border-bottom-right-radius: 0%;
 }
 
 .pinnedContainer {
@@ -52,7 +54,7 @@ li.pinned > a {
     display: flex;
     width: 90%;
     justify-content: center;
-    margin: 0 0 50px 50px;
+    margin: 14px 0 50px 50px;
 }
 
 .storyContatiner {
@@ -63,6 +65,7 @@ li.pinned > a {
 .storyContainer > h1 {
     font-size: 50px;
     padding-left: 50px;
+    margin-bottom: 10px;
 }
 
 .stories {
@@ -100,15 +103,12 @@ h1.title {
     width: 90%;
     height: 355px;
     overflow: hidden;
-    border-radius: 2%;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    box-shadow: 3px 2px 2px 0px lightgray;
+    border-radius: 3%/7%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .story:hover {
-    border-radius: 2%;
-    border-bottom-left-radius: 0%;
+    border-radius: 3%/7%;
     box-shadow: 17px 10px 17px 10px rgb(231, 229, 229);
 }
 
