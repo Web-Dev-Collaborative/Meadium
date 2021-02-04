@@ -8,8 +8,14 @@
     position: relative;
     display: block;
     top: -80px;
-    left: 15%;
-    width: 700px;
+    margin: auto;
+    width: 70%;
+    max-width: 700px;
+}
+
+.story.container > * {
+    width: 100%;
+    max-width: 700px;
 }
 
 .story.title.container > h1{

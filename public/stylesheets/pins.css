@@ -1,3 +1,7 @@
+.story.pins.container.hidden {
+    display: none;
+}
+
 .story.pins.container {
     font-family: 'IM Fell French Canon SC',Georgia, Cambria, "Times New Roman", Times, serif;
     font-size: 15px;
@@ -5,23 +9,27 @@
     position: sticky;
     /* position: fixed; */
     top: 38%;
-    left: 15px;
-    height: 145px;
+    height: 165px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 120px;
+    width: 100px;
     padding: 0 0 15px 0;
+    margin-right: 85%;
 }
 
 .pin.author.container {
     font-size: 20px;
-    border-bottom: 1px solid slategray;
+    border-bottom: 1px solid lightgray;
     padding: 0 0 15px 0;
 }
 
+.pin.ratings-pin.container {
+    margin-top: 20px;
+}
+
 .story.pins.container i.fas.fa-glass-cheers {
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .story.pins.container i.fas,
@@ -33,11 +41,15 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 80px;
+    height: 88px;
 }
 
 .pin.ratings.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.fa-bookmark {
+    cursor: pointer;
 }

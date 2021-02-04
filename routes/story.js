@@ -34,7 +34,6 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const createdStory = getDate(story.createdAt)
   // const createdComment = getDate(story.Comments[0].createdAt)
   if (req.session.auth) {
-    console.log("IS PINNED?", pinned)
     if (story) {
       res.render('story', {
         userId,
@@ -173,6 +172,7 @@ storyRouter.post("/:storyId(\\d+)/pin", requireAuth, asyncHandler(async (req, re
     }
   })
   if (pin) {
+    console.log("_____HERE")
     Pin.destroy({
       where: {
         pinnerId: userId,

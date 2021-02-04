@@ -12,6 +12,7 @@ append head
     script(src="https://kit.fontawesome.com/2ed6a75d45.js" crossorigin="anonymous")
     script(src='../javascripts/cheers.js')
     script(src='../javascripts/comments.js')
+    script(src='../javascripts/pins.js')
 block content
     include includes/nav.pug
     .story.outer-container
@@ -28,9 +29,9 @@ block content
                             .ratings.count-cheers #{countCheers} cheers
                     .pin.pin-button.container
                         if pinned
-                            i.fas.fa-bookmark
+                            i.fas.fa-bookmark#bookmark
                         else
-                            i.far.fa-bookmark
+                            i.far.fa-bookmark#bookmark
             .story.container
                 .story.title.container
                     h1.title.text= story.title
