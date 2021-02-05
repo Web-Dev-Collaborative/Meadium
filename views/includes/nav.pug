@@ -32,3 +32,5 @@ div.navDiv
                 button(type='submit')#logout Logout
         else
           a.login(href='/login') Login?
+          form(action='/login/demo' method='post')
+            button(type='submit').login.demo Demo User

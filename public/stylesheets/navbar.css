@@ -92,7 +92,7 @@ nav.navBar #username > a > h2 {
     width: 100%;
     z-index: 9999;
 } */
-    
+
 nav.navBar #rightNav {
     grid-column-start: 7;
     grid-column-end: 11;
@@ -205,4 +205,12 @@ nav.navBar a {
 
 nav.navBar h1, h2, h3 {
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.demo {
+    margin-top: 16px;
+    color: gray;
+    border: none;
+    font-size: 15px;
+    font-family: 'Nanum Myeongjo', serif;
 }

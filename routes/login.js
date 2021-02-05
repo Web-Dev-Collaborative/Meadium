@@ -79,4 +79,15 @@ loginRouter.post('/', csrfProtection, loginUserValidations, handleValidationErro
     // else window.alert("That user does not exist.")
 }));
 
+loginRouter.post('/demo', asyncHandler(async (req, res) => {
+    let user = await User.findOne({
+        where: {
+            username: 'test-user'
+        }
+    });
+
+    loginUser(req, res, user);
+    res.redirect('/');
+}))
+
 module.exports = loginRouter;
