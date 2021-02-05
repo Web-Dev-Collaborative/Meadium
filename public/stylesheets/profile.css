@@ -29,7 +29,8 @@ main {
     padding: 10px 20px 10px 10px;
 }
 
-h3.pinned-title {font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+h3.pinned-title {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 20px 20px 5px 10px;
     margin-bottom: 10px;
     font-size: 20px;
@@ -63,6 +64,7 @@ li.pinned > a {
 }
 
 .storyContainer > h1 {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 50px;
     padding-left: 50px;
     margin-bottom: 10px;

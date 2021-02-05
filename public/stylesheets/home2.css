@@ -1,7 +1,7 @@
 .splashContainer {
-    background-color: rgba(255, 0, 0, 0.8);
+    background-color: rgba(230, 30, 30, 1);
     width: 100vw;
-    height: 40vh;
+    height: 52vh;
     display: flex;
     align-items: center;
     border-top: solid thin black;
@@ -22,9 +22,12 @@
     font-family: 'Nanum Myeongjo', serif;
     font-size: 70px;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 .mainContent p {
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: 700;
     font-size: 20px;
 }
 
@@ -50,7 +53,8 @@
 .bottomSplash {
     padding: 30px;
     width: 100%;
-    height: 40vh;
+    height: 100vh;
+    min-height: 420px;
 }
 
 .mainContent button {
@@ -58,7 +62,7 @@
     font-size: 20px;
     border-radius: 10px;
     outline: none;
-    color: red;
+    color: #AB3529;
     background-color: #fff;
     border: solid thin #000;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.4);
@@ -67,14 +71,14 @@
 }
 
 .mainContent button:hover {
+    transition: 300ms;
     transform: scale(1.1);
 }
 
 .bottomSplash h1 {
     margin: 30px;
     font-size: 50px;
-    text-decoration: underline;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Nanum Myeongjo', serif;
     font-weight: 400;
 }
 
@@ -102,8 +106,17 @@
 }
 
 .storyItems img {
-    width: 200px;
-    height: 200px;
+    display: block;
+    width: auto;
+    height: auto;
+    max-height: 200px;
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+
+.storyItems h2 {
+    line-height: 25px;
+    margin-bottom: 5px;
 }
 
 .bottomSplash .storyItems {
@@ -174,7 +187,7 @@
     width: 18%;
 }
 
-.middleStoriese {
+.middleStories {
     padding: 20px;
 }
 
