@@ -1,13 +1,13 @@
 const express = require('express');
 
 const { Story, User, Comment, Pin, Cheer } = require('../db/models');
-const { asyncHandler, returnAverageCheers, getDate } = require('./utils');
+const { asyncHandler, returnAverageCheers, returnCountCheers, getDate } = require('./utils');
 const { requireAuth } = require('../auth')
 
 const storyRouter = express.Router();
 
 const storyNotFound = () => {
-  const error = new Error('This story has been removed or deleted');
+  const error = new Error('This story has been moved or deleted.');
   error.title = 'Story Not Found';
   error.status = 404;
 
@@ -16,7 +16,15 @@ const storyNotFound = () => {
 
 storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const storyId = parseInt(req.params.id, 10);
+  const userId = req.session.auth.userId
   const avgRating = await returnAverageCheers(storyId)
+  const countCheers = await returnCountCheers(storyId)
+  const pinned = await Pin.findOne({
+    where: {
+      pinnerId: userId,
+      pinnedStoryId: storyId,
+    }
+  })
   const story = await Story.findByPk(storyId, {
     include: [{
       model: User,
@@ -24,15 +32,17 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     }, Comment]
   });
   const createdStory = getDate(story.createdAt)
+  res.locals.path = req.originalUrl
   // const createdComment = getDate(story.Comments[0].createdAt)
   if (req.session.auth) {
-    const userId = req.session.auth.userId
     if (story) {
       res.render('story', {
         userId,
         story,
         avgRating,
         createdStory,
+        countCheers,
+        pinned: pinned ? true : false
         // createdComment
       });
     } else {
@@ -43,6 +53,8 @@ storyRouter.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
       res.render('story', {
         story,
         avgRating,
+        countCheers,
+        pinned: pinned ? true : false,
         createdStory
       });
     } else {
@@ -109,11 +121,11 @@ storyRouter.post('/:id(\\d+)/cheers', asyncHandler(async (req, res) => {
   } = req.body
   console.log(req.body)
   if (userId && await Cheer.findOne({
-      where: {
-        userId,
-        storyId
-      }
-    })) {
+    where: {
+      userId,
+      storyId
+    }
+  })) {
     let cheer = await Cheer.findOne({
       where: {
         userId,
@@ -132,5 +144,52 @@ storyRouter.post('/:id(\\d+)/cheers', asyncHandler(async (req, res) => {
     res.sendStatus(200)
   }
 }))
+
+// Checks to see if a story has been pinned by the logged in user
+storyRouter.get("/:storyId(\\d+)/pinned", requireAuth, asyncHandler(async (req, res) => {
+  const storyId = parseInt(req.params.storyId, 10)
+  const userId = req.session.auth.userId
+
+  const pin = await Pin.findOne({
+    where: {
+      pinnerId: userId,
+      pinnedStoryId: storyId,
+    }
+  })
+  if (pin) res.json({ "pinned": true })
+  else res.json({ "pinned": false })
+}))
+
+// Posts a new pin record for the current user/story
+storyRouter.post("/:storyId(\\d+)/pin", requireAuth, asyncHandler(async (req, res) => {
+  const storyId = parseInt(req.params.storyId, 10)
+  const userId = req.session.auth.userId
+  // if the db has a pin for this user & story, we can assume the user intends
+  // to remove the pin
+  const pin = await Pin.findOne({
+    where: {
+      pinnerId: userId,
+      pinnedStoryId: storyId,
+    }
+  })
+  if (pin) {
+    Pin.destroy({
+      where: {
+        pinnerId: userId,
+        pinnedStoryId: storyId,
+      }
+    })
+    res.sendStatus(200)
+  } else {
+    // If there isn't a pin, a new pin is created
+    Pin.create({
+      pinnerId: userId,
+      pinnedStoryId: storyId
+    })
+    res.sendStatus(200)
+  }
+}))
+
+
 
 module.exports = storyRouter

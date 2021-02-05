@@ -1,99 +1,133 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Helvetica, sans-serif;
-}
-
-#logo {
-    display: flex;
-    width: 200px;
-    align-items: center;
-}
-
-#logo a {
-    position: absolute;
-    height: 100px;
-    width: 350px;
-}
-
-#meadium {
-    height: 50px;
-    padding: 0px 10px 5px 20px;
-    font-size: 40px;
-    font-weight: 500;
-    border-right: black solid;
-}
-
-#goodness {
-    margin-left: 7px;
-    border-bottom: thick red solid;
-    font-size: 40px;
+nav.navBar {
     font-family: 'Nanum Myeongjo', serif;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    align-content: center;
+    height: 100px;
+    border-bottom: 1px lightgray solid;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-.navBar {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    height: 150px;
-    border-bottom: thin lightgray solid;
-    margin-bottom: 80px;
-    box-shadow: 0 0 0 3px lightgray;
-}
-#usernameAndAbout {
+nav.navBar > .logo.links.container#container {
     display: flex;
     justify-content: center;
-    width: 50%;
-    padding-top: 4px;
-}
-
-#rightNav {
-    display: flex;
-    justify-content: space-evenly;
-    width: 50%;
-}
-
-#formBtns {
-    display: flex;
-}
-
-#username {
-    display: flex;
-    width: 33%;
-    justify-content: flex-end;
     align-items: center;
+    width: auto;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    /* padding: 0 0 0 10px; */
 }
-
-#aboutDiv {
-    display: flex;
-    align-items: center;
+nav.navBar span.meadium {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     justify-self: flex-start;
+    margin: 0 0 0 10px;
 }
 
-#about {
-    margin-top: 7px;
-    margin-left: 20px;
+nav.navBar span.meadium {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    font-size: 34px;
+    font-weight: 900;
+    padding-bottom: 1px;
 }
 
-#searchBar {
+nav.navBar span.goodness {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    font-size: 36px;
+    font-weight: 200;
+}
+
+nav.navBar span.pipe {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    font-size: 36px;
+    font-weight: 200;
+    padding: 3px;
+
+}
+
+.logo.links.container > a.nav-content1 {
+    position: absolute;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    width: 345px;
+    height: 50px;
+}
+
+nav.navBar #usernameAndAbout {
+    grid-column-start: 5;
     display: flex;
-    width: 10%;
+    justify-content: center;
+    width: 15%;
+    min-width: 100px;
+    margin: 0 50px 0 0;
+}
+
+nav.navBar #username {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-#formBtns {
+nav.navBar #username > a > h2 {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    min-width: 100px;
+    width: auto;
+    height: 33px;
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+/* #username > h2 > a#profile {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    height: 33px;
+    width: 100%;
+    z-index: 9999;
+} */
+    
+nav.navBar #rightNav {
+    grid-column-start: 7;
+    grid-column-end: 11;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+nav.navBar #formBtns {
+    grid-column-start: 8;
+    display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 12px;
 }
 
-a {
-    color: gray;
-    text-decoration: none;
+nav.navBar #aboutDiv {
+    display: flex;
+    align-items: center;
+    justify-self: flex-start;
 }
 
-#search {
+nav.navBar #about {
+    margin-top: 7px;
+    margin-left: 20px;
+}
+
+nav.navBar #searchBar {
+    display: flex;
+    width: 10%;
+    align-items: center;
+}
+
+div#searchBar input {
+    grid-column-start: 8;
     font-family: 'Nanum Myeongjo', serif;
     width: 20px;
     height: 45px;
@@ -104,11 +138,10 @@ a {
     border: none;
     cursor: pointer;
     font-size: 1em;
-
     transition: width 1s ease;
 }
 
-.navImg {
+nav.navBar #search-btn {
     position: absolute;
     cursor: pointer;
     border-radius: 10%;
@@ -117,39 +150,59 @@ a {
     /* margin-top: 3px; */
 }
 
-.search-clicked {
+nav.navBar input.search-clicked#search {
+    grid-column-start: 8;
     width: 200px;
     padding-left: 40px;
     cursor: text;
     outline: none;
 }
 
-#navLogout{
+nav.navBar #logout{
     border: none;
-    color: lightgray;
+    color: slategray;
     margin-left: 20px;
     background-color: white;
     cursor: pointer;
 }
 
-#navNewStory {
-    background-color: rgb(39, 137, 23);
-    color: white;
-    padding: 7px 10px;
-    border-radius: 5%;
-    border: none;
-    cursor: pointer;
-    font-weight: 100;
+nav.navBar .newStoryDiv > * {
+    display: flex;
+    align-items: center;
 }
 
-input:focus {
+nav.navBar #newStory {
+  font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top: 10px;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #292929;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 18px;
+  font-weight: 200;
+}
+
+nav.navBar input:focus {
     border: none;
 }
 
-#about:focus {
+nav.navBar #about:hover,
+nav.navBar div.logoutDiv button#logout:hover {
+    transition: 500ms;
     color: black;
 }
 
-.navh2 {
+nav.navBar h2 {
     font-size: 27px;
+}
+
+nav.navBar a {
+    font-family: 'Nanum Myeongjo', serif;
+    color: gray;
+    text-decoration: none;
+}
+
+nav.navBar h1, h2, h3 {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

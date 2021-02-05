@@ -5,154 +5,6 @@
     font-family: Helvetica, sans-serif;
 }
 
-#logo {
-    display: flex;
-    width: 200px;
-    align-items: center;
-}
-
-#logo a {
-    position: absolute;
-    height: 100px;
-    width: 350px;
-}
-
-#meadium {
-    height: 50px;
-    padding: 0px 10px 5px 20px;
-    font-size: 40px;
-    font-weight: 500;
-    border-right: black solid;
-}
-
-#goodness {
-    margin-left: 7px;
-    border-bottom: thick red solid;
-    font-size: 40px;
-    font-family: 'Nanum Myeongjo', serif;
-}
-
-.navBar {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    height: 150px;
-    border-bottom: thin lightgray solid;
-    margin-bottom: 20px;
-    box-shadow: 0 0 0 3px lightgray;
-}
-#usernameAndAbout {
-    display: flex;
-    justify-content: center;
-    width: 20%;
-}
-
-#rightNav {
-    display: flex;
-    justify-content: space-evenly;
-    width: 50%;
-}
-
-#formBtns {
-    display: flex;
-}
-
-#username {
-    display: flex;
-    width: 33%;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-#aboutDiv {
-    display: flex;
-    align-items: center;
-    justify-self: flex-start;
-}
-
-#about {
-    margin-top: 7px;
-    margin-left: 20px;
-}
-
-#searchBar {
-    display: flex;
-    width: 10%;
-    align-items: center;
-}
-
-#formBtns {
-    justify-content: center;
-    align-items: center;
-    margin-left: 12px;
-}
-
-a {
-    color: gray;
-    text-decoration: none;
-}
-
-input {
-    font-family: 'Nanum Myeongjo', serif;
-    width: 20px;
-    height: 45px;
-    padding: 20px;
-    border-radius: 5%;
-    border-color: black;
-    color: black;
-    border: none;
-    cursor: pointer;
-    font-size: 1em;
-
-    transition: width 1s ease;
-}
-
-#search-btn {
-    position: absolute;
-    cursor: pointer;
-    border-radius: 10%;
-    height: 40px;
-    width: 40px;
-    /* margin-top: 3px; */
-}
-
-.search-clicked {
-    width: 200px;
-    padding-left: 40px;
-    cursor: text;
-    outline: none;
-}
-
-#logout{
-    border: none;
-    color: lightgray;
-    margin-left: 20px;
-    background-color: white;
-    cursor: pointer;
-}
-
-#newStory {
-    background-color: rgb(39, 137, 23);
-    color: white;
-    padding: 7px 10px;
-    border-radius: 5%;
-    border: none;
-    cursor: pointer;
-    font-weight: 100;
-}
-
-input:focus {
-    border: none;
-}
-
-#about:focus {
-    color: black;
-}
-
-h2 {
-    font-size: 27px;
-}
-
 /* Under is CSS for Body and Pinned */
 /*/////////////////////////////////////////////////*/
 
@@ -162,23 +14,47 @@ main {
     height: 100%;
 }
 
+/* Pin specific styling */
 #pinnedPanel {
-    box-shadow: 5px 0 5px 0 slategray;
-    padding: 20px 20px 20px 30px;
-    width: 250px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 0 0 0 30px;
+    width: 260px;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10%/1%;
+    border-bottom-right-radius: 0%;
 }
 
 .pinnedContainer {
-    border-right: thin black solid;
-    padding: 20px 30px 20px 20px;
+    padding: 10px 20px 10px 10px;
 }
 
-h3 {
-    padding: 20px;
-    padding-bottom: 5px;
+h3.pinned-title {font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 20px 20px 5px 10px;
     margin-bottom: 10px;
     font-size: 20px;
-    border-bottom: thin lightgray solid;
+}
+
+li.pinned {
+    margin: 0 0 10px 0;
+}
+
+li.pinned > a {
+    font-size: 14px;
+    width: 100%;
+    font-family: 'Nanum Myeongjo', serif;
+    color: gray;
+    text-decoration: none;
+}
+
+
+/* Story specific styling */
+
+#stories {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    margin: 14px 0 50px 50px;
 }
 
 .storyContatiner {
@@ -186,23 +62,15 @@ h3 {
     border: thin gray solid;
 }
 
-h1 {
+.storyContainer > h1 {
     font-size: 50px;
-}
-
-#stories {
-    display: flex;
-    width: 80%;
-    justify-content: center;
-    padding: 50px;
-    margin-left: 50px;
+    padding-left: 50px;
+    margin-bottom: 10px;
 }
 
 .stories {
     display: flex;
     flex-direction: column;
-    padding: 35px;
-    margin-left: 150px;
 }
 
 #stories p {
@@ -220,10 +88,11 @@ h1 {
 
 li {
     list-style-type: none;
-    margin: 25px;
+    margin: 0 25px 25px 25px;
 }
 
 h1.title {
+    font-family: 'Nanum Myeongjo', serif;
     font-size: 45px;
     padding-bottom: 25px;
     text-decoration: underline;
@@ -231,18 +100,15 @@ h1.title {
 
 .story {
     padding: 50px;
-    width: 80%;
+    width: 90%;
     height: 355px;
     overflow: hidden;
-    border-radius: 2%;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    box-shadow: 3px 2px 2px 0px lightgray;
+    border-radius: 3%/7%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .story:hover {
-    border-radius: 2%;
-    border-bottom-left-radius: 0%;
+    border-radius: 3%/7%;
     box-shadow: 17px 10px 17px 10px rgb(231, 229, 229);
 }
 
@@ -253,16 +119,36 @@ h1.title {
     padding-bottom: 2%;
 }
 
-.body {
+p.body {
     font-family: 'Nanum Myeongjo', serif;
     padding-bottom: 3%;
+    height: 200px;   
+}
+
+.storyItems {
+    /* display: flex; */
+    box-shadow: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+    align-items: center;
+}
+
+.story-details {
+    grid-column-start: 4;
+    grid-column-end: 9;
+    max-height: 277px;
+    overflow: hidden;
 }
 
 .storyItems img {
-    position: absolute;
-    left: 350px;
-    height: 200px;
-    width: 200px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: block;
+    width: auto;
+    height: auto;
+    max-height: 200px;
+    max-width: 200px;
+    margin-right: 20px;
 }
 
 #footer {

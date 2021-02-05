@@ -5,7 +5,7 @@ append head
     link(rel="stylesheet" href="/stylesheets/navHome.css")
 
 block content
-    include navHome.pug
+    include includes/nav.pug
     if !locals.authenticated
         .splashContainer
             .mainContent

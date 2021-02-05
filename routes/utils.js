@@ -102,6 +102,16 @@ const returnAverageCheers = async (storyId) => {
     else return "This doesn't have any ratings... yet"
 }
 
+const returnCountCheers = async (storyId) => {
+    const { count, rows } = await Cheer.findAndCountAll({
+        where: {
+            storyId: storyId
+        },
+        raw: true
+    });
+    return count
+}
+
 const getDate = (createdAt) => {
     let date = createdAt.getDate()
     const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -112,6 +122,10 @@ const getDate = (createdAt) => {
     return monthString
 }
 
+const isPinned = (userId, storyId) => {
+    
+}
+
 module.exports = {
     csrfProtection,
     asyncHandler,
@@ -119,6 +133,7 @@ module.exports = {
     userValidations,
     loginUserValidations,
     returnAverageCheers,
+    returnCountCheers,
     getDate,
     storyValidations,
 }

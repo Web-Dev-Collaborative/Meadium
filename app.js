@@ -65,7 +65,7 @@ app.use('/Assets', express.static('Assets'))
 app.use('/stories', storyRouter);
 app.use('/api', apiRouter);
 app.use('/home', homeRouter);
-app.use('/profile/stories', createStoryRouter)
+app.use('/profile/stories', createStoryRouter);
 
 
 

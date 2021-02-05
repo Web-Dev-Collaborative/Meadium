@@ -1,13 +1,13 @@
 .footer.bottom.stick {
     clear: both;
-    margin-top: 30px;
+    /* margin-top: 30px; */
 }
 
 div.footer.block.container {
     background-color: #1d1d1d;
     color: white;
     height: 350px;
-    margin-top: 75px;
+    /* margin-top: 75px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -74,7 +74,7 @@ span.meadium {
     text-decoration: none;
     font-size: 34px;
     font-weight: 900;
-    padding-bottom: 3px;
+    padding-bottom: 1px;
 }
 
 span.goodness {
