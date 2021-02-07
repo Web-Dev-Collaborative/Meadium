@@ -1,11 +1,24 @@
+div.signup-form.container {
+    height: 950px;
+}
 
 .shadow.box.signup.b {
     position: absolute;
-    top: 10%;
+    top: 7%;
     left: 19%;
     width: 60%;
-    height: auto;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding-bottom: 150px;
+}
+
+.shadow.box.signup.b.signup {
+    margin-bottom: 50px;
+    height: 850px;
+}
+
+.shadow.box.signup.b.login {
+    margin-bottom: 50px;
+    height: 540px;
 }
 
 .form.container {
@@ -14,12 +27,13 @@
     display: flex;
     justify-content: center;
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .form.container.auth {
     padding-top: 90px;
-    padding-bottom: 100px;
 }
+
 
 
 .signupform {

@@ -3,8 +3,8 @@ include utils.pug
 append head
     link(rel='stylesheet' href='/stylesheets/authentication.css')
 block content
-  .shadow.box.signup.b
-    form.form.container.auth(action="/login", method="post")
+  .shadow.box.signup.b.login
+    form.form.container.auth.login(action="/login", method="post")
       input(type='hidden' name='_csrf' value=csrfToken)
       .header
         h2.Header.auth.main Sign in with email
