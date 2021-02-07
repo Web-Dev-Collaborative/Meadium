@@ -91,7 +91,7 @@ nav.navBar #username > a > h2 {
     width: 100%;
     z-index: 9999;
 } */
-    
+
 nav.navBar #rightNav {
     grid-column-start: 7;
     grid-column-end: 11;
@@ -223,5 +223,13 @@ div#rightNav > a.signup {
     padding: 6px 18px;
     font-weight: 200;
     box-shadow: 2px 2px 9px 2px lightgray;
-    height: 35px;
+  height: 35px;
+}
+
+.demo {
+    margin-top: 16px;
+    color: gray;
+    border: none;
+    font-size: 15px;
+    font-family: 'Nanum Myeongjo', serif;
 }
