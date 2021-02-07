@@ -39,7 +39,10 @@ block content
                     h3.subheader.text= story.subheader
                 .story.rating.container
                     h4.rating#text Story Rating:
-                    h4.rating#rating #{avgRating} cheers
+                    if avgRating === 1
+                        h4.rating#rating #{avgRating} cheer
+                    else 
+                        h4.rating#rating #{avgRating} cheers
                 .story.image.container
                     img.story.image.content#image(src=`${story.imgPath}`)
                 .story.profile.social.container
