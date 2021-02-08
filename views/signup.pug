@@ -4,8 +4,9 @@ append head
     link(rel='stylesheet' href='/stylesheets/authentication.css')
     <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700&display=swap" rel="stylesheet">
 block content
-        .shadow.box.signup.b
-            form.form.container.auth(action="/signup", method="post")
+    div.signup-form.container
+        .shadow.box.signup.b.signup
+            form.form.container.auth.signup(action="/signup", method="post")
                 input(type='hidden' name='_csrf' value=csrfToken)
                 .Header.auth
                     h2.Header.auth.main Sign up with email

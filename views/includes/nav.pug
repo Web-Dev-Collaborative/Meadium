@@ -13,8 +13,6 @@ div.navDiv
           if locals.authenticated
             a#profile(href=`/profile/${user.id}`)
               h2= user.username
-          else
-            a.signup(href='/signup')
       div#rightNav
         div#searchBar
           if locals.path && locals.path.includes("profile") && !locals.path.includes("stories")
@@ -31,6 +29,7 @@ div.navDiv
               form(action='/profile/logout' method='post').logoutForm
                 button(type='submit')#logout Logout
         else
-          a.login(href='/login') Login?
+          a.login(href='/login') Login
+          a.signup(href='/signup') Sign-up
           form(action='/login/demo' method='post')
             button(type='submit').login.demo Demo User

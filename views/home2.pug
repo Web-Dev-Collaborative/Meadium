@@ -10,14 +10,14 @@ block content
         .splashContainer
             .mainContent
                 h1 You've come </br> to the right place
-                p Read and share about all things alcoholic.
+                p Read and share about all things booze.
                 form(action="/signup" method="GET")
                     button Get Started
             .picContainer
                 img(class="meadbox" src="/pictures/Beer.jpg" alt="meads")
         .bottomSplash
             if stories.length
-                h1 Recent Stories:
+                h1 Recent Stories
                 ul.stories
                     each story in stories
                         li.story
@@ -72,3 +72,4 @@ block content
                                     .storyInfo
                                         h2= story.title
                                         p= story.body
+    include footer.pug

@@ -19,12 +19,9 @@ nav.navBar > .logo.links.container#container {
     /* padding: 0 0 0 10px; */
 }
 nav.navBar span.meadium {
-    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     justify-self: flex-start;
     margin: 0 0 0 10px;
-}
-
-nav.navBar span.meadium {
+    color: #292929;
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-decoration: none;
     font-size: 34px;
@@ -33,13 +30,15 @@ nav.navBar span.meadium {
 }
 
 nav.navBar span.goodness {
+    color: #292929;
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-decoration: none;
+    text-decoration: underline 5px solid #AB3529;
     font-size: 36px;
     font-weight: 200;
 }
 
 nav.navBar span.pipe {
+    color: #292929;
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-decoration: none;
     font-size: 36px;
@@ -98,6 +97,7 @@ nav.navBar #rightNav {
     grid-column-end: 11;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     width: 100%;
 }
 
@@ -166,6 +166,10 @@ nav.navBar #logout{
     cursor: pointer;
 }
 
+nav.navBar #logout:focus {
+    outline: none;
+}
+
 nav.navBar .newStoryDiv > * {
     display: flex;
     align-items: center;
@@ -173,10 +177,10 @@ nav.navBar .newStoryDiv > * {
 
 nav.navBar #newStory {
   font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
-  padding-top: 10px;
+  cursor: pointer;
   font-size: 14px;
   color: #ffffff;
-  background-color: #292929;
+  background-color: #AB3529;
   border: none;
   border-radius: 4px;
   padding: 6px 18px;
@@ -205,6 +209,21 @@ nav.navBar a {
 
 nav.navBar h1, h2, h3 {
     font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+div#rightNav > a.login,
+div#rightNav > a.signup {
+    font-family: 'Martel Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #AB3529;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 18px;
+    font-weight: 200;
+    box-shadow: 2px 2px 9px 2px lightgray;
+  height: 35px;
 }
 
 .demo {
